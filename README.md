@@ -59,6 +59,16 @@ All commands are run from the root of the project, from a terminal:
 | `npm run build`   | Build your production site to `./dist/`      |
 | `npm run preview` | Preview your build locally, before deploying |
 
+## 📦 Deploying to Cloudflare Pages
+
+This is a static Astro site that can be deployed to Cloudflare Pages. 
+
+The `wrangler.jsonc` configuration file specifies the static assets directory (`dist`) for deployment. 
+
+In your Cloudflare Pages dashboard, use:
+- **Build command**: `npm run build`
+- **Build output directory**: `dist`
+
 ## 👀 Want to learn more?
 
 Feel free to check [Astro's documentation](https://github.com/withastro/astro) or jump into Astro's [Discord server](https://astro.build/chat).
