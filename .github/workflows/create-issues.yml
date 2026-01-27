@@ -1,0 +1,25 @@
+name: Create GitHub Issues from Implementation Plan
+
+on:
+  workflow_dispatch:  # Allows manual triggering from GitHub Actions tab
+
+jobs:
+  create-issues:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Create GitHub Issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run create-issues

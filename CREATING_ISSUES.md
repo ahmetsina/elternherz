@@ -8,6 +8,30 @@ The repository contains:
 - `ELTERNBEGLEITERIN_IMPLEMENTATION_PLAN.md` - Detailed implementation plan for transforming the website
 - `GITHUB_ISSUES_TEMPLATE.md` - Ready-to-use templates for 5 GitHub issues
 - `scripts/create-issues.js` - Automated script to create issues from templates
+- `.github/workflows/create-issues.yml` - GitHub Actions workflow for automatic issue creation
+
+## Methods to Create Issues
+
+### Method 1: GitHub Actions (Recommended - Easiest)
+
+The easiest way to create issues is using the GitHub Actions workflow:
+
+1. Go to the **Actions** tab in the GitHub repository
+2. Select **"Create GitHub Issues from Implementation Plan"** workflow
+3. Click the **"Run workflow"** button
+4. Confirm by clicking **"Run workflow"** in the dropdown
+5. Wait for the workflow to complete (usually under 1 minute)
+6. Check the **Issues** tab to see the newly created issues
+
+**Advantages:**
+- ✅ No need to set up a personal access token
+- ✅ No local setup required
+- ✅ Works directly from GitHub web interface
+- ✅ Uses repository's built-in `GITHUB_TOKEN`
+
+### Method 2: Local Script Execution
+
+Alternatively, you can run the script locally:
 
 ## Quick Start
 
