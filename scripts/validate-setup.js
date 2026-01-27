@@ -67,7 +67,9 @@ const packagePath = path.join(__dirname, '..', 'package.json');
 if (fs.existsSync(packagePath)) {
   const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
   
-  if (packageJson.scripts['create-issues'] && packageJson.scripts['create-issues:dry-run']) {
+  if (packageJson.scripts['create-issues'] && 
+      packageJson.scripts['create-issues:dry-run'] &&
+      packageJson.scripts['validate-setup']) {
     console.log('✅ npm scripts configured');
   } else {
     console.log('❌ npm scripts missing in package.json');
