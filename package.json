@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "create-issues": "node scripts/create-issues.js",
-    "create-issues:dry-run": "node scripts/create-issues.js --dry-run"
+    "create-issues:dry-run": "node scripts/create-issues.js --dry-run",
+    "validate-setup": "node scripts/validate-setup.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.0",
