@@ -1,8 +1,31 @@
-# [Astro](https://astro.build) Blog Template
+# Elternherz - Parent Consultation Website
 
-[![Screenshot](screenshot.png)](https://astro-blog-template.netlify.app/)
+This project is being transformed from an Astro blog template into a professional Elternbegleiterin (parent consultation) website with German and Turkish localization.
 
-## 👉 Check out the ✨ [Live Demo](https://astro-blog-template.netlify.app/) ✨
+## 📋 Project Management
+
+### Implementation Plan & Issues
+
+This repository includes:
+- **[Implementation Plan](ELTERNBEGLEITERIN_IMPLEMENTATION_PLAN.md)** - Comprehensive 5-phase plan for the website transformation
+- **[GitHub Issues Templates](GITHUB_ISSUES_TEMPLATE.md)** - Ready-to-use issue templates for tracking progress
+- **[Creating Issues Guide](CREATING_ISSUES.md)** - How to automatically create GitHub issues from the plan
+
+### Quick Start - Create Project Issues
+
+To automatically create all project tracking issues on GitHub:
+
+```bash
+# First, test the script (no GitHub token needed)
+npm run create-issues:dry-run
+
+# Then create the actual issues (requires GitHub token)
+GITHUB_TOKEN=your_token_here npm run create-issues
+```
+
+See [CREATING_ISSUES.md](CREATING_ISSUES.md) for detailed instructions on getting a GitHub token and using the script.
+
+---
 
 ## 👩‍🚀 Getting Started
 
@@ -52,12 +75,14 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 All commands are run from the root of the project, from a terminal:
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3030`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+| Command                      | Action                                         |
+| :--------------------------- | :--------------------------------------------- |
+| `npm install`                | Installs dependencies                          |
+| `npm run dev`                | Starts local dev server at `localhost:3030`    |
+| `npm run build`              | Build your production site to `./dist/`        |
+| `npm run preview`            | Preview your build locally, before deploying   |
+| `npm run create-issues:dry-run` | Test issue creation script (no GitHub token) |
+| `npm run create-issues`      | Create GitHub issues from templates            |
 
 ## 📦 Deploying to Cloudflare Pages
 

@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "create-issues": "node scripts/create-issues.js",
+    "create-issues:dry-run": "node scripts/create-issues.js --dry-run"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.0",
@@ -17,5 +19,9 @@
     "rehype-external-links": "^3.0.0",
     "remark-gfm": "^4.0.0",
     "remark-smartypants": "^2.0.0"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^22.0.1",
+    "dotenv": "^17.2.3"
   }
 }
