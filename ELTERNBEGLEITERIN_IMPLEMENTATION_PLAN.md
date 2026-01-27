@@ -54,14 +54,8 @@ This document outlines the plan to transform the current Astro blog template int
 **Priority:** High  
 
 #### 2.1 Technical Setup
-- [ ] Install Astro i18n integration
-  ```bash
-  npm install astro-i18next
-  # or
-  npm install @astrojs/i18n
-  ```
-
-- [ ] Configure routing strategy in `astro.config.mjs`:
+- [ ] Configure Astro's built-in i18n support in `astro.config.mjs`:
+  (Note: Astro 5.x has built-in i18n, no additional packages needed)
   ```javascript
   export default defineConfig({
     i18n: {
@@ -231,14 +225,14 @@ If scheduling widget is not immediately available:
 ## Technical Stack Summary
 
 ### Current
-- **Framework:** Astro 5.5.2
+- **Framework:** Astro ^5.5.2 (see package.json)
 - **UI Components:** Svelte
 - **Content:** MDX for blog posts
 - **Styling:** CSS (custom)
 - **Hosting:** Cloudflare Pages
 
 ### Additions Needed
-- **i18n:** astro-i18next or @astrojs/i18n
+- **i18n:** Built-in Astro i18n (no additional packages needed)
 - **Scheduling:** Calendly (recommended) or Cal.com
 - **Forms:** Netlify Forms or Formspree (for contact form)
 - **Analytics:** Google Analytics 4 or Plausible
@@ -354,7 +348,7 @@ Create separate GitHub issues for:
 
 ## Next Steps
 
-1. **Close this PR** - The Cloudflare deployment fix is complete and should be merged to main
+1. **Merge this PR** - The Cloudflare deployment fix is complete and should be merged to main
 2. **Create GitHub Issues** - Use the issue templates above to track each phase
 3. **Gather Content** - Start collecting German and Turkish content, images, and service descriptions
 4. **Choose Scheduling Solution** - Decide between Calendly, Cal.com, or custom

@@ -85,7 +85,7 @@ Implement full internationalization with German (primary) and Turkish (secondary
 ### Tasks
 
 #### Setup
-- [ ] Install and configure Astro i18n integration
+- [ ] Configure Astro's built-in i18n support (Astro 5.x has native i18n)
 - [ ] Update `astro.config.mjs` with i18n configuration
 - [ ] Set German (de) as default locale
 - [ ] Configure routing strategy (no prefix for German, `/tr/` for Turkish)
@@ -139,7 +139,6 @@ Implement full internationalization with German (primary) and Turkish (secondary
 
 ### Resources
 - [Astro i18n Documentation](https://docs.astro.build/en/guides/internationalization/)
-- [astro-i18next](https://github.com/yassinedoghri/astro-i18next)
 
 ---
 
