@@ -15,15 +15,24 @@ This repository includes:
 
 To automatically create all project tracking issues on GitHub:
 
+**Option 1: GitHub Actions (Recommended - After PR merge)**
+1. Go to the Actions tab in GitHub
+2. Select "Create GitHub Issues from Implementation Plan"
+3. Click "Run workflow"
+
+**Option 2: Local Script**
 ```bash
-# First, test the script (no GitHub token needed)
+# First, validate setup
+npm run validate-setup
+
+# Test the script (no GitHub token needed)
 npm run create-issues:dry-run
 
 # Then create the actual issues (requires GitHub token)
 GITHUB_TOKEN=your_token_here npm run create-issues
 ```
 
-See [CREATING_ISSUES.md](CREATING_ISSUES.md) for detailed instructions on getting a GitHub token and using the script.
+See [CREATING_ISSUES.md](CREATING_ISSUES.md) for detailed instructions, or [README_NEXT_STEPS.md](README_NEXT_STEPS.md) for a complete guide.
 
 ---
 
@@ -81,6 +90,7 @@ All commands are run from the root of the project, from a terminal:
 | `npm run dev`                | Starts local dev server at `localhost:3030`    |
 | `npm run build`              | Build your production site to `./dist/`        |
 | `npm run preview`            | Preview your build locally, before deploying   |
+| `npm run validate-setup`     | Validate issue creation setup is complete      |
 | `npm run create-issues:dry-run` | Test issue creation script (no GitHub token) |
 | `npm run create-issues`      | Create GitHub issues from templates            |
 
