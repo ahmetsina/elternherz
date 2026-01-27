@@ -96,11 +96,6 @@ function parseIssueTemplate() {
         continue;
       }
       
-      // Skip the "Title:" and "Labels:" lines themselves
-      if (line.startsWith('**Title:**') || line.startsWith('**Labels:**')) {
-        continue;
-      }
-      
       // Add content to body
       if (currentSection === 'body') {
         currentIssue.body.push(line);
