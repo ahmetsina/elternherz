@@ -3,6 +3,10 @@ name: Create GitHub Issues from Implementation Plan
 on:
   workflow_dispatch:  # Allows manual triggering from GitHub Actions tab
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   create-issues:
     runs-on: ubuntu-latest
