@@ -118,13 +118,8 @@ Set these in Cloudflare Pages → Settings → Environment Variables:
 PUBLIC_CALCOM_USERNAME=elternherz
 PUBLIC_CALCOM_URL=https://cal.eu
 
-# Analytics (choose one)
-GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-# or
-PUBLIC_PLAUSIBLE_DOMAIN=elternherz.de
-
-# Error Monitoring (optional but recommended)
-SENTRY_DSN=https://xxxxx@sentry.io/xxxxx
+# Analytics and Error Monitoring
+PUBLIC_TELEMETRYDECK_APP_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
 # Site Configuration
 PUBLIC_SITE_URL=https://elternherz.de

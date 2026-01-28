@@ -24,7 +24,7 @@ This guide covers routine maintenance tasks, content updates, and troubleshootin
 - [ ] Visit the website: `https://elternherz.de`
 - [ ] Check for any visible errors or broken elements
 - [ ] Verify booking widgets are loading
-- [ ] Check for any error notifications (Sentry, if configured)
+- [ ] Check for any error notifications (TelemetryDeck)
 - [ ] Review Cloudflare Analytics for unusual traffic patterns
 
 ### Check Booking Submissions
@@ -64,12 +64,12 @@ This guide covers routine maintenance tasks, content updates, and troubleshootin
 
 ### Analytics Review
 
-- [ ] Review Google Analytics or Plausible data
+- [ ] Review TelemetryDeck analytics dashboard
 - [ ] Track key metrics:
   - Page views
-  - Bounce rate
   - Session duration
   - Booking conversion rate
+  - Error rates
 - [ ] Identify popular content
 - [ ] Note any traffic anomalies
 

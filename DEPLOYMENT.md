@@ -65,15 +65,10 @@ Add these environment variables in **Settings** → **Environment Variables**:
 PUBLIC_CALCOM_USERNAME=elternherz
 PUBLIC_CALCOM_URL=https://cal.eu
 
-# Analytics (Choose one)
-# Option 1: Google Analytics
-GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-
-# Option 2: Plausible Analytics (Privacy-friendly)
-PUBLIC_PLAUSIBLE_DOMAIN=elternherz.de
-
-# Error Monitoring (Optional but recommended)
-SENTRY_DSN=https://xxxxx@sentry.io/xxxxx
+# Analytics and Error Monitoring
+# TelemetryDeck - Privacy-first analytics and error monitoring
+# Get your App ID from: https://dashboard.telemetrydeck.com/
+PUBLIC_TELEMETRYDECK_APP_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
 # Site Configuration
 PUBLIC_SITE_URL=https://elternherz.de
@@ -307,9 +302,8 @@ git push origin main
 ### Set Up Monitoring
 
 1. **Cloudflare Analytics**: Built-in traffic analytics
-2. **Google Analytics** or **Plausible**: User behavior tracking
-3. **Sentry**: Error monitoring and alerting
-4. **UptimeRobot**: Uptime monitoring (free tier available)
+2. **TelemetryDeck**: Privacy-first analytics and error monitoring
+3. **UptimeRobot**: Uptime monitoring (free tier available)
 
 ### Alert Thresholds
 
@@ -317,7 +311,7 @@ Set up alerts for:
 
 - Site downtime (> 1 minute)
 - Build failures
-- JavaScript errors (via Sentry)
+- JavaScript errors (via TelemetryDeck)
 - Slow page load times (> 3 seconds)
 
 ## Troubleshooting

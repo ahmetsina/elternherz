@@ -596,45 +596,45 @@ dig elternherz.de
 
 ### Analytics Not Tracking
 
-**Symptoms**: No data in Google Analytics or Plausible dashboard.
+**Symptoms**: No data in TelemetryDeck dashboard.
 
 **Solutions**:
 
-1. **Verify Tracking Code**:
-   - Check environment variable is set
-   - Verify tracking ID format
+1. **Verify App ID**:
+   - Check `PUBLIC_TELEMETRYDECK_APP_ID` environment variable is set
+   - Verify App ID format (UUID format)
 
 2. **Check Browser Extensions**:
-   - Adblockers may block analytics
+   - Some privacy extensions may block tracking
    - Test in incognito mode
 
 3. **Review Script Loading**:
    - DevTools → Network
-   - Verify analytics script loads successfully
+   - Verify requests to `nom.telemetrydeck.com` are successful
 
 4. **Check Data Processing**:
-   - Google Analytics may take 24-48 hours
-   - Plausible is usually real-time
+   - TelemetryDeck data is usually available within minutes
+   - Check dashboard at https://dashboard.telemetrydeck.com/
 
-### Sentry Not Logging Errors
+### Error Monitoring Not Working
 
-**Symptoms**: Errors occur but not reported in Sentry.
+**Symptoms**: Errors occur but not reported in TelemetryDeck.
 
 **Solutions**:
 
-1. **Verify DSN**:
-   - Check `SENTRY_DSN` environment variable
-   - Ensure format is correct
+1. **Verify Configuration**:
+   - Check `PUBLIC_TELEMETRYDECK_APP_ID` is set correctly
+   - Ensure TelemetryDeck SDK is properly initialized
 
 2. **Test Error Logging**:
    ```javascript
-   // Add test error
-   throw new Error("Test Sentry error");
+   // Add test signal
+   window.TelemetryDeck?.signal('test.error', { message: 'Test error' });
    ```
 
-3. **Check Sample Rate**:
-   - May be sampling errors
-   - Adjust sample rate in Sentry config
+3. **Check CSP Headers**:
+   - Verify `nom.telemetrydeck.com` is allowed in Content Security Policy
+   - Check browser console for CSP violations
 
 ---
 

@@ -14,15 +14,15 @@ Controls which resources can be loaded on your website.
 
 **Recommended Configuration:**
 ```
-Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.com https://cal.eu https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://cal.com https://cal.eu; frame-src https://cal.com https://cal.eu;
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.com https://cal.eu https://nom.telemetrydeck.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://cal.com https://cal.eu https://nom.telemetrydeck.com; frame-src https://cal.com https://cal.eu;
 ```
 
 **Breakdown:**
 - `default-src 'self'` - Only load resources from same origin by default
-- `script-src` - Allow scripts from Cal.com and analytics
+- `script-src` - Allow scripts from Cal.com and TelemetryDeck
 - `style-src 'self' 'unsafe-inline'` - Allow inline styles (needed for Astro)
 - `img-src 'self' data: https:` - Allow images from same origin, data URIs, and HTTPS
-- `connect-src` - Allow API calls to Cal.com
+- `connect-src` - Allow API calls to Cal.com and TelemetryDeck
 - `frame-src` - Allow iframes from Cal.com
 
 ### 2. X-Frame-Options
@@ -95,7 +95,7 @@ Create a `_headers` file in the `public/` directory:
   
 # HTML pages only
 /*.html
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.com https://cal.eu https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://cal.com https://cal.eu; frame-src https://cal.com https://cal.eu;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.com https://cal.eu https://nom.telemetrydeck.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://cal.com https://cal.eu https://nom.telemetrydeck.com; frame-src https://cal.com https://cal.eu;
 ```
 
 **Note**: Cloudflare Pages automatically handles HSTS when using their SSL.
@@ -129,7 +129,7 @@ export default {
     if (newResponse.headers.get('Content-Type')?.includes('text/html')) {
       newResponse.headers.set(
         'Content-Security-Policy',
-        "default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.com https://cal.eu; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cal.com https://cal.eu; frame-src https://cal.com https://cal.eu;"
+        "default-src 'self'; script-src 'self' 'unsafe-inline' https://cal.com https://cal.eu https://nom.telemetrydeck.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cal.com https://cal.eu https://nom.telemetrydeck.com; frame-src https://cal.com https://cal.eu;"
       );
     }
     
@@ -243,16 +243,14 @@ connect-src https://cal.com https://cal.eu;
 
 ### Analytics Privacy
 
-**Google Analytics:**
-- Use GA4 with IP anonymization
-- Configure data retention limits
-- Implement cookie consent
-
-**Plausible (Recommended):**
-- Privacy-friendly alternative
-- No cookies required
+**TelemetryDeck:**
+- Privacy-first analytics and error monitoring
+- No cookies required (cookieless tracking)
 - GDPR compliant by default
 - No cookie consent banner needed
+- Data processed in compliance with EU regulations
+- Anonymous user tracking
+- Learn more: https://telemetrydeck.com/privacy/
 
 ## Monitoring & Alerts
 
@@ -260,7 +258,7 @@ connect-src https://cal.com https://cal.eu;
 
 1. **Cloudflare Analytics**: Monitor traffic patterns
 2. **Security Events**: Review in Cloudflare Dashboard
-3. **Sentry**: Error monitoring and alerting
+3. **TelemetryDeck**: Analytics and error monitoring
 4. **Uptime Monitoring**: Use UptimeRobot or similar
 
 ### Security Alerts
@@ -278,7 +276,7 @@ Configure alerts for:
 
 - [ ] Review Cloudflare security events
 - [ ] Check for unusual traffic patterns
-- [ ] Review error logs (Sentry)
+- [ ] Review error logs (TelemetryDeck)
 
 ### Monthly
 
@@ -338,7 +336,7 @@ Configure alerts for:
 - [ ] Security headers tested (A or A+ rating)
 - [ ] Privacy policy accessible
 - [ ] Cookie consent implemented (if needed)
-- [ ] Error monitoring active (Sentry)
+- [ ] Error monitoring active (TelemetryDeck)
 
 ### After Launch
 

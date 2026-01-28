@@ -94,8 +94,7 @@ Use this checklist to ensure all aspects of the website are tested and ready for
 - [ ] All environment variables set in Cloudflare Pages:
   - [ ] `PUBLIC_CALCOM_USERNAME`
   - [ ] `PUBLIC_CALCOM_URL`
-  - [ ] Analytics ID (Google Analytics or Plausible)
-  - [ ] `SENTRY_DSN` (if using error monitoring)
+  - [ ] `PUBLIC_TELEMETRYDECK_APP_ID`
 - [ ] Build succeeds locally: `npm run build`
 - [ ] Preview works locally: `npm run preview`
 - [ ] No console errors in browser DevTools
@@ -317,15 +316,15 @@ Test on various screen sizes:
 
 ### Analytics & Monitoring
 
-- [ ] **Analytics Setup**
-  - [ ] Google Analytics or Plausible installed
+- [ ] **TelemetryDeck Setup**
+  - [ ] TelemetryDeck App ID configured
   - [ ] Tracking code present on all pages
-  - [ ] Test that pageviews are recorded
+  - [ ] Test that signals are being recorded
   - [ ] Goals/conversions configured (booking clicks)
-  - [ ] Analytics respect cookie consent (if required)
+  - [ ] Privacy-first analytics (no cookies required)
 
 - [ ] **Error Monitoring**
-  - [ ] Sentry configured (if using)
+  - [ ] TelemetryDeck error tracking configured
   - [ ] Test error is logged correctly
   - [ ] Alert notifications configured
   - [ ] Error tracking respects privacy
@@ -416,7 +415,7 @@ Test on various screen sizes:
 ### Immediate (Within 1 Hour)
 
 - [ ] Verify site is accessible
-- [ ] Check for any errors in Sentry
+- [ ] Check for any errors in TelemetryDeck
 - [ ] Monitor Cloudflare Analytics
 - [ ] Test booking submission
 - [ ] Verify email delivery
