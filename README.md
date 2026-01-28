@@ -96,13 +96,60 @@ All commands are run from the root of the project, from a terminal:
 
 ## 📦 Deploying to Cloudflare Pages
 
-This is a static Astro site that can be deployed to Cloudflare Pages. 
+This is a static Astro site configured for deployment to Cloudflare Pages.
 
-The `wrangler.jsonc` configuration file specifies the static assets directory (`dist`) for deployment. 
+### Quick Deployment
 
-In your Cloudflare Pages dashboard, use:
-- **Build command**: `npm run build`
-- **Build output directory**: `dist`
+In your Cloudflare Pages dashboard, use these settings:
+
+| Setting | Value |
+|---------|-------|
+| **Production branch** | `main` |
+| **Build command** | `npm run build` |
+| **Build output directory** | `dist` |
+| **Node version** | `18` or higher |
+
+### Environment Variables
+
+Environment variables can be managed in:
+- **Cloudflare Pages** (for runtime/build)
+- **GitHub Environments** (for CI/CD automation - recommended)
+
+**Cloudflare Pages** → Settings → Environment Variables:
+
+```bash
+# Required
+PUBLIC_CALCOM_USERNAME=elternherz
+PUBLIC_CALCOM_URL=https://cal.eu
+
+# Analytics and Error Monitoring
+PUBLIC_TELEMETRYDECK_APP_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+
+# Site Configuration
+PUBLIC_SITE_URL=https://elternherz.de
+```
+
+📘 **See [GITHUB_ENVIRONMENTS.md](GITHUB_ENVIRONMENTS.md)** for setting up GitHub repository environments for automated deployments.
+
+### Complete Deployment Guide
+
+📘 **See [DEPLOYMENT.md](DEPLOYMENT.md)** for comprehensive deployment instructions including:
+- Domain configuration
+- SSL certificate setup
+- Post-deployment verification
+- Rollback procedures
+
+### Pre-Launch Checklist
+
+📋 **See [PRE_LAUNCH_CHECKLIST.md](PRE_LAUNCH_CHECKLIST.md)** for a complete checklist to ensure your site is ready for launch.
+
+### Maintenance
+
+🔧 **See [MAINTENANCE.md](MAINTENANCE.md)** for ongoing maintenance tasks and content updates.
+
+### Troubleshooting
+
+🐛 **See [TROUBLESHOOTING.md](TROUBLESHOOTING.md)** for solutions to common issues.
 
 ## 📅 Cal.com Booking System
 
@@ -371,3 +418,13 @@ Cal.com is GDPR-compliant and hosted in the EU (cal.eu). Key features:
 ## 👀 Want to learn more?
 
 Feel free to check [Astro's documentation](https://github.com/withastro/astro) or jump into Astro's [Discord server](https://astro.build/chat).
+
+## 📚 Documentation
+
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide
+- **[GITHUB_ENVIRONMENTS.md](GITHUB_ENVIRONMENTS.md)** - GitHub repository environments setup
+- **[MAINTENANCE.md](MAINTENANCE.md)** - Maintenance and content update guide
+- **[PRE_LAUNCH_CHECKLIST.md](PRE_LAUNCH_CHECKLIST.md)** - Pre-launch verification checklist
+- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues and solutions
+- **[SECURITY_HEADERS.md](SECURITY_HEADERS.md)** - Security configuration guide
+- **[ELTERNBEGLEITERIN_IMPLEMENTATION_PLAN.md](ELTERNBEGLEITERIN_IMPLEMENTATION_PLAN.md)** - Full implementation plan
