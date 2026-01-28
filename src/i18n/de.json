@@ -108,6 +108,11 @@
     "title": "Blog | ElternHerz",
     "description": "Hilfreiche Artikel und Tipps rund um Erziehung und Familienleben."
   },
+  "bio": {
+    "text": "bietet professionelle Elternberatung für Familien. Erhalten Sie Unterstützung bei Erziehungsfragen, Entwicklung und Familienleben.",
+    "link": "Kontaktieren Sie uns",
+    "linkSuffix": "für ein kostenloses Erstgespräch."
+  },
   "footer": {
     "copyright": "© 2024 ElternHerz. Alle Rechte vorbehalten.",
     "privacy": "Datenschutz",

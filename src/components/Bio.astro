@@ -1,10 +1,16 @@
+---
+import { useTranslations, getRouteForLocale } from '../i18n/ui';
+
+const { locale = 'de' } = Astro.props;
+const t = useTranslations(locale);
+const contactLink = getRouteForLocale('contact', locale);
+---
+
 <div>
-  <img src="/assets/profile-pic.webp" alt="Headshot of Maxi Ferreira">
+  <img src="/assets/profile-pic.webp" alt="ElternHerz Professionelle Elternbegleiterin">
   <p>
-    Hi, I'm <strong>Maxi</strong>. I'm a software engineer and data scientist based in Los Angeles.
-    You can follow me on <a href="https://www.twitter.com/Charca" target="_blank">Twitter</a>,
-    see some of my work on <a href="https://www.github.com/Charca" target="_blank">GitHub</a>,
-    or read more about me on <a href="https://www.maxiferreira.com" target="_blank">my website</a>.
+    <strong>ElternHerz</strong> {t('bio.text')}
+    <a href={contactLink}>{t('bio.link')}</a> {t('bio.linkSuffix')}
   </p>
 </div>
 
