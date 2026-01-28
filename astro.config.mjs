@@ -9,6 +9,13 @@ import rehypeExternalLinks from 'rehype-external-links'
 export default defineConfig({
   site: 'https://astro-blog-template.netlify.app',
   integrations: [mdx(), svelte()],
+  i18n: {
+    defaultLocale: 'de',
+    locales: ['de', 'tr'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   markdown: {
     shikiConfig: {
       theme: 'nord',
