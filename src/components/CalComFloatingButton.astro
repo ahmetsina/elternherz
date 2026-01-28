@@ -70,6 +70,8 @@ const namespace = calLink.replace(/\//g, '-');
     };
   })(window, "https://app.cal.com/embed/embed.js", "init");
 
+  Cal("init");
+
   // Initialize floating buttons
   document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.cal-floating-button-placeholder');
@@ -84,12 +86,10 @@ const namespace = calLink.replace(/\//g, '-');
       
       if (calLink && namespace) {
         try {
-          // Initialize namespace
-          Cal("init", namespace, { origin: "https://cal.com" });
-          
-          // Create floating button
-          Cal.ns[namespace]("floatingButton", {
+          // Create floating button with namespace
+          Cal("floatingButton", {
             calLink: calLink,
+            namespace: namespace,
             config: {
               ...config,
               name: buttonText,
