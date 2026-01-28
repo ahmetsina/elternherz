@@ -1,33 +1,33 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import BookingCTA from '../components/BookingCTA.astro';
-import { useTranslations } from '../i18n/ui';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+import { useTranslations } from '../../i18n/ui';
 
-const t = useTranslations('de');
+const t = useTranslations('tr');
 const title = t('home.title');
 const description = t('home.description');
-const permalink = Astro.site.href;
+const permalink = `${Astro.site.href}tr/`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} locale="de">
+<BaseLayout title={title} description={description} permalink={permalink} locale="tr">
   <div class="home-container">
     <div class="home-copy">
       <h1>{t('home.hero.title')}</h1>
       <p>{t('home.hero.subtitle')}</p>
       <div class="cta-container">
-        <BookingCTA text={t('home.hero.cta')} href="/kontakt" variant="primary" size="large" />
+        <BookingCTA text={t('home.hero.cta')} href="/tr/iletisim" variant="primary" size="large" />
       </div>
     </div>
 
     <div class="hero-image-container">
       <picture>
         <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
-        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration-small.webp" width="550" height="466">
+        <img class="hero-image" alt="Kitap okuyan kişi illüstrasyonu" src="/assets/home-illustration-small.webp" width="550" height="466">
       </picture>
       <p class="caption">
-        Illustration by
+        İllüstrasyon
         <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6" target="_blank" rel="noopener">Icons 8</a>
-        from
+        tarafından
         <a href="https://icons8.com/illustrations" target="_blank" rel="noopener">Ouch!</a>
       </p>
     </div>
