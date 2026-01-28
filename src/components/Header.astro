@@ -1,13 +1,15 @@
 ---
 import Logo from './Logo.astro'
 import Nav from './Nav.astro'
+import LanguageSwitcher from './LanguageSwitcher.astro'
 
-const { current = '' } = Astro.props;
+const { current = '', locale = 'de' } = Astro.props;
 ---
 
 <style>
   header {
     display: flex;
+    align-items: center;
     margin: 0 auto;
     max-width: 1400px;
     padding: 2em;
@@ -23,5 +25,6 @@ const { current = '' } = Astro.props;
 
 <header>
   <Logo />
-  <Nav current={current} />
+  <Nav current={current} locale={locale} />
+  <LanguageSwitcher />
 </header>

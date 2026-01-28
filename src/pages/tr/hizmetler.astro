@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations('tr');
+const title = t('services.title');
+const description = t('services.description');
+const permalink = `${Astro.site.href}tr/hizmetler`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="services" locale="tr">
+  <div class="services-page">
+    <div class="container">
+      <h1>{t('services.heading')}</h1>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="card-header">
+            <h2>{t('services.free_consultation.title')}</h2>
+            <div class="card-meta">
+              <span class="duration">{t('services.free_consultation.duration')}</span>
+              <span class="price">{t('services.free_consultation.price')}</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>{t('services.free_consultation.description')}</p>
+            <ul class="benefits-list">
+              {(t('services.free_consultation.benefits') as string[]).map(benefit => (
+                <li>{benefit}</li>
+              ))}
+            </ul>
+            <div class="card-cta">
+              <BookingCTA text={t('services.booking_cta')} href="/tr/iletisim#erstgespraech" variant="primary" size="medium" />
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card featured">
+          <div class="featured-badge">{t('services.popular_badge')}</div>
+          <div class="card-header">
+            <h2>{t('services.individual.title')}</h2>
+            <div class="card-meta">
+              <span class="duration">{t('services.individual.duration')}</span>
+              <span class="price">{t('services.individual.price')}</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>{t('services.individual.description')}</p>
+            <ul class="benefits-list">
+              {(t('services.individual.benefits') as string[]).map(benefit => (
+                <li>{benefit}</li>
+              ))}
+            </ul>
+            <div class="card-cta">
+              <BookingCTA text={t('services.booking_cta')} href="/tr/iletisim#einzelberatung" variant="primary" size="medium" />
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="card-header">
+            <h2>{t('services.couples.title')}</h2>
+            <div class="card-meta">
+              <span class="duration">{t('services.couples.duration')}</span>
+              <span class="price">{t('services.couples.price')}</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>{t('services.couples.description')}</p>
+            <ul class="benefits-list">
+              {(t('services.couples.benefits') as string[]).map(benefit => (
+                <li>{benefit}</li>
+              ))}
+            </ul>
+            <div class="card-cta">
+              <BookingCTA text={t('services.booking_cta')} href="/tr/iletisim#paarberatung" variant="primary" size="medium" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>{t('services.cta_heading')}</h2>
+        <p>{t('services.cta_text')}</p>
+        <BookingCTA text={t('services.cta_button')} href="/tr/iletisim" variant="secondary" size="large" />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .services-page {
+    width: 100%;
+  }
+
+  .container h1 {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    margin: 3em 0;
+  }
+
+  .service-card {
+    background: var(--background-body);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .service-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .service-card.featured {
+    border-color: var(--primary-color);
+    border-width: 3px;
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-weight: 700;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2em;
+    border-bottom: 2px solid #e0e0e0;
+  }
+
+  .card-header h2 {
+    margin: 0 0 0.5em 0;
+    color: var(--text-main);
+    font-size: 1.6em;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .duration,
+  .price {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    padding: 0.4em 0.8em;
+    background: white;
+    border-radius: 6px;
+    font-size: 1em;
+  }
+
+  .price {
+    color: #27ae60;
+  }
+
+  .card-body {
+    padding: 2em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-body p {
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2em 0;
+    flex: 1;
+  }
+
+  .benefits-list li {
+    padding-left: 1.5em;
+    position: relative;
+    margin: 0.75em 0;
+    line-height: 1.5;
+  }
+
+  .benefits-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+  }
+
+  .card-cta {
+    margin-top: auto;
+  }
+
+  .cta-section {
+    margin-top: 4em;
+    padding: 3em 2em;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+  }
+
+  .cta-section p {
+    margin-bottom: 2em;
+    font-size: 1.2em;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card-header {
+      padding: 1.5em;
+    }
+
+    .card-body {
+      padding: 1.5em;
+    }
+
+    .cta-section {
+      padding: 2em 1.5em;
+    }
+
+    .cta-section h2 {
+      font-size: 1.5em;
+    }
+  }
+</style>

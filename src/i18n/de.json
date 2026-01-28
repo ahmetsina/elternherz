@@ -1,0 +1,123 @@
+{
+  "nav": {
+    "home": "home",
+    "about": "about",
+    "blog": "blog",
+    "contact": "Termin buchen",
+    "services": "Leistungen"
+  },
+  "home": {
+    "title": "ElternHerz - Professionelle Elternberatung",
+    "description": "Professionelle Elternberatung und Unterstützung für Familien. Individuelle Beratung für Erziehungsfragen, Entwicklung und Familienleben.",
+    "hero": {
+      "title": "Willkommen bei ElternHerz",
+      "subtitle": "Professionelle Begleitung für Eltern in allen Lebensphasen",
+      "cta": "Termin buchen"
+    }
+  },
+  "services": {
+    "title": "Unsere Leistungen | ElternHerz",
+    "description": "Übersicht unserer Beratungsleistungen: Erstgespräch, Einzelberatung und Paarberatung für Eltern.",
+    "heading": "Unsere Beratungsangebote",
+    "popular_badge": "Beliebt",
+    "booking_cta": "Termin buchen",
+    "cta_heading": "Unsicher, welche Beratung zu Ihnen passt?",
+    "cta_text": "Im kostenlosen Erstgespräch können wir gemeinsam Ihre Situation besprechen und die passende Option finden.",
+    "cta_button": "Kostenloses Erstgespräch",
+    "free_consultation": {
+      "title": "Kostenloses Erstgespräch",
+      "duration": "30 Minuten",
+      "price": "Kostenlos",
+      "description": "Lernen Sie mich und meine Arbeitsweise kennen. In diesem unverbindlichen Gespräch können wir Ihr Anliegen besprechen.",
+      "benefits": [
+        "Kennenlernen ohne Verpflichtung",
+        "Erste Einschätzung Ihrer Situation",
+        "Klärung Ihrer Fragen"
+      ]
+    },
+    "individual": {
+      "title": "Einzelberatung",
+      "duration": "60 Minuten",
+      "price": "75€",
+      "description": "Intensive Einzelberatung für Eltern, die sich eine tiefgehende Auseinandersetzung mit ihrem Thema wünschen.",
+      "benefits": [
+        "Individuelle Beratung für Ihre Situation",
+        "Entwicklung konkreter Handlungsstrategien",
+        "Nachhaltige Lösungsansätze"
+      ]
+    },
+    "couples": {
+      "title": "Paarberatung",
+      "duration": "90 Minuten",
+      "price": "110€",
+      "description": "Beratung für beide Elternteile gemeinsam. Besonders geeignet, wenn Sie als Paar unterschiedliche Vorstellungen haben.",
+      "benefits": [
+        "Gemeinsame Perspektiven entwickeln",
+        "Kommunikation als Elternpaar stärken",
+        "Konsens in Erziehungsfragen finden"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Termin vereinbaren | ElternHerz",
+    "description": "Buchen Sie jetzt Ihren Termin für eine professionelle Elternberatung. Kostenlose Erstgespräche, Einzelberatung und Paarberatung verfügbar.",
+    "heading": "Termin vereinbaren",
+    "intro": "Vereinbaren Sie jetzt einen Termin für Ihre persönliche Elternberatung. Ich unterstütze Sie gerne bei allen Fragen rund um Erziehung, Entwicklung und Familienleben.",
+    "process": "Der Buchungsprozess ist einfach: Wählen Sie unten die gewünschte Beratungsform aus, wählen Sie einen passenden Termin und füllen Sie Ihre Kontaktdaten aus. Sie erhalten sofort eine Bestätigung per E-Mail.",
+    "alternative_title": "Alternative Kontaktmöglichkeiten",
+    "alternative_text": "Falls Sie lieber auf anderem Weg Kontakt aufnehmen möchten, erreichen Sie mich auch:",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "whatsapp": "WhatsApp",
+    "whatsapp_action": "Nachricht senden",
+    "faq_title": "Häufig gestellte Fragen",
+    "faq": {
+      "cancel": {
+        "question": "Wie kann ich einen Termin stornieren oder verschieben?",
+        "answer": "Sie erhalten nach der Buchung eine Bestätigungs-E-Mail mit einem Link, über den Sie Ihren Termin bis zu 24 Stunden vorher kostenlos stornieren oder verschieben können."
+      },
+      "format": {
+        "question": "Werden die Beratungen online oder persönlich durchgeführt?",
+        "answer": "Beide Optionen sind möglich. Bei der Terminbuchung können Sie wählen, ob Sie eine Online-Beratung (via Zoom) oder ein persönliches Treffen bevorzugen."
+      },
+      "free": {
+        "question": "Ist das Erstgespräch wirklich kostenlos?",
+        "answer": "Ja, das 30-minütige Erstgespräch ist völlig kostenlos und unverbindlich. Es dient dem gegenseitigen Kennenlernen und der Klärung Ihrer Fragen."
+      },
+      "payment": {
+        "question": "Welche Zahlungsmethoden werden akzeptiert?",
+        "answer": "Die Zahlung erfolgt nach der Beratung. Ich akzeptiere Barzahlung, Überweisung und PayPal."
+      },
+      "confidential": {
+        "question": "Sind die Gespräche vertraulich?",
+        "answer": "Selbstverständlich. Alle Gespräche werden streng vertraulich behandelt. Ihre persönlichen Informationen und Anliegen bleiben geschützt."
+      }
+    },
+    "cta_text": "Haben Sie noch Fragen? Kontaktieren Sie mich gerne!",
+    "cta_button": "Zum Erstgespräch"
+  },
+  "about": {
+    "title": "Über mich | ElternHerz",
+    "description": "Erfahren Sie mehr über ElternHerz und unsere Arbeitsweise in der Elternberatung.",
+    "heading": "Über mich",
+    "cta_title": "Möchten Sie mehr erfahren?",
+    "cta_text": "Buchen Sie eine Beratung, um Ihre Bedürfnisse zu besprechen.",
+    "cta_button": "Jetzt buchen"
+  },
+  "blog": {
+    "title": "Blog | ElternHerz",
+    "description": "Hilfreiche Artikel und Tipps rund um Erziehung und Familienleben."
+  },
+  "footer": {
+    "copyright": "© 2024 ElternHerz. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "imprint": "Impressum"
+  },
+  "common": {
+    "read_more": "Weiterlesen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "loading": "Wird geladen..."
+  }
+}

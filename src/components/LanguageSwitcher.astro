@@ -1,0 +1,128 @@
+---
+import { languages, getLangFromUrl, getAlternateLocale, removeLocaleFromPath, routeTranslations } from '../i18n/ui';
+
+const currentLang = getLangFromUrl(Astro.url);
+const alternateLang = getAlternateLocale(currentLang);
+
+// Determine the current page route name
+const currentPath = removeLocaleFromPath(Astro.url.pathname);
+const pathSegments = currentPath.split('/').filter(Boolean);
+
+let routeName = 'home';
+if (pathSegments.length > 0) {
+  const segment = pathSegments[0];
+  // Map path segment to route name
+  if (segment === 'kontakt' || segment === 'iletisim') {
+    routeName = 'contact';
+  } else if (segment === 'leistungen' || segment === 'hizmetler') {
+    routeName = 'services';
+  } else if (segment === 'blog') {
+    routeName = 'blog';
+  }
+}
+
+// Get the translated route for the alternate language
+const alternateRoute = routeTranslations[alternateLang][routeName as keyof typeof routeTranslations['de']];
+const alternateUrl = alternateLang === 'de' 
+  ? (alternateRoute ? `/${alternateRoute}` : '/')
+  : (alternateRoute ? `/${alternateLang}/${alternateRoute}` : `/${alternateLang}`);
+---
+
+<div class="language-switcher">
+  <a 
+    href={alternateUrl}
+    class="lang-link"
+    aria-label={`Switch to ${languages[alternateLang]}`}
+    title={`Switch to ${languages[alternateLang]}`}
+  >
+    <span class="current-lang">{currentLang.toUpperCase()}</span>
+    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+    <div class="lang-menu">
+      <span class="lang-option">{alternateLang.toUpperCase()}</span>
+    </div>
+  </a>
+</div>
+
+<style>
+  .language-switcher {
+    position: relative;
+    margin-left: 15px;
+  }
+
+  .lang-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    color: inherit;
+    text-decoration: none;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    border: 2px solid var(--text-secondary);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .current-lang {
+    letter-spacing: 0.5px;
+  }
+
+  .arrow-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+  }
+
+  .lang-link:hover {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  .lang-link:hover .arrow-icon {
+    transform: rotate(180deg);
+  }
+
+  .lang-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    background: var(--background-body);
+    border: 2px solid var(--text-secondary);
+    border-radius: 6px;
+    padding: 8px 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .lang-link:hover .lang-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lang-option {
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 520px) {
+    .language-switcher {
+      margin-left: 10px;
+    }
+
+    .lang-link {
+      padding: 6px 10px;
+      font-size: 0.85em;
+    }
+  }
+</style>
