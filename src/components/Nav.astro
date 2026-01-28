@@ -8,12 +8,12 @@ const t = useTranslations(locale);
 // Define navigation links based on locale
 const navLinks = locale === 'de' ? [
   { href: '/', label: t('nav.home'), key: '' },
-  { href: '/about', label: t('nav.about'), key: 'about' },
+  { href: '/leistungen', label: t('nav.services'), key: 'leistungen' },
   { href: '/blog', label: t('nav.blog'), key: 'blog' },
   { href: '/kontakt', label: t('nav.contact'), key: 'kontakt', isBooking: true },
 ] : [
   { href: '/tr', label: t('nav.home'), key: '' },
-  { href: '/tr/hakkinda', label: t('nav.about'), key: 'about' },
+  { href: '/tr/hizmetler', label: t('nav.services'), key: 'hizmetler' },
   { href: '/tr/blog', label: t('nav.blog'), key: 'blog' },
   { href: '/tr/iletisim', label: t('nav.contact'), key: 'iletisim', isBooking: true },
 ];
