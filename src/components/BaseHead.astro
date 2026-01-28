@@ -23,12 +23,14 @@ const {
   lang = 'de'
 } = Astro.props
 
-const socialUrl = ogImage || (Astro.site?.href || '') + 'assets/social.png'
+const socialUrl = ogImage || (Astro.site?.href || '') + '/assets/social.png'
 const canonicalUrl = permalink
+const baseUrl = Astro.site?.href || 'https://elternherz.de/'
+const path = permalink.replace(baseUrl, '')
 const alternateLang = lang === 'de' ? 'tr' : 'de'
 const alternateUrl = lang === 'de' 
-  ? permalink.replace(Astro.site?.href || '', (Astro.site?.href || '') + 'tr/')
-  : permalink.replace('/tr/', '/')
+  ? `${baseUrl}tr/${path}`
+  : `${baseUrl}${path.replace(/^tr\//, '')}`
 ---
 
 <!-- Global Metadata -->

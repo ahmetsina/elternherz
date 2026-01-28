@@ -62,4 +62,28 @@ const { Content } = await render(post)
     min-width: 100px;
     width: 30%;
   }
+
+  /* Optimize images in blog content */
+  .content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5em 0;
+  }
 </style>
+
+<script>
+  // Add lazy loading attribute to images after first one
+  document.addEventListener('DOMContentLoaded', () => {
+    const content = document.querySelector('.content');
+    if (content) {
+      const images = content.querySelectorAll('img');
+      images.forEach((img, index) => {
+        // First image loads eagerly (hero), rest are lazy
+        if (index > 0) {
+          img.setAttribute('loading', 'lazy');
+        }
+      });
+    }
+  });
+</script>
