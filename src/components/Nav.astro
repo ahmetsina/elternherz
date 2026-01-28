@@ -1,6 +1,22 @@
 ---
 import ThemeToggleButton from './ThemeToggleButton.svelte';
-const { current = '' } = Astro.props;
+import { useTranslations } from '../i18n/ui';
+
+const { current = '', locale = 'de' } = Astro.props;
+const t = useTranslations(locale);
+
+// Define navigation links based on locale
+const navLinks = locale === 'de' ? [
+  { href: '/', label: t('nav.home'), key: '' },
+  { href: '/leistungen', label: t('nav.services'), key: 'leistungen' },
+  { href: '/blog', label: t('nav.blog'), key: 'blog' },
+  { href: '/kontakt', label: t('nav.contact'), key: 'kontakt', isBooking: true },
+] : [
+  { href: '/tr', label: t('nav.home'), key: '' },
+  { href: '/tr/hizmetler', label: t('nav.services'), key: 'hizmetler' },
+  { href: '/tr/blog', label: t('nav.blog'), key: 'blog' },
+  { href: '/tr/iletisim', label: t('nav.contact'), key: 'iletisim', isBooking: true },
+];
 ---
 
 <style>
@@ -80,10 +96,14 @@ const { current = '' } = Astro.props;
 </style>
 
 <nav>
-  <a class={current === "" ? "selected" : ""} href='/'>home</a>
-  <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
-  <a class={current === "blog" ? "selected" : ""} href='/blog'>blog</a>
-  <a class={`booking-link ${current === "kontakt" ? "selected" : ""}`} href='/kontakt'>Termin buchen</a>
+  {navLinks.map(link => (
+    <a 
+      class={`${current === link.key ? "selected" : ""} ${link.isBooking ? "booking-link" : ""}`}
+      href={link.href}
+    >
+      {link.label}
+    </a>
+  ))}
   <div class="theme-toggle-container">
     <ThemeToggleButton client:load />
   </div>

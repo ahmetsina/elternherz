@@ -7,8 +7,15 @@ import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-blog-template.netlify.app',
+  site: 'https://elternherz.de',
   integrations: [mdx(), svelte()],
+  i18n: {
+    defaultLocale: 'de',
+    locales: ['de', 'tr'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   markdown: {
     shikiConfig: {
       theme: 'nord',
