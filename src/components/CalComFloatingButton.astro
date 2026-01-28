@@ -1,0 +1,115 @@
+---
+/**
+ * CalComFloatingButton Component
+ * 
+ * Displays a floating pop-up button for Cal.com booking.
+ * Following Cal.com embed documentation for floating-popup type.
+ * https://cal.com/help/embedding/adding-embed
+ */
+
+export interface Props {
+  calLink: string;
+  buttonText?: string;
+  locale?: 'de' | 'tr';
+  buttonColor?: string;
+  buttonTextColor?: string;
+}
+
+const { 
+  calLink, 
+  buttonText,
+  locale = 'de',
+  buttonColor = '#3498db',
+  buttonTextColor = '#ffffff'
+} = Astro.props;
+
+const defaultButtonText = {
+  de: 'Termin buchen',
+  tr: 'Randevu Al'
+};
+
+const displayText = buttonText || defaultButtonText[locale];
+const namespace = calLink.replace(/\//g, '-');
+---
+
+<div 
+  data-cal-namespace={namespace}
+  data-cal-link={calLink}
+  data-cal-config={JSON.stringify({ 
+    theme: 'light',
+    layout: 'month_view'
+  })}
+  data-button-text={displayText}
+  data-button-color={buttonColor}
+  data-button-text-color={buttonTextColor}
+  class="cal-floating-button-placeholder"
+></div>
+
+<script>
+  // Cal.com embed initialization for floating button - Following https://cal.com/help/embedding/adding-embed
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  Cal("init");
+
+  // Initialize floating buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.cal-floating-button-placeholder');
+    
+    buttons.forEach((button) => {
+      const calLink = button.getAttribute('data-cal-link');
+      const namespace = button.getAttribute('data-cal-namespace');
+      const config = JSON.parse(button.getAttribute('data-cal-config') || '{}');
+      const buttonText = button.getAttribute('data-button-text') || 'Book a call';
+      const buttonColor = button.getAttribute('data-button-color') || '#3498db';
+      const buttonTextColor = button.getAttribute('data-button-text-color') || '#ffffff';
+      
+      if (calLink && namespace) {
+        try {
+          // Create floating button with namespace
+          Cal("floatingButton", {
+            calLink: calLink,
+            namespace: namespace,
+            config: {
+              ...config,
+              buttonText: buttonText,
+              buttonColor: buttonColor,
+              buttonTextColor: buttonTextColor
+            }
+          });
+          
+          // Remove placeholder after button is created
+          button.style.display = 'none';
+        } catch (error) {
+          console.error('Failed to initialize Cal.com floating button:', error);
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .cal-floating-button-placeholder {
+    display: none;
+  }
+</style>
