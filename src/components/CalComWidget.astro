@@ -7,7 +7,7 @@ export interface Props {
 const { calLink, locale = 'de' } = Astro.props;
 ---
 
-<div class="cal-widget-container">
+<div class="cal-widget-container" data-locale={locale}>
   <div class="cal-widget-loading">
     <div class="spinner"></div>
     <p>{locale === 'de' ? 'Buchungssystem wird geladen...' : 'Rezervasyon sistemi yükleniyor...'}</p>
@@ -81,7 +81,11 @@ const { calLink, locale = 'de' } = Astro.props;
           if (container) {
             const loading = container.querySelector('.cal-widget-loading');
             if (loading) {
-              loading.innerHTML = '<p style="color: var(--text-secondary);">Buchungssystem konnte nicht geladen werden. Bitte versuchen Sie es später erneut.</p>';
+              const locale = widget.closest('[data-locale]')?.getAttribute('data-locale') || 'de';
+              const errorMessage = locale === 'tr' 
+                ? 'Rezervasyon sistemi yüklenemedi. Lütfen daha sonra tekrar deneyin.'
+                : 'Buchungssystem konnte nicht geladen werden. Bitte versuchen Sie es später erneut.';
+              loading.innerHTML = `<p style="color: var(--text-secondary);">${errorMessage}</p>`;
             }
           }
         }
