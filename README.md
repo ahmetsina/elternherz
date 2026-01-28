@@ -113,7 +113,7 @@ In your Cloudflare Pages dashboard, use these settings:
 
 Environment variables can be managed in:
 - **Cloudflare Pages** (for runtime/build)
-- **GitHub Environments** (for CI/CD automation)
+- **GitHub Environments** (for CI/CD automation - recommended)
 
 **Cloudflare Pages** → Settings → Environment Variables:
 
