@@ -130,7 +130,7 @@ const permalink = `${Astro.site.href}kontakt`;
         
         <ContactForm lang="de" />
         
-        <h3 style="margin-top: 3em;">Direkter Kontakt</h3>
+        <h3 class="direct-contact-heading">Direkter Kontakt</h3>
         <div class="contact-methods">
           <div class="contact-method">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -368,6 +368,10 @@ const permalink = `${Astro.site.href}kontakt`;
   .cta-bottom p {
     font-size: 1.4em;
     margin-bottom: 1.5em;
+  }
+
+  .direct-contact-heading {
+    margin-top: 3em;
   }
 
   @media (max-width: 768px) {
