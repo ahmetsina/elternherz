@@ -2,13 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CalComWidget from '../../components/CalComWidget.astro';
 import BookingCTA from '../../components/BookingCTA.astro';
+import ContactForm from '../../components/ContactForm.astro';
 
 const title = 'Randevu Al | ElternHerz';
 const description = 'Profesyonel ebeveyn danışmanlığı için randevu alın. Ücretsiz ilk görüşme, bireysel danışmanlık ve çift danışmanlığı mevcuttur.';
-const permalink = `${Astro.site.href}tr/iletisim`;
+const permalink = `${Astro.site.href}tr/iletisim/`;
+const alternateUrl = `${Astro.site.href}kontakt/`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="iletisim">
+<BaseLayout title={title} description={description} permalink={permalink} current="iletisim" locale="tr" alternateUrl={alternateUrl}>
   <div class="booking-page">
     <div class="container">
       <h1>Randevu Al</h1>
@@ -28,7 +30,7 @@ const permalink = `${Astro.site.href}tr/iletisim`;
       <h2>Danışmanlık Hizmetlerimiz</h2>
       
       <div class="appointment-types">
-        <div class="appointment-card" id="erstgespraech">
+        <div class="appointment-card" id="erstgesprach">
           <div class="card-header">
             <h3>Ücretsiz İlk Görüşme</h3>
             <div class="card-meta">
@@ -48,7 +50,7 @@ const permalink = `${Astro.site.href}tr/iletisim`;
               <li>Sorularınızın yanıtlanması</li>
             </ul>
           </div>
-          <CalComWidget calLink="elternherz/erstgespraech" locale="tr" />
+          <CalComWidget calLink="elternherz/erstgesprach" locale="tr" />
         </div>
 
         <div class="appointment-card" id="einzelberatung">
@@ -95,6 +97,29 @@ const permalink = `${Astro.site.href}tr/iletisim`;
           </div>
           <CalComWidget calLink="elternherz/paarberatung" locale="tr" />
         </div>
+
+        <div class="appointment-card" id="folgetermin">
+          <div class="card-header">
+            <h3>Takip Randevusu</h3>
+            <div class="card-meta">
+              <span class="duration">45 Dakika</span>
+              <span class="price">60€</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Mevcut müşteriler için devam danışmanlığı. Bu randevuda daha önce tartışılan 
+              konuları derinleştiriyoruz, ilerlemenizi değerlendiriyoruz ve bireysel 
+              zorluklarınız için daha fazla strateji geliştiriyoruz.
+            </p>
+            <ul class="benefits-list">
+              <li>Değerlendirme ve yansıtma</li>
+              <li>Stratejilerin uyarlanması</li>
+              <li>Sürekli destek</li>
+            </ul>
+          </div>
+          <CalComWidget calLink="elternherz/folgetermin" locale="tr" />
+        </div>
       </div>
 
       <div class="alternative-contact">
@@ -102,6 +127,10 @@ const permalink = `${Astro.site.href}tr/iletisim`;
         <p>
           Başka bir şekilde iletişime geçmeyi tercih ederseniz, bana şu yollarla da ulaşabilirsiniz:
         </p>
+        
+        <ContactForm lang="tr" />
+        
+        <h3 class="direct-contact-heading">Doğrudan İletişim</h3>
         <div class="contact-methods">
           <div class="contact-method">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -176,7 +205,7 @@ const permalink = `${Astro.site.href}tr/iletisim`;
 
       <div class="cta-bottom">
         <p>Başka sorularınız mı var? Benimle iletişime geçmekten çekinmeyin!</p>
-        <BookingCTA text="İlk Görüşmeye" href="#erstgespraech" variant="primary" size="large" />
+        <BookingCTA text="İlk Görüşmeye" href="#erstgesprach" variant="primary" size="large" />
       </div>
     </div>
   </div>
@@ -340,6 +369,10 @@ const permalink = `${Astro.site.href}tr/iletisim`;
   .cta-bottom p {
     font-size: 1.4em;
     margin-bottom: 1.5em;
+  }
+
+  .direct-contact-heading {
+    margin-top: 3em;
   }
 
   @media (max-width: 768px) {

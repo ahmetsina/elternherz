@@ -1,16 +1,32 @@
 <style>
-  img {
-    display: block;
-    width: 75px;
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-main);
+    font-family: var(--font-family-sans);
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  .logo-icon {
+    margin-right: 0.5em;
+    font-size: 1.3em;
+    color: var(--primary-color);
+  }
+
+  .logo-text {
+    color: var(--primary-color);
   }
 
   @media screen and (max-width: 520px) {
-    img {
-      display: none;
+    .logo {
+      font-size: 1.2em;
     }
   }
 </style>
 
-<a href="/">
-  <img alt="Blog Logo" src="/assets/logo.webp" width="75" height="50" />
+<a href="/" class="logo">
+  <span class="logo-icon">❤️</span>
+  <span class="logo-text">Elternherz</span>
 </a>

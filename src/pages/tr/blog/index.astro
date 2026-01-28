@@ -1,25 +1,22 @@
 ---
 import { getCollection } from 'astro:content'
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../../i18n/ui';
 
-const title = 'Blog | Elternherz';
-const description = 'Tipps und Ratschläge zur Elternbegleitung, Erziehung und Familienentwicklung. Praxisnahe Artikel für den Alltag mit Kindern.';
-const permalink = `${Astro.site.href}blog/`;
-const alternateUrl = `${Astro.site.href}tr/blog/`;
+const t = useTranslations('tr');
+const title = t('blog.title');
+const description = t('blog.description');
+const permalink = `${Astro.site.href}tr/blog`;
 
 let allPosts = await getCollection('posts')
 allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="blog" locale="de" alternateUrl={alternateUrl}>
+<BaseLayout title={title} description={description} permalink={permalink} current="blog" locale="tr">
   <div class="container">
-    <h1>Elternherz Blog</h1>
-    <p class="blog-intro">
-      Willkommen im Elternherz Blog! Hier teile ich regelmäßig Tipps, Einblicke und praktische Ratschläge 
-      zur bindungsorientierten Elternschaft, Entwicklung und Familienalltag.
-    </p>
+    <h1>Blog</h1>
     {allPosts.map((post, index) => {
-      const href = `/blog/${post.data.slug}`;
+      const href = `/tr/blog/${post.data.slug}`;
       return (
         <div>
           { index !== 0 && <hr /> }
@@ -39,13 +36,6 @@ allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new 
 </BaseLayout>
 
 <style>
-  .blog-intro {
-    font-size: 1.3em;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin: 1em 0 2em 0;
-  }
-
   h2,
   .post-item-footer {
     font-family: var(--font-family-sans);
