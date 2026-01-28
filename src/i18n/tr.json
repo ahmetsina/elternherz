@@ -108,6 +108,11 @@
     "title": "Blog | ElternHerz",
     "description": "Eğitim ve aile yaşamı hakkında yararlı makaleler ve ipuçları."
   },
+  "bio": {
+    "text": "aileler için profesyonel ebeveyn danışmanlığı sunar. Eğitim soruları, gelişim ve aile yaşamı konusunda destek alın.",
+    "link": "Bize ulaşın",
+    "linkSuffix": "ücretsiz ilk görüşme için."
+  },
   "footer": {
     "copyright": "© 2024 ElternHerz. Tüm hakları saklıdır.",
     "privacy": "Gizlilik",

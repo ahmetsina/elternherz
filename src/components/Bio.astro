@@ -1,9 +1,16 @@
+---
+import { useTranslations } from '../i18n/ui';
+
+const { locale = 'de' } = Astro.props;
+const t = useTranslations(locale);
+const contactLink = locale === 'de' ? '/kontakt' : '/tr/iletisim';
+---
+
 <div>
   <img src="/assets/profile-pic.webp" alt="ElternHerz Professionelle Elternbegleiterin">
   <p>
-    <strong>ElternHerz</strong> bietet professionelle Elternberatung für Familien. 
-    Erhalten Sie Unterstützung bei Erziehungsfragen, Entwicklung und Familienleben. 
-    <a href="/kontakt">Kontaktieren Sie uns</a> für ein kostenloses Erstgespräch.
+    <strong>ElternHerz</strong> {t('bio.text')} 
+    <a href={contactLink}>{t('bio.link')}</a> {t('bio.linkSuffix')}
   </p>
 </div>
 
