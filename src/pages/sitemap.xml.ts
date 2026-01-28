@@ -15,13 +15,16 @@ export const GET: APIRoute = async ({ site }) => {
   // Define static pages with their priorities and change frequencies
   const staticPages = [
     // German pages
-    { url: '', priority: 1.0, changefreq: 'weekly', lang: 'de', alternates: [] },
-    { url: 'about', priority: 0.8, changefreq: 'monthly', lang: 'de', alternates: [] },
+    { url: '', priority: 1.0, changefreq: 'weekly', lang: 'de', alternates: [{ lang: 'tr', url: 'tr/' }] },
+    { url: 'leistungen', priority: 0.9, changefreq: 'monthly', lang: 'de', alternates: [{ lang: 'tr', url: 'tr/hizmetler' }] },
     { url: 'kontakt', priority: 0.9, changefreq: 'monthly', lang: 'de', alternates: [{ lang: 'tr', url: 'tr/iletisim' }] },
-    { url: 'blog', priority: 0.8, changefreq: 'weekly', lang: 'de', alternates: [] },
+    { url: 'blog', priority: 0.8, changefreq: 'weekly', lang: 'de', alternates: [{ lang: 'tr', url: 'tr/blog' }] },
     
     // Turkish pages
+    { url: 'tr/', priority: 1.0, changefreq: 'weekly', lang: 'tr', alternates: [{ lang: 'de', url: '' }] },
+    { url: 'tr/hizmetler', priority: 0.9, changefreq: 'monthly', lang: 'tr', alternates: [{ lang: 'de', url: 'leistungen' }] },
     { url: 'tr/iletisim', priority: 0.9, changefreq: 'monthly', lang: 'tr', alternates: [{ lang: 'de', url: 'kontakt' }] },
+    { url: 'tr/blog', priority: 0.8, changefreq: 'weekly', lang: 'tr', alternates: [{ lang: 'de', url: 'blog' }] },
   ];
   
   // Helper function to escape XML special characters
@@ -52,12 +55,22 @@ ${staticPages.map(page => {
   }).join('\n')}
 ${posts.map(post => {
     const postUrl = escapeXml(`${siteUrl}blog/${post.data.slug}`);
+    const postUrlTr = escapeXml(`${siteUrl}tr/blog/${post.data.slug}`);
     const lastmod = post.data.publishDate ? new Date(post.data.publishDate).toISOString().split('T')[0] : '';
     
     return `  <url>
     <loc>${postUrl}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="${postUrl}" />
+    <xhtml:link rel="alternate" hreflang="tr" href="${postUrlTr}" />
+  </url>
+  <url>
+    <loc>${postUrlTr}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="${postUrl}" />
+    <xhtml:link rel="alternate" hreflang="tr" href="${postUrlTr}" />
   </url>`;
   }).join('\n')}
 </urlset>`;

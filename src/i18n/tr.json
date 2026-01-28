@@ -1,0 +1,123 @@
+{
+  "nav": {
+    "home": "ana sayfa",
+    "about": "hakkında",
+    "blog": "blog",
+    "contact": "Randevu Al",
+    "services": "Hizmetler"
+  },
+  "home": {
+    "title": "ElternHerz - Profesyonel Ebeveyn Danışmanlığı",
+    "description": "Aileler için profesyonel ebeveyn danışmanlığı ve destek. Eğitim soruları, gelişim ve aile yaşamı için bireysel danışmanlık.",
+    "hero": {
+      "title": "ElternHerz'e Hoş Geldiniz",
+      "subtitle": "Yaşamın her aşamasında ebeveynler için profesyonel rehberlik",
+      "cta": "Randevu Al"
+    }
+  },
+  "services": {
+    "title": "Hizmetlerimiz | ElternHerz",
+    "description": "Danışmanlık hizmetlerimize genel bakış: Ebeveynler için ilk görüşme, bireysel danışmanlık ve çift danışmanlığı.",
+    "heading": "Danışmanlık Hizmetlerimiz",
+    "popular_badge": "Popüler",
+    "booking_cta": "Randevu Al",
+    "cta_heading": "Hangi danışmanlığın size uygun olduğundan emin değil misiniz?",
+    "cta_text": "Ücretsiz ilk görüşmede durumunuzu birlikte değerlendirebilir ve size en uygun seçeneği bulabiliriz.",
+    "cta_button": "Ücretsiz İlk Görüşme",
+    "free_consultation": {
+      "title": "Ücretsiz İlk Görüşme",
+      "duration": "30 Dakika",
+      "price": "Ücretsiz",
+      "description": "Beni ve çalışma şeklimi tanıyın. Bu bağlayıcı olmayan görüşmede konunuzu tartışabiliriz.",
+      "benefits": [
+        "Taahhütsüz tanışma",
+        "Durumunuzun ilk değerlendirmesi",
+        "Sorularınızın yanıtlanması"
+      ]
+    },
+    "individual": {
+      "title": "Bireysel Danışmanlık",
+      "duration": "60 Dakika",
+      "price": "75€",
+      "description": "Konularıyla derinlemesine ilgilenmek isteyen ebeveynler için yoğun bireysel danışmanlık.",
+      "benefits": [
+        "Durumunuz için bireysel danışmanlık",
+        "Somut eylem stratejilerinin geliştirilmesi",
+        "Sürdürülebilir çözüm yaklaşımları"
+      ]
+    },
+    "couples": {
+      "title": "Çift Danışmanlığı",
+      "duration": "90 Dakika",
+      "price": "110€",
+      "description": "Her iki ebeveyn için birlikte danışmanlık. Özellikle farklı fikirlere sahipseniz uygundur.",
+      "benefits": [
+        "Ortak perspektifler geliştirme",
+        "Ebeveyn çifti olarak iletişimi güçlendirme",
+        "Eğitim konularında fikir birliği bulma"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Randevu Al | ElternHerz",
+    "description": "Profesyonel ebeveyn danışmanlığı için randevu alın. Ücretsiz ilk görüşme, bireysel danışmanlık ve çift danışmanlığı mevcuttur.",
+    "heading": "Randevu Al",
+    "intro": "Kişisel ebeveyn danışmanlığınız için şimdi randevu alın. Eğitim, gelişim ve aile yaşamı ile ilgili tüm sorularınızda size yardımcı olmaktan mutluluk duyarım.",
+    "process": "Rezervasyon süreci basittir: Aşağıdan istediğiniz danışmanlık türünü seçin, uygun bir randevu seçin ve iletişim bilgilerinizi doldurun. E-posta ile hemen onay alacaksınız.",
+    "alternative_title": "Alternatif İletişim Yolları",
+    "alternative_text": "Başka bir şekilde iletişime geçmeyi tercih ederseniz, bana şu yollarla da ulaşabilirsiniz:",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "whatsapp": "WhatsApp",
+    "whatsapp_action": "Mesaj gönder",
+    "faq_title": "Sıkça Sorulan Sorular",
+    "faq": {
+      "cancel": {
+        "question": "Randevumu nasıl iptal edebilir veya değiştirebilirim?",
+        "answer": "Rezervasyondan sonra, randevunuzu 24 saat öncesine kadar ücretsiz olarak iptal edebileceğiniz veya değiştirebileceğiniz bir bağlantı içeren bir onay e-postası alacaksınız."
+      },
+      "format": {
+        "question": "Danışmanlıklar çevrimiçi mi yoksa yüz yüze mi yapılıyor?",
+        "answer": "Her iki seçenek de mümkündür. Randevu alırken çevrimiçi danışmanlık (Zoom üzerinden) veya kişisel bir görüşme tercih edip etmediğinizi seçebilirsiniz."
+      },
+      "free": {
+        "question": "İlk görüşme gerçekten ücretsiz mi?",
+        "answer": "Evet, 30 dakikalık ilk görüşme tamamen ücretsiz ve bağlayıcı değildir. Karşılıklı tanışma ve sorularınızı netleştirme amacına hizmet eder."
+      },
+      "payment": {
+        "question": "Hangi ödeme yöntemleri kabul ediliyor?",
+        "answer": "Ödeme danışmanlıktan sonra yapılır. Nakit ödeme, banka havalesi ve PayPal kabul ediyorum."
+      },
+      "confidential": {
+        "question": "Görüşmeler gizli mi?",
+        "answer": "Kesinlikle. Tüm görüşmeler kesinlikle gizli tutulur. Kişisel bilgileriniz ve konularınız korunur."
+      }
+    },
+    "cta_text": "Başka sorularınız mı var? Benimle iletişime geçmekten çekinmeyin!",
+    "cta_button": "İlk Görüşmeye"
+  },
+  "about": {
+    "title": "Hakkında | ElternHerz",
+    "description": "ElternHerz ve ebeveyn danışmanlığındaki çalışma şeklimiz hakkında daha fazla bilgi edinin.",
+    "heading": "Hakkında",
+    "cta_title": "Daha fazla bilgi edinmek ister misiniz?",
+    "cta_text": "İhtiyaçlarınızı görüşmek için bir danışmanlık rezervasyonu yapın.",
+    "cta_button": "Şimdi rezervasyon yap"
+  },
+  "blog": {
+    "title": "Blog | ElternHerz",
+    "description": "Eğitim ve aile yaşamı hakkında yararlı makaleler ve ipuçları."
+  },
+  "footer": {
+    "copyright": "© 2024 ElternHerz. Tüm hakları saklıdır.",
+    "privacy": "Gizlilik",
+    "imprint": "Künye"
+  },
+  "common": {
+    "read_more": "Devamını oku",
+    "back": "Geri",
+    "next": "Sonraki",
+    "previous": "Önceki",
+    "loading": "Yükleniyor..."
+  }
+}

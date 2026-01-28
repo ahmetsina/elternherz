@@ -10,6 +10,13 @@ export default defineConfig({
   site: 'https://elternherz.de',
   trailingSlash: 'always',
   integrations: [mdx(), svelte()],
+  i18n: {
+    defaultLocale: 'de',
+    locales: ['de', 'tr'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   markdown: {
     shikiConfig: {
       theme: 'nord',

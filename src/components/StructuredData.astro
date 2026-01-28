@@ -23,7 +23,7 @@ const {
   servicePrice
 } = Astro.props;
 
-const baseUrl = Astro.site?.href || 'https://elternherz.de';
+const baseUrl = (Astro.site?.href || 'https://elternherz.de').replace(/\/$/, '');
 
 // LocalBusiness schema for the main organization
 const localBusiness = {
