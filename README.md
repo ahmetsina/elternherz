@@ -96,13 +96,59 @@ All commands are run from the root of the project, from a terminal:
 
 ## 📦 Deploying to Cloudflare Pages
 
-This is a static Astro site that can be deployed to Cloudflare Pages. 
+This is a static Astro site configured for deployment to Cloudflare Pages.
 
-The `wrangler.jsonc` configuration file specifies the static assets directory (`dist`) for deployment. 
+### Quick Deployment
 
-In your Cloudflare Pages dashboard, use:
-- **Build command**: `npm run build`
-- **Build output directory**: `dist`
+In your Cloudflare Pages dashboard, use these settings:
+
+| Setting | Value |
+|---------|-------|
+| **Production branch** | `main` |
+| **Build command** | `npm run build` |
+| **Build output directory** | `dist` |
+| **Node version** | `18` or higher |
+
+### Environment Variables
+
+Set these in Cloudflare Pages → Settings → Environment Variables:
+
+```bash
+# Required
+PUBLIC_CALCOM_USERNAME=elternherz
+PUBLIC_CALCOM_URL=https://cal.eu
+
+# Analytics (choose one)
+GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
+# or
+PUBLIC_PLAUSIBLE_DOMAIN=elternherz.de
+
+# Error Monitoring (optional but recommended)
+SENTRY_DSN=https://xxxxx@sentry.io/xxxxx
+
+# Site Configuration
+PUBLIC_SITE_URL=https://elternherz.de
+```
+
+### Complete Deployment Guide
+
+📘 **See [DEPLOYMENT.md](DEPLOYMENT.md)** for comprehensive deployment instructions including:
+- Domain configuration
+- SSL certificate setup
+- Post-deployment verification
+- Rollback procedures
+
+### Pre-Launch Checklist
+
+📋 **See [PRE_LAUNCH_CHECKLIST.md](PRE_LAUNCH_CHECKLIST.md)** for a complete checklist to ensure your site is ready for launch.
+
+### Maintenance
+
+🔧 **See [MAINTENANCE.md](MAINTENANCE.md)** for ongoing maintenance tasks and content updates.
+
+### Troubleshooting
+
+🐛 **See [TROUBLESHOOTING.md](TROUBLESHOOTING.md)** for solutions to common issues.
 
 ## 📅 Cal.com Booking System
 
@@ -168,6 +214,49 @@ To customize appearance, edit the CSS in `CalComWidget.astro` or adjust the `con
 
 **Note**: The Cal.com embed script will show loading placeholders in development. The actual booking calendar will only appear when the Cal.com script successfully loads.
 
+## 📄 Legal Pages & Compliance
+
+The website includes legally required pages for German/Turkish websites:
+
+### German Pages
+- **Datenschutzerklärung** (Privacy Policy): `/datenschutz`
+- **Impressum** (Legal Notice): `/impressum`
+
+### Turkish Pages
+- **Gizlilik Politikası** (Privacy Policy): `/tr/gizlilik-politikasi`
+- **Yasal Bildirim** (Legal Notice): `/tr/yasal-bildirim`
+
+⚠️ **Important**: Before going live, replace all placeholder text `[in square brackets]` with actual information. We recommend having these pages reviewed by a legal professional to ensure compliance with GDPR and German law (TMG).
+
+## 🗺️ SEO & Sitemap
+
+The website is configured with:
+- ✅ **Automatic sitemap generation** via `@astrojs/sitemap`
+- ✅ **Sitemap accessible at**: `/sitemap-index.xml`
+- ✅ **Robots.txt** configured in `public/robots.txt`
+- ✅ **Multi-language support** with proper hreflang tags
+
+Site URL is configured as `https://elternherz.de` in `astro.config.mjs`. Update this before deployment if using a different domain.
+
+## 🚀 Production Readiness
+
+This website is production-ready with:
+- Legal compliance pages (Privacy Policy, Impressum)
+- Sitemap configuration for search engines
+- Multi-language support (German/Turkish)
+- Cal.com booking integration
+- SSL/HTTPS ready
+- Optimized build configuration
+- Mobile-responsive design
+
 ## 👀 Want to learn more?
 
 Feel free to check [Astro's documentation](https://github.com/withastro/astro) or jump into Astro's [Discord server](https://astro.build/chat).
+
+## 📚 Documentation
+
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide
+- **[MAINTENANCE.md](MAINTENANCE.md)** - Maintenance and content update guide
+- **[PRE_LAUNCH_CHECKLIST.md](PRE_LAUNCH_CHECKLIST.md)** - Pre-launch verification checklist
+- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues and solutions
+- **[ELTERNBEGLEITERIN_IMPLEMENTATION_PLAN.md](ELTERNBEGLEITERIN_IMPLEMENTATION_PLAN.md)** - Full implementation plan
