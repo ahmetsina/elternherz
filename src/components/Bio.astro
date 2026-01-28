@@ -1,15 +1,15 @@
 ---
-import { useTranslations } from '../i18n/ui';
+import { useTranslations, getRouteForLocale } from '../i18n/ui';
 
 const { locale = 'de' } = Astro.props;
 const t = useTranslations(locale);
-const contactLink = locale === 'de' ? '/kontakt' : '/tr/iletisim';
+const contactLink = getRouteForLocale('contact', locale);
 ---
 
 <div>
   <img src="/assets/profile-pic.webp" alt="ElternHerz Professionelle Elternbegleiterin">
   <p>
-    <strong>ElternHerz</strong> {t('bio.text')} 
+    <strong>ElternHerz</strong> {t('bio.text')}
     <a href={contactLink}>{t('bio.link')}</a> {t('bio.linkSuffix')}
   </p>
 </div>
