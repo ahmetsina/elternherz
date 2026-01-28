@@ -82,6 +82,7 @@ const organization = {
   "name": "Elternherz",
   "url": baseUrl,
   "logo": `${baseUrl}/assets/logo.webp`,
+  "image": `${baseUrl}/assets/logo.webp`,
   "sameAs": [],
   "contactPoint": {
     "@type": "ContactPoint",
@@ -132,22 +133,14 @@ const breadcrumb = pageUrl ? {
   ]
 } : null;
 
-// WebSite schema for search
+// WebSite schema
 const website = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${baseUrl}#website`,
   "url": baseUrl,
   "name": "Elternherz",
-  "inLanguage": [lang],
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": `${baseUrl}blog?q={search_term_string}`
-    },
-    "query-input": "required name=search_term_string"
-  }
+  "inLanguage": [lang]
 };
 
 // Article schema for blog posts

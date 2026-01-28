@@ -6,10 +6,11 @@ import ContactForm from '../../components/ContactForm.astro';
 
 const title = 'Randevu Al | ElternHerz';
 const description = 'Profesyonel ebeveyn danışmanlığı için randevu alın. Ücretsiz ilk görüşme, bireysel danışmanlık ve çift danışmanlığı mevcuttur.';
-const permalink = `${Astro.site.href}tr/iletisim`;
+const permalink = `${Astro.site.href}tr/iletisim/`;
+const alternateUrl = `${Astro.site.href}kontakt/`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="iletisim" locale="tr">
+<BaseLayout title={title} description={description} permalink={permalink} current="iletisim" locale="tr" alternateUrl={alternateUrl}>
   <div class="booking-page">
     <div class="container">
       <h1>Randevu Al</h1>

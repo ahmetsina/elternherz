@@ -4,13 +4,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'Blog | Elternherz';
 const description = 'Tipps und Ratschläge zur Elternbegleitung, Erziehung und Familienentwicklung. Praxisnahe Artikel für den Alltag mit Kindern.';
-const permalink = `${Astro.site.href}blog`;
+const permalink = `${Astro.site.href}blog/`;
+const alternateUrl = `${Astro.site.href}tr/blog/`;
 
 let allPosts = await getCollection('posts')
 allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="blog" locale="de">
+<BaseLayout title={title} description={description} permalink={permalink} current="blog" locale="de" alternateUrl={alternateUrl}>
   <div class="container">
     <h1>Elternherz Blog</h1>
     <p class="blog-intro">

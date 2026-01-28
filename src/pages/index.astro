@@ -4,10 +4,11 @@ import BookingCTA from '../components/BookingCTA.astro';
 
 const title = 'Elternherz - Professionelle Elternbegleiterin';
 const description = 'Professionelle Elternberatung für Familien. Unterstützung bei Erziehungsfragen, Entwicklung und Familienleben. Jetzt kostenloses Erstgespräch vereinbaren.';
-const permalink = Astro.site.href;
+const permalink = `${Astro.site.href}`;
+const alternateUrl = `${Astro.site.href}tr/`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} locale="de">
+<BaseLayout title={title} description={description} permalink={permalink} locale="de" alternateUrl={alternateUrl}>
   <div class="home-container">
     <div class="home-copy">
       <h1>Willkommen bei Elternherz</h1>

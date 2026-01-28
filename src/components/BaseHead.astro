@@ -11,6 +11,7 @@ export interface Props {
   ogImage?: string
   publishedTime?: string
   lang?: 'de' | 'tr'
+  alternateUrl?: string  // Explicitly pass alternate URL instead of auto-generating
 }
 
 const { 
@@ -20,17 +21,17 @@ const {
   ogType = 'website',
   ogImage,
   publishedTime,
-  lang = 'de'
+  lang = 'de',
+  alternateUrl
 } = Astro.props
 
-const socialUrl = ogImage || (Astro.site?.href || '') + '/assets/social.png'
+const socialUrl = ogImage || (Astro.site?.href || 'https://elternherz.de/') + 'assets/social.png'
 const canonicalUrl = permalink
-const baseUrl = Astro.site?.href || 'https://elternherz.de/'
-const path = permalink.replace(baseUrl, '')
 const alternateLang = lang === 'de' ? 'tr' : 'de'
-const alternateUrl = lang === 'de' 
-  ? `${baseUrl}tr/${path}`
-  : `${baseUrl}${path.replace(/^tr\//, '')}`
+// If alternateUrl is provided, use it; otherwise fall back to a simple prefix approach for blog posts
+const computedAlternateUrl = alternateUrl || (lang === 'de' 
+  ? permalink.replace(Astro.site?.href || 'https://elternherz.de/', (Astro.site?.href || 'https://elternherz.de/') + 'tr/')
+  : permalink.replace('/tr/', '/'))
 ---
 
 <!-- Global Metadata -->
@@ -41,8 +42,8 @@ const alternateUrl = lang === 'de'
 
 <!-- Language alternates -->
 <link rel="alternate" hreflang={lang} href={canonicalUrl} />
-<link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
-<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+<link rel="alternate" hreflang={alternateLang} href={computedAlternateUrl} />
+<link rel="alternate" hreflang="x-default" href={lang === 'de' ? canonicalUrl : computedAlternateUrl} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

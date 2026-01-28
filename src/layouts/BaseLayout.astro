@@ -18,6 +18,7 @@ export interface Props {
   serviceName?: string;
   serviceDescription?: string;
   servicePrice?: string;
+  alternateUrl?: string;  // Allow passing explicit alternate URL
 }
 
 const { 
@@ -32,7 +33,8 @@ const {
   structuredDataType = 'website',
   serviceName,
   serviceDescription,
-  servicePrice
+  servicePrice,
+  alternateUrl
 } = Astro.props;
 const lang = (locale || getLangFromUrl(Astro.url)) as 'de' | 'tr';
 ---
@@ -46,6 +48,7 @@ const lang = (locale || getLangFromUrl(Astro.url)) as 'de' | 'tr';
     ogType={ogType}
     ogImage={ogImage}
     publishedTime={publishedTime}
+    alternateUrl={alternateUrl}
   />
   <StructuredData 
     type={structuredDataType}
