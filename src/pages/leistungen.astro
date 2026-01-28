@@ -31,13 +31,13 @@ const permalink = `${Astro.site.href}leistungen`;
               ))}
             </ul>
             <div class="card-cta">
-              <BookingCTA text="Termin buchen" href="/kontakt#erstgespraech" variant="primary" size="medium" />
+              <BookingCTA text={t('services.booking_cta')} href="/kontakt#erstgespraech" variant="primary" size="medium" />
             </div>
           </div>
         </div>
 
         <div class="service-card featured">
-          <div class="featured-badge">Beliebt</div>
+          <div class="featured-badge">{t('services.popular_badge')}</div>
           <div class="card-header">
             <h2>{t('services.individual.title')}</h2>
             <div class="card-meta">
@@ -53,7 +53,7 @@ const permalink = `${Astro.site.href}leistungen`;
               ))}
             </ul>
             <div class="card-cta">
-              <BookingCTA text="Termin buchen" href="/kontakt#einzelberatung" variant="primary" size="medium" />
+              <BookingCTA text={t('services.booking_cta')} href="/kontakt#einzelberatung" variant="primary" size="medium" />
             </div>
           </div>
         </div>
@@ -74,16 +74,16 @@ const permalink = `${Astro.site.href}leistungen`;
               ))}
             </ul>
             <div class="card-cta">
-              <BookingCTA text="Termin buchen" href="/kontakt#paarberatung" variant="primary" size="medium" />
+              <BookingCTA text={t('services.booking_cta')} href="/kontakt#paarberatung" variant="primary" size="medium" />
             </div>
           </div>
         </div>
       </div>
 
       <div class="cta-section">
-        <h2>Unsicher, welche Beratung zu Ihnen passt?</h2>
-        <p>Im kostenlosen Erstgespräch können wir gemeinsam Ihre Situation besprechen und die passende Option finden.</p>
-        <BookingCTA text="Kostenloses Erstgespräch" href="/kontakt" variant="secondary" size="large" />
+        <h2>{t('services.cta_heading')}</h2>
+        <p>{t('services.cta_text')}</p>
+        <BookingCTA text={t('services.cta_button')} href="/kontakt" variant="secondary" size="large" />
       </div>
     </div>
   </div>

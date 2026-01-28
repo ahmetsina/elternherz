@@ -19,6 +19,11 @@
     "title": "Unsere Leistungen | ElternHerz",
     "description": "Übersicht unserer Beratungsleistungen: Erstgespräch, Einzelberatung und Paarberatung für Eltern.",
     "heading": "Unsere Beratungsangebote",
+    "popular_badge": "Beliebt",
+    "booking_cta": "Termin buchen",
+    "cta_heading": "Unsicher, welche Beratung zu Ihnen passt?",
+    "cta_text": "Im kostenlosen Erstgespräch können wir gemeinsam Ihre Situation besprechen und die passende Option finden.",
+    "cta_button": "Kostenloses Erstgespräch",
     "free_consultation": {
       "title": "Kostenloses Erstgespräch",
       "duration": "30 Minuten",
@@ -94,6 +99,7 @@
   "about": {
     "title": "Über mich | ElternHerz",
     "description": "Erfahren Sie mehr über ElternHerz und unsere Arbeitsweise in der Elternberatung.",
+    "heading": "Über mich",
     "cta_title": "Möchten Sie mehr erfahren?",
     "cta_text": "Buchen Sie eine Beratung, um Ihre Bedürfnisse zu besprechen.",
     "cta_button": "Jetzt buchen"

@@ -11,7 +11,7 @@ const permalink = `${Astro.site.href}tr/hakkinda`;
 
 <BaseLayout title={title} description={description} permalink={permalink} current="about" locale="tr">
   <div class="container">
-    <h1>Hakkında</h1>
+    <h1>{t('about.heading')}</h1>
     <figure class="about-image">
       <img src="/assets/about-illustration.webp" alt="Not defteri illüstrasyonu" width="330">
       <figcaption>

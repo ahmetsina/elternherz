@@ -19,6 +19,11 @@
     "title": "Hizmetlerimiz | ElternHerz",
     "description": "Danışmanlık hizmetlerimize genel bakış: Ebeveynler için ilk görüşme, bireysel danışmanlık ve çift danışmanlığı.",
     "heading": "Danışmanlık Hizmetlerimiz",
+    "popular_badge": "Popüler",
+    "booking_cta": "Randevu Al",
+    "cta_heading": "Hangi danışmanlığın size uygun olduğundan emin değil misiniz?",
+    "cta_text": "Ücretsiz ilk görüşmede durumunuzu birlikte değerlendirebilir ve size en uygun seçeneği bulabiliriz.",
+    "cta_button": "Ücretsiz İlk Görüşme",
     "free_consultation": {
       "title": "Ücretsiz İlk Görüşme",
       "duration": "30 Dakika",
@@ -94,6 +99,7 @@
   "about": {
     "title": "Hakkında | ElternHerz",
     "description": "ElternHerz ve ebeveyn danışmanlığındaki çalışma şeklimiz hakkında daha fazla bilgi edinin.",
+    "heading": "Hakkında",
     "cta_title": "Daha fazla bilgi edinmek ister misiniz?",
     "cta_text": "İhtiyaçlarınızı görüşmek için bir danışmanlık rezervasyonu yapın.",
     "cta_button": "Şimdi rezervasyon yap"
