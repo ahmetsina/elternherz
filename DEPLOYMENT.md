@@ -58,7 +58,16 @@ Use the following build configuration:
 
 ### Required Variables
 
-Add these environment variables in **Settings** → **Environment Variables**:
+Environment variables can be managed in two places:
+
+1. **GitHub Repository Environments** (for CI/CD workflows)
+2. **Cloudflare Pages** (for runtime/build)
+
+> 📘 **See [GITHUB_ENVIRONMENTS.md](GITHUB_ENVIRONMENTS.md)** for detailed setup of GitHub repository environments and automated deployments.
+
+### Cloudflare Pages Environment Variables
+
+Add these environment variables in **Cloudflare Pages** → **Settings** → **Environment Variables**:
 
 ```bash
 # Cal.com Configuration (EU Server)
@@ -74,7 +83,7 @@ PUBLIC_TELEMETRYDECK_APP_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 PUBLIC_SITE_URL=https://elternherz.de
 ```
 
-### Setting Environment Variables
+### Setting Environment Variables in Cloudflare Pages
 
 1. In Cloudflare Pages dashboard, go to your project
 2. Navigate to **Settings** → **Environment Variables**
@@ -83,6 +92,23 @@ PUBLIC_SITE_URL=https://elternherz.de
    - **Value**: (e.g., `elternherz`)
    - **Environment**: Select **Production** (and **Preview** if needed)
 4. Click **Save**
+
+### GitHub Repository Environments (Optional but Recommended)
+
+For automated deployments via GitHub Actions:
+
+1. Go to **GitHub Repository** → **Settings** → **Environments**
+2. Create `production` environment
+3. Add the same variables as secrets/variables
+4. Configure deployment protection rules (optional)
+
+This allows you to:
+- Manage all environment variables centrally in GitHub
+- Use GitHub Actions for automated deployments
+- Require approvals for production deployments
+- Track deployment history
+
+See [GITHUB_ENVIRONMENTS.md](GITHUB_ENVIRONMENTS.md) for complete setup instructions.
 
 ### Variable Scopes
 

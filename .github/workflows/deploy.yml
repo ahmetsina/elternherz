@@ -1,0 +1,64 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Deployment permissions
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    
+    # Use production environment with variables and secrets
+    environment:
+      name: production
+      url: https://elternherz.de
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ vars.NODE_VERSION || '18' }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build site
+        env:
+          # Cal.com configuration from environment variables
+          PUBLIC_CALCOM_USERNAME: ${{ vars.PUBLIC_CALCOM_USERNAME }}
+          PUBLIC_CALCOM_URL: ${{ vars.PUBLIC_CALCOM_URL }}
+          # TelemetryDeck from secrets (sensitive App ID)
+          PUBLIC_TELEMETRYDECK_APP_ID: ${{ secrets.PUBLIC_TELEMETRYDECK_APP_ID }}
+          # Site URL from environment variables
+          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+        run: npm run build
+      
+      - name: Verify build output
+        run: |
+          echo "Checking build output..."
+          ls -la dist/
+          echo "Build completed successfully!"
+      
+      # Optional: Deploy to Cloudflare Pages via API
+      # Requires CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets
+      - name: Deploy to Cloudflare Pages
+        if: github.event_name == 'push'  # Only deploy on push, not manual trigger
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: elternherz
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main

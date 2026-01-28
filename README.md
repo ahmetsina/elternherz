@@ -111,7 +111,11 @@ In your Cloudflare Pages dashboard, use these settings:
 
 ### Environment Variables
 
-Set these in Cloudflare Pages → Settings → Environment Variables:
+Environment variables can be managed in:
+- **Cloudflare Pages** (for runtime/build)
+- **GitHub Environments** (for CI/CD automation)
+
+**Cloudflare Pages** → Settings → Environment Variables:
 
 ```bash
 # Required
@@ -124,6 +128,8 @@ PUBLIC_TELEMETRYDECK_APP_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 # Site Configuration
 PUBLIC_SITE_URL=https://elternherz.de
 ```
+
+📘 **See [GITHUB_ENVIRONMENTS.md](GITHUB_ENVIRONMENTS.md)** for setting up GitHub repository environments for automated deployments.
 
 ### Complete Deployment Guide
 
@@ -251,7 +257,9 @@ Feel free to check [Astro's documentation](https://github.com/withastro/astro) o
 ## 📚 Documentation
 
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide
+- **[GITHUB_ENVIRONMENTS.md](GITHUB_ENVIRONMENTS.md)** - GitHub repository environments setup
 - **[MAINTENANCE.md](MAINTENANCE.md)** - Maintenance and content update guide
 - **[PRE_LAUNCH_CHECKLIST.md](PRE_LAUNCH_CHECKLIST.md)** - Pre-launch verification checklist
 - **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues and solutions
+- **[SECURITY_HEADERS.md](SECURITY_HEADERS.md)** - Security configuration guide
 - **[ELTERNBEGLEITERIN_IMPLEMENTATION_PLAN.md](ELTERNBEGLEITERIN_IMPLEMENTATION_PLAN.md)** - Full implementation plan
