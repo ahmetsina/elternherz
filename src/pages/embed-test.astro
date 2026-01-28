@@ -1,0 +1,129 @@
+---
+/**
+ * Test page for Cal.com embed components
+ * This page demonstrates both inline and floating-popup embed types
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CalEmbed from '../components/CalEmbed.astro';
+
+const title = 'Cal.com Embed Test | ElternHerz';
+const description = 'Test page for Cal.com embedding components - inline and floating popup';
+const permalink = `${Astro.site.href}embed-test/`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="kontakt" locale="de">
+  <div class="test-page">
+    <div class="container">
+      <h1>Cal.com Embed Components Test</h1>
+      
+      <section class="test-section">
+        <h2>1. Inline Embed</h2>
+        <p>This shows the calendar directly embedded in the page:</p>
+        <CalEmbed 
+          calLink="elternherz/erstgesprach" 
+          type="inline"
+          locale="de"
+          layout="month_view"
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>2. Floating Popup Button</h2>
+        <p>This creates a floating button in the bottom-right corner when you scroll down:</p>
+        <CalEmbed 
+          calLink="elternherz/erstgesprach" 
+          type="floating-popup"
+          locale="de"
+          buttonText="Jetzt Termin buchen"
+          buttonColor="#3498db"
+          buttonTextColor="#ffffff"
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>Documentation</h2>
+        <p>For complete documentation, see <code>CALCOM_EMBEDDING.md</code> in the project root.</p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .test-page {
+    padding: 2em 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+  }
+
+  .test-section {
+    margin: 3em 0;
+    padding: 2em;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .test-section h2 {
+    margin-top: 0;
+    color: #2c3e50;
+  }
+
+  .test-section p {
+    color: #555;
+    margin-bottom: 1.5em;
+  }
+
+  .docs {
+    background: white;
+    padding: 2em;
+    border-radius: 8px;
+    margin-top: 1em;
+  }
+
+  .docs h3 {
+    color: #2c3e50;
+    margin-top: 2em;
+  }
+
+  .docs h3:first-child {
+    margin-top: 0;
+  }
+
+  .docs h4 {
+    color: #34495e;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .docs pre {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+
+  .docs code {
+    font-family: 'Courier New', monospace;
+  }
+
+  .docs ul {
+    line-height: 1.8;
+  }
+
+  .docs ul li {
+    margin-bottom: 0.5em;
+  }
+
+  .docs a {
+    color: #3498db;
+    text-decoration: none;
+  }
+
+  .docs a:hover {
+    text-decoration: underline;
+  }
+</style>
