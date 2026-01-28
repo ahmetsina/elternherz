@@ -57,14 +57,12 @@ export const routeTranslations = {
   de: {
     'contact': 'kontakt',
     'services': 'leistungen',
-    'about': 'about',
     'blog': 'blog',
     'home': '',
   },
   tr: {
     'contact': 'iletisim',
     'services': 'hizmetler',
-    'about': 'hakkinda',
     'blog': 'blog',
     'home': '',
   },
