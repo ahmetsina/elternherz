@@ -1,21 +1,65 @@
 ---
+/**
+ * BookingCTA Component
+ * 
+ * Enhanced call-to-action button for booking appointments.
+ * Supports different event types, variants, sizes, and tracking.
+ */
+
 export interface Props {
   text?: string;
   href?: string;
   variant?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
+  eventType?: 'erstgespraech' | 'einzelberatung' | 'paarberatung' | 'folgetermin';
+  lang?: 'de' | 'tr';
+  trackingLabel?: string;
 }
 
 const { 
-  text = 'Termin buchen', 
+  text, 
   href = '/kontakt',
   variant = 'primary',
-  size = 'medium'
+  size = 'medium',
+  eventType,
+  lang = 'de',
+  trackingLabel
 } = Astro.props;
+
+// Default text based on event type and language
+const defaultText = () => {
+  if (text) return text;
+  
+  if (eventType) {
+    const eventTexts = {
+      erstgespraech: { de: 'Erstgespräch buchen', tr: 'İlk Görüşme Al' },
+      einzelberatung: { de: 'Einzelberatung buchen', tr: 'Bireysel Danışma Al' },
+      paarberatung: { de: 'Paarberatung buchen', tr: 'Çift Danışması Al' },
+      folgetermin: { de: 'Folgetermin buchen', tr: 'Takip Randevusu Al' }
+    };
+    return eventTexts[eventType][lang];
+  }
+  
+  return lang === 'de' ? 'Termin buchen' : 'Randevu Al';
+};
+
+// Construct href with event anchor if eventType is provided
+const finalHref = eventType ? `${href}#${eventType}` : href;
+
+// Build tracking data attributes
+const trackingAttrs = trackingLabel ? {
+  'data-tracking-category': 'booking',
+  'data-tracking-action': 'click',
+  'data-tracking-label': trackingLabel
+} : {};
 ---
 
-<a href={href} class={`booking-cta booking-cta-${variant} booking-cta-${size}`}>
-  <span class="cta-text">{text}</span>
+<a 
+  href={finalHref} 
+  class={`booking-cta booking-cta-${variant} booking-cta-${size}`}
+  {...trackingAttrs}
+>
+  <span class="cta-text">{defaultText()}</span>
   <svg class="cta-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
     <line x1="16" y1="2" x2="16" y2="6"></line>

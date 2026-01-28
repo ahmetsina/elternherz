@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CalComWidget from '../components/CalComWidget.astro';
 import BookingCTA from '../components/BookingCTA.astro';
+import ContactForm from '../components/ContactForm.astro';
 
 const title = 'Termin vereinbaren | ElternHerz';
 const description = 'Buchen Sie jetzt Ihren Termin für eine professionelle Elternberatung. Kostenlose Erstgespräche, Einzelberatung und Paarberatung verfügbar.';
@@ -96,6 +97,29 @@ const permalink = `${Astro.site.href}kontakt`;
           </div>
           <CalComWidget calLink="elternherz/paarberatung" locale="de" />
         </div>
+
+        <div class="appointment-card" id="folgetermin">
+          <div class="card-header">
+            <h3>Folgetermin</h3>
+            <div class="card-meta">
+              <span class="duration">45 Minuten</span>
+              <span class="price">60€</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Aufbauende Beratung für bestehende Klienten. In diesem Termin vertiefen wir die 
+              bereits besprochenen Themen, besprechen Ihre Fortschritte und entwickeln weitere 
+              Strategien für Ihre individuellen Herausforderungen.
+            </p>
+            <ul class="benefits-list">
+              <li>Nachbesprechung und Reflexion</li>
+              <li>Anpassung der Strategien</li>
+              <li>Kontinuierliche Unterstützung</li>
+            </ul>
+          </div>
+          <CalComWidget calLink="elternherz/folgetermin" locale="de" />
+        </div>
       </div>
 
       <div class="alternative-contact">
@@ -103,6 +127,10 @@ const permalink = `${Astro.site.href}kontakt`;
         <p>
           Falls Sie lieber auf anderem Weg Kontakt aufnehmen möchten, erreichen Sie mich auch:
         </p>
+        
+        <ContactForm lang="de" />
+        
+        <h3 style="margin-top: 3em;">Direkter Kontakt</h3>
         <div class="contact-methods">
           <div class="contact-method">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

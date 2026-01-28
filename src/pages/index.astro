@@ -2,25 +2,42 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 
-const title = 'My Astro Blog';
-const description = 'The perfect starter for your perfect blog.';
+const title = 'ElternHerz - Professionelle Elternberatung | Deutsch & Türkisch';
+const description = 'Professionelle Elternberatung in Deutsch und Türkisch. Unterstützung bei Erziehungsfragen, Entwicklung und Familienleben. Kostenlose Erstberatung verfügbar.';
 const permalink = Astro.site.href;
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
   <div class="home-container">
     <div class="home-copy">
-      <h1>Welcome to your new Astro Blog</h1>
-      <p>Check out the docs on <a href="https://www.github.com/Charca/astro-blog-template" target="_blank" rel="noopener">GitHub</a> to get started.</p>
+      <h1>Willkommen bei ElternHerz</h1>
+      <p class="subtitle">Professionelle Elternberatung in Deutsch und Türkisch</p>
+      <p>
+        Unterstützung bei Erziehungsfragen, Entwicklung und Familienleben. 
+        Vereinbaren Sie jetzt Ihr kostenloses Erstgespräch.
+      </p>
       <div class="cta-container">
-        <BookingCTA text="Termin buchen" href="/kontakt" variant="primary" size="large" />
+        <BookingCTA 
+          eventType="erstgespraech" 
+          lang="de" 
+          variant="primary" 
+          size="large"
+          trackingLabel="homepage-hero-cta"
+        />
+        <BookingCTA 
+          text="Alle Beratungsangebote" 
+          href="/kontakt" 
+          variant="secondary" 
+          size="large"
+          trackingLabel="homepage-hero-services"
+        />
       </div>
     </div>
 
     <div class="hero-image-container">
       <picture>
         <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
-        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration-small.webp" width="550" height="466">
+        <img class="hero-image" alt="Eltern mit Kind - Familienberatung" src="/assets/home-illustration-small.webp" width="550" height="466">
       </picture>
       <p class="caption">
         Illustration by
@@ -51,14 +68,27 @@ const permalink = Astro.site.href;
     font-weight: 700;
     margin-bottom: 0.5em;
     line-height: 1.3;
+    color: var(--text-main);
+  }
+
+  .subtitle {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1em;
   }
 
   .home-copy p {
-    font-size: 1.4em;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 1em;
   }
 
   .cta-container {
     margin-top: 2em;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
   }
 
   .hero-image-container {
@@ -84,8 +114,8 @@ const permalink = Astro.site.href;
   }
 
   @media (max-width: 1200px) {
-    p {
-      font-size: 1.2em;
+    .home-copy p {
+      font-size: 1.1em;
     }
 
     .hero-image {
@@ -102,6 +132,10 @@ const permalink = Astro.site.href;
       flex: 0;
       padding-bottom: 2em;
       text-align: center;
+    }
+
+    .cta-container {
+      justify-content: center;
     }
   }
 </style>
