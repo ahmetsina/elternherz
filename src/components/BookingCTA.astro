@@ -1,0 +1,102 @@
+---
+export interface Props {
+  text?: string;
+  href?: string;
+  variant?: 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
+}
+
+const { 
+  text = 'Termin buchen', 
+  href = '/kontakt',
+  variant = 'primary',
+  size = 'medium'
+} = Astro.props;
+---
+
+<a href={href} class={`booking-cta booking-cta-${variant} booking-cta-${size}`}>
+  <span class="cta-text">{text}</span>
+  <svg class="cta-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+    <line x1="16" y1="2" x2="16" y2="6"></line>
+    <line x1="8" y1="2" x2="8" y2="6"></line>
+    <line x1="3" y1="10" x2="21" y2="10"></line>
+  </svg>
+</a>
+
+<style>
+  .booking-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .booking-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Variants */
+  .booking-cta-primary {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+  }
+
+  .booking-cta-primary:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+    color: white;
+  }
+
+  .booking-cta-secondary {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+  }
+
+  .booking-cta-secondary:hover {
+    background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
+    color: white;
+  }
+
+  /* Sizes */
+  .booking-cta-small {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
+
+  .booking-cta-medium {
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+  }
+
+  .booking-cta-large {
+    padding: 1em 2em;
+    font-size: 1.2em;
+  }
+
+  .cta-icon {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .booking-cta-large {
+      padding: 0.85em 1.5em;
+      font-size: 1em;
+    }
+
+    .booking-cta-medium {
+      padding: 0.65em 1.2em;
+      font-size: 0.95em;
+    }
+  }
+</style>
