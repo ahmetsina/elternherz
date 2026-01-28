@@ -22,7 +22,7 @@ const { calLink, locale = 'de' } = Astro.props;
 </div>
 
 <script>
-  // Cal.com embed script
+  // Cal.com embed script - Following https://cal.com/help/embedding/adding-embed
   (function (C, A, L) {
     let p = function (a, ar) { a.q.push(ar); };
     let d = C.document;
@@ -44,9 +44,9 @@ const { calLink, locale = 'de' } = Astro.props;
       }
       p(cal, ar);
     };
-  })(window, "https://app.cal.eu/embed/embed.js", "init");
+  })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  Cal("init", { origin: "https://cal.eu" });
+  Cal("init", "erstgesprach", { origin: "https://cal.com" });
 
   // Initialize all Cal widgets on the page
   document.addEventListener('DOMContentLoaded', () => {
@@ -58,10 +58,19 @@ const { calLink, locale = 'de' } = Astro.props;
       
       if (calLink && namespace) {
         try {
+          // Initialize namespace
+          Cal("init", namespace, { origin: "https://cal.com" });
+          
+          // Create inline embed
           Cal("inline", {
             elementOrSelector: `#${widget.id}`,
             calLink: calLink,
-            namespace: namespace,
+            config: config
+          });
+          
+          Cal.ns[namespace]("inline", {
+            elementOrSelector: `#${widget.id}`,
+            calLink: calLink,
             config: config
           });
           
