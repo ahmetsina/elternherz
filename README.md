@@ -108,9 +108,9 @@ In your Cloudflare Pages dashboard, use:
 
 ### Configuration
 
-This website integrates Cal.com for appointment scheduling. To set up:
+This website integrates Cal.com (EU server) for appointment scheduling. To set up:
 
-1. **Create a Cal.com account** at https://cal.com
+1. **Create a Cal.com account** at https://eu.cal.com
 2. **Create event types** in your Cal.com dashboard:
    - `erstgespraech` - 30 minutes, Free (Initial Consultation)
    - `einzelberatung` - 60 minutes, 75€ (Individual Counseling)
@@ -119,7 +119,7 @@ This website integrates Cal.com for appointment scheduling. To set up:
 3. **Configure environment variables** (optional):
    ```bash
    PUBLIC_CALCOM_USERNAME=elternherz
-   PUBLIC_CALCOM_URL=https://cal.com
+   PUBLIC_CALCOM_URL=https://eu.cal.com
    ```
 
 ### Booking Pages
