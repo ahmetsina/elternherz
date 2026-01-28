@@ -54,6 +54,23 @@ const { current = '' } = Astro.props;
     width: 75px;
   }
 
+  .booking-link {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white !important;
+    border-radius: 6px;
+    opacity: 1 !important;
+    transition: all 0.3s ease;
+  }
+
+  .booking-link:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+    transform: translateY(-2px);
+  }
+
+  .booking-link::before {
+    display: none;
+  }
+
   @media screen and (max-width: 520px) {
     .theme-toggle-container {
       margin-right: 1em;
@@ -66,6 +83,7 @@ const { current = '' } = Astro.props;
   <a class={current === "" ? "selected" : ""} href='/'>home</a>
   <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
   <a class={current === "blog" ? "selected" : ""} href='/blog'>blog</a>
+  <a class={`booking-link ${current === "kontakt" ? "selected" : ""}`} href='/kontakt'>Termin buchen</a>
   <div class="theme-toggle-container">
     <ThemeToggleButton client:load />
   </div>

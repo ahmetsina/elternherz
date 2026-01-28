@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
 
 const title = 'My Astro Blog';
 const description = 'The perfect starter for your perfect blog.';
@@ -11,6 +12,9 @@ const permalink = Astro.site.href;
     <div class="home-copy">
       <h1>Welcome to your new Astro Blog</h1>
       <p>Check out the docs on <a href="https://www.github.com/Charca/astro-blog-template" target="_blank" rel="noopener">GitHub</a> to get started.</p>
+      <div class="cta-container">
+        <BookingCTA text="Termin buchen" href="/kontakt" variant="primary" size="large" />
+      </div>
     </div>
 
     <div class="hero-image-container">
@@ -51,6 +55,10 @@ const permalink = Astro.site.href;
 
   .home-copy p {
     font-size: 1.4em;
+  }
+
+  .cta-container {
+    margin-top: 2em;
   }
 
   .hero-image-container {

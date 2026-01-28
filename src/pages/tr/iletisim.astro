@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CalComWidget from '../../components/CalComWidget.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+
+const title = 'Randevu Al | ElternHerz';
+const description = 'Profesyonel ebeveyn danışmanlığı için randevu alın. Ücretsiz ilk görüşme, bireysel danışmanlık ve çift danışmanlığı mevcuttur.';
+const permalink = `${Astro.site.href}tr/iletisim`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="iletisim">
+  <div class="booking-page">
+    <div class="container">
+      <h1>Randevu Al</h1>
+      
+      <div class="intro-section">
+        <p class="lead">
+          Kişisel ebeveyn danışmanlığınız için şimdi randevu alın. 
+          Eğitim, gelişim ve aile yaşamı ile ilgili tüm sorularınızda size yardımcı olmaktan mutluluk duyarım.
+        </p>
+        <p>
+          Rezervasyon süreci basittir: Aşağıdan istediğiniz danışmanlık türünü seçin, 
+          uygun bir randevu seçin ve iletişim bilgilerinizi doldurun. 
+          E-posta ile hemen onay alacaksınız.
+        </p>
+      </div>
+
+      <h2>Danışmanlık Hizmetlerimiz</h2>
+      
+      <div class="appointment-types">
+        <div class="appointment-card" id="erstgespraech">
+          <div class="card-header">
+            <h3>Ücretsiz İlk Görüşme</h3>
+            <div class="card-meta">
+              <span class="duration">30 Dakika</span>
+              <span class="price">Ücretsiz</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Beni ve çalışma şeklimi tanıyın. Bu bağlayıcı olmayan görüşmede 
+              konunuzu tartışabilir ve size en iyi şekilde nasıl destek olabileceğimi 
+              birlikte keşfedebiliriz.
+            </p>
+            <ul class="benefits-list">
+              <li>Taahhütsüz tanışma</li>
+              <li>Durumunuzun ilk değerlendirmesi</li>
+              <li>Sorularınızın yanıtlanması</li>
+            </ul>
+          </div>
+          <CalComWidget calLink="elternherz/erstgespraech" locale="tr" />
+        </div>
+
+        <div class="appointment-card" id="einzelberatung">
+          <div class="card-header">
+            <h3>Bireysel Danışmanlık</h3>
+            <div class="card-meta">
+              <span class="duration">60 Dakika</span>
+              <span class="price">75€</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Konularıyla derinlemesine ilgilenmek isteyen ebeveynler için yoğun bireysel danışmanlık. 
+              Birlikte bireysel zorluklarınız için çözüm stratejileri geliştiriyoruz.
+            </p>
+            <ul class="benefits-list">
+              <li>Durumunuz için bireysel danışmanlık</li>
+              <li>Somut eylem stratejilerinin geliştirilmesi</li>
+              <li>Sürdürülebilir çözüm yaklaşımları</li>
+            </ul>
+          </div>
+          <CalComWidget calLink="elternherz/einzelberatung" locale="tr" />
+        </div>
+
+        <div class="appointment-card" id="paarberatung">
+          <div class="card-header">
+            <h3>Çift Danışmanlığı</h3>
+            <div class="card-meta">
+              <span class="duration">90 Dakika</span>
+              <span class="price">110€</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Her iki ebeveyn için birlikte danışmanlık. Özellikle ebeveynlik konularında 
+              farklı fikirlere sahipseniz veya birlikte çözümler üzerinde çalışmak 
+              istiyorsanız uygundur.
+            </p>
+            <ul class="benefits-list">
+              <li>Ortak perspektifler geliştirme</li>
+              <li>Ebeveyn çifti olarak iletişimi güçlendirme</li>
+              <li>Eğitim konularında fikir birliği bulma</li>
+            </ul>
+          </div>
+          <CalComWidget calLink="elternherz/paarberatung" locale="tr" />
+        </div>
+      </div>
+
+      <div class="alternative-contact">
+        <h2>Alternatif İletişim Yolları</h2>
+        <p>
+          Başka bir şekilde iletişime geçmeyi tercih ederseniz, bana şu yollarla da ulaşabilirsiniz:
+        </p>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div>
+              <strong>E-posta</strong>
+              <p><a href="mailto:info@elternherz.de">info@elternherz.de</a></p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <strong>Telefon</strong>
+              <p><a href="tel:+491234567890">+49 123 456 7890</a></p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <div>
+              <strong>WhatsApp</strong>
+              <p><a href="https://wa.me/491234567890" target="_blank" rel="noopener">Mesaj gönder</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <h2>Sıkça Sorulan Sorular</h2>
+        <div class="faq-item">
+          <h3>Randevumu nasıl iptal edebilir veya değiştirebilirim?</h3>
+          <p>
+            Rezervasyondan sonra, randevunuzu 24 saat öncesine kadar ücretsiz olarak 
+            iptal edebileceğiniz veya değiştirebileceğiniz bir bağlantı içeren bir 
+            onay e-postası alacaksınız.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Danışmanlıklar çevrimiçi mi yoksa yüz yüze mi yapılıyor?</h3>
+          <p>
+            Her iki seçenek de mümkündür. Randevu alırken çevrimiçi danışmanlık (Zoom üzerinden) 
+            veya kişisel bir görüşme tercih edip etmediğinizi seçebilirsiniz.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>İlk görüşme gerçekten ücretsiz mi?</h3>
+          <p>
+            Evet, 30 dakikalık ilk görüşme tamamen ücretsiz ve bağlayıcı değildir. 
+            Karşılıklı tanışma ve sorularınızı netleştirme amacına hizmet eder.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Hangi ödeme yöntemleri kabul ediliyor?</h3>
+          <p>
+            Ödeme danışmanlıktan sonra yapılır. Nakit ödeme, banka havalesi 
+            ve PayPal kabul ediyorum.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Görüşmeler gizli mi?</h3>
+          <p>
+            Kesinlikle. Tüm görüşmeler kesinlikle gizli tutulur. 
+            Kişisel bilgileriniz ve konularınız korunur.
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-bottom">
+        <p>Başka sorularınız mı var? Benimle iletişime geçmekten çekinmeyin!</p>
+        <BookingCTA text="İlk Görüşmeye" href="#erstgespraech" variant="primary" size="large" />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .booking-page {
+    width: 100%;
+  }
+
+  .intro-section {
+    margin: 2em 0 3em 0;
+  }
+
+  .lead {
+    font-size: 1.5em;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: 1em;
+  }
+
+  .appointment-types {
+    display: grid;
+    gap: 3em;
+    margin: 3em 0;
+  }
+
+  .appointment-card {
+    background: var(--background-body);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .appointment-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2em;
+    border-bottom: 2px solid #e0e0e0;
+  }
+
+  .card-header h3 {
+    margin: 0 0 0.5em 0;
+    color: var(--text-main);
+    font-size: 1.8em;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
+
+  .duration,
+  .price {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    padding: 0.5em 1em;
+    background: white;
+    border-radius: 6px;
+    font-size: 1.1em;
+  }
+
+  .price {
+    color: #27ae60;
+  }
+
+  .card-body {
+    padding: 2em;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5em 0 0 0;
+  }
+
+  .benefits-list li {
+    padding-left: 1.5em;
+    position: relative;
+    margin: 0.75em 0;
+    font-size: 1.1em;
+  }
+
+  .benefits-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+  }
+
+  .alternative-contact {
+    margin: 4em 0;
+    padding: 2em;
+    background: #f8f9fa;
+    border-radius: 12px;
+  }
+
+  .contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+  }
+
+  .contact-method {
+    display: flex;
+    gap: 1em;
+    align-items: flex-start;
+  }
+
+  .contact-method svg {
+    flex-shrink: 0;
+    color: var(--primary-color);
+  }
+
+  .contact-method strong {
+    display: block;
+    font-family: var(--font-family-sans);
+    margin-bottom: 0.25em;
+  }
+
+  .contact-method p {
+    margin: 0;
+    font-size: 1.1em;
+  }
+
+  .faq-section {
+    margin: 4em 0;
+  }
+
+  .faq-item {
+    margin: 2em 0;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+  }
+
+  .cta-bottom {
+    text-align: center;
+    margin: 4em 0;
+    padding: 3em 2em;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+  }
+
+  .cta-bottom p {
+    font-size: 1.4em;
+    margin-bottom: 1.5em;
+  }
+
+  @media (max-width: 768px) {
+    .card-header {
+      padding: 1.5em;
+    }
+
+    .card-body {
+      padding: 1.5em;
+    }
+
+    .contact-methods {
+      grid-template-columns: 1fr;
+    }
+
+    .lead {
+      font-size: 1.3em;
+    }
+  }
+</style>
