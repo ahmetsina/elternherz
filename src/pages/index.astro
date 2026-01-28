@@ -25,7 +25,20 @@ const permalink = Astro.site.href;
       </div>
 
       <div class="cta-container">
-        <BookingCTA text="Kostenloses Erstgespräch vereinbaren" href="/kontakt" variant="primary" size="large" />
+        <BookingCTA 
+          eventType="erstgesprach" 
+          lang="de" 
+          variant="primary" 
+          size="large"
+          trackingLabel="homepage-hero-cta"
+        />
+        <BookingCTA 
+          text="Alle Beratungsangebote" 
+          href="/leistungen" 
+          variant="secondary" 
+          size="large"
+          trackingLabel="homepage-hero-services"
+        />
       </div>
     </div>
 
@@ -45,7 +58,7 @@ const permalink = Astro.site.href;
           <h3>Kostenloses Erstgespräch</h3>
           <p class="duration">30 Minuten</p>
           <p>Lernen Sie mich und meine Arbeitsweise kennen. Besprechen Sie Ihr Anliegen in einem unverbindlichen Gespräch.</p>
-          <a href="/kontakt#erstgespraech" class="service-link">Mehr erfahren →</a>
+          <a href="/kontakt#erstgesprach" class="service-link">Mehr erfahren →</a>
         </div>
         
         <div class="service-card">
@@ -95,7 +108,13 @@ const permalink = Astro.site.href;
     <div class="container">
       <h2>Bereit für den ersten Schritt?</h2>
       <p>Vereinbaren Sie jetzt Ihr kostenloses Erstgespräch und lassen Sie uns gemeinsam Lösungen für Ihre Familie finden.</p>
-      <BookingCTA text="Jetzt Termin vereinbaren" href="/kontakt" variant="primary" size="large" />
+      <BookingCTA 
+        eventType="erstgesprach" 
+        lang="de" 
+        variant="primary" 
+        size="large"
+        trackingLabel="homepage-bottom-cta"
+      />
     </div>
   </section>
 </BaseLayout>
@@ -166,6 +185,9 @@ const permalink = Astro.site.href;
 
   .cta-container {
     margin-top: 2em;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
   }
 
   .hero-image-container {
@@ -324,8 +346,8 @@ const permalink = Astro.site.href;
   }
 
   @media (max-width: 1200px) {
-    p {
-      font-size: 1.2em;
+    .home-copy p {
+      font-size: 1.1em;
     }
 
     .hero-image {
@@ -342,6 +364,10 @@ const permalink = Astro.site.href;
       flex: 0;
       padding-bottom: 2em;
       text-align: center;
+    }
+
+    .cta-container {
+      justify-content: center;
     }
 
     .services-grid,

@@ -1,0 +1,310 @@
+---
+/**
+ * ContactForm Component
+ * 
+ * Alternative contact form as fallback when Cal.com is unavailable
+ * or for users who prefer direct contact.
+ */
+
+export interface Props {
+  lang?: 'de' | 'tr';
+}
+
+const { lang = 'de' } = Astro.props;
+
+const labels = {
+  de: {
+    title: 'Kontaktformular',
+    name: 'Name',
+    email: 'E-Mail',
+    phone: 'Telefon (optional)',
+    subject: 'Betreff',
+    message: 'Ihre Nachricht',
+    submit: 'Nachricht senden',
+    subjects: {
+      general: 'Allgemeine Anfrage',
+      consultation: 'Beratungsanfrage',
+      appointment: 'Terminanfrage',
+      other: 'Sonstiges'
+    }
+  },
+  tr: {
+    title: 'İletişim Formu',
+    name: 'Ad',
+    email: 'E-posta',
+    phone: 'Telefon (isteğe bağlı)',
+    subject: 'Konu',
+    message: 'Mesajınız',
+    submit: 'Mesaj Gönder',
+    subjects: {
+      general: 'Genel Soru',
+      consultation: 'Danışma Talebi',
+      appointment: 'Randevu Talebi',
+      other: 'Diğer'
+    }
+  }
+};
+
+const t = labels[lang];
+---
+
+<div class="contact-form-wrapper" data-lang={lang}>
+  <h3>{t.title}</h3>
+  <form class="contact-form" method="POST" action="/api/contact" data-form>
+    <div class="form-group">
+      <label for="name">{t.name} <span class="required">*</span></label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        required 
+        minlength="2"
+        autocomplete="name"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="email">{t.email} <span class="required">*</span></label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        required
+        autocomplete="email"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="phone">{t.phone}</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone"
+        autocomplete="tel"
+        pattern="[0-9+\s\-()]+"
+        title={lang === 'de' ? 'Bitte geben Sie eine gültige Telefonnummer ein' : 'Lütfen geçerli bir telefon numarası girin'}
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="subject">{t.subject} <span class="required">*</span></label>
+      <select id="subject" name="subject" required>
+        <option value="">{lang === 'de' ? 'Bitte wählen' : 'Lütfen seçin'}</option>
+        <option value="general">{t.subjects.general}</option>
+        <option value="consultation">{t.subjects.consultation}</option>
+        <option value="appointment">{t.subjects.appointment}</option>
+        <option value="other">{t.subjects.other}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">{t.message} <span class="required">*</span></label>
+      <textarea 
+        id="message" 
+        name="message" 
+        rows="6" 
+        required
+        minlength="10"
+      ></textarea>
+    </div>
+
+    <div class="form-status" style="display: none;" role="status" aria-live="polite"></div>
+
+    <button type="submit" class="submit-button">
+      <span class="button-text">{t.submit}</span>
+      <span class="button-loader" style="display: none;">
+        <span class="spinner-small"></span>
+      </span>
+    </button>
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('[data-form]');
+    
+    forms.forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const button = form.querySelector('button[type="submit"]');
+        const buttonText = button?.querySelector('.button-text');
+        const buttonLoader = button?.querySelector('.button-loader');
+        const statusDiv = form.querySelector('.form-status');
+        
+        if (!button || !buttonText || !buttonLoader || !statusDiv) return;
+        
+        // Show loading state
+        buttonText.style.display = 'none';
+        buttonLoader.style.display = 'inline-block';
+        button.disabled = true;
+        statusDiv.style.display = 'none';
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        try {
+          // For demo purposes, we'll simulate a successful submission
+          // In production, this would send to an actual API endpoint
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          // Success
+          statusDiv.style.display = 'block';
+          statusDiv.className = 'form-status form-status-success';
+          statusDiv.setAttribute('role', 'status');
+          statusDiv.setAttribute('aria-live', 'polite');
+          statusDiv.textContent = form.closest('[data-lang]')?.getAttribute('data-lang') === 'tr' 
+            ? 'Mesajınız başarıyla gönderildi! En kısa sürede size geri dönüş yapacağız.'
+            : 'Ihre Nachricht wurde erfolgreich gesendet! Wir melden uns in Kürze bei Ihnen.';
+          
+          // Reset form
+          form.reset();
+          
+        } catch (error) {
+          // Error
+          statusDiv.style.display = 'block';
+          statusDiv.className = 'form-status form-status-error';
+          statusDiv.setAttribute('role', 'alert');
+          statusDiv.setAttribute('aria-live', 'assertive');
+          statusDiv.textContent = form.closest('[data-lang]')?.getAttribute('data-lang') === 'tr'
+            ? 'Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin veya doğrudan e-posta gönderin.'
+            : 'Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder senden Sie uns direkt eine E-Mail.';
+        } finally {
+          // Reset button state
+          buttonText.style.display = 'inline';
+          buttonLoader.style.display = 'none';
+          button.disabled = false;
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .contact-form-wrapper {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 2em;
+    background: var(--background-body);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+  }
+
+  .contact-form-wrapper h3 {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    color: var(--text-main);
+    font-size: 1.5em;
+  }
+
+  .form-group {
+    margin-bottom: 1.5em;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .required {
+    color: #e74c3c;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75em;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: var(--font-family-sans);
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 1em 2em;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-family-sans);
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .submit-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .button-loader {
+    display: inline-block;
+  }
+
+  .spinner-small {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-left-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .form-status {
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 6px;
+    font-family: var(--font-family-sans);
+  }
+
+  .form-status-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  .form-status-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  @media (max-width: 768px) {
+    .contact-form-wrapper {
+      padding: 1.5em;
+    }
+  }
+</style>

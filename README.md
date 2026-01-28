@@ -106,67 +106,267 @@ In your Cloudflare Pages dashboard, use:
 
 ## 📅 Cal.com Booking System
 
+### Overview
+
+This website uses Cal.com (EU server: https://cal.eu) for appointment scheduling. The main booking page is available at: https://www.cal.eu/elternherz
+
+The integration provides:
+- Multiple appointment types with different durations and pricing
+- Support for both German and Turkish languages
+- Inline booking widgets on contact pages
+- Booking CTAs throughout the site
+- Alternative contact form as fallback
+
 ### Configuration
 
-This website integrates Cal.com (EU server) for appointment scheduling. To set up:
+#### 1. Create a Cal.com Account
 
-1. **Create a Cal.com account** at https://cal.eu
-2. **Create event types** in your Cal.com dashboard:
-   - `erstgespraech` - 30 minutes, Free (Initial Consultation)
-   - `einzelberatung` - 60 minutes, 75€ (Individual Counseling)
-   - `paarberatung` - 90 minutes, 110€ (Couples Counseling)
+1. Go to https://cal.eu (EU server)
+2. Sign up with your business email
+3. Complete your profile setup
+4. Set your availability schedule
+5. Configure timezone preferences (Europe/Berlin recommended)
+6. Set up notification preferences
 
-3. **Configure environment variables** (optional):
-   ```bash
-   PUBLIC_CALCOM_USERNAME=elternherz
-   PUBLIC_CALCOM_URL=https://cal.eu
-   ```
+#### 2. Create Event Types
+
+Create the following event types in your Cal.com dashboard:
+
+**Event Type 1: Kostenlose Erstberatung / Ücretsiz İlk Danışma**
+- **Slug**: `erstgesprach`
+- **URL**: https://www.cal.eu/elternherz/erstgesprach
+- **Duration**: 30 minutes
+- **Price**: Free
+- **Description (DE)**: Lernen Sie mich und meine Arbeitsweise kennen. In diesem unverbindlichen Gespräch können wir Ihr Anliegen besprechen und gemeinsam herausfinden, wie ich Sie am besten unterstützen kann.
+- **Description (TR)**: Beni ve çalışma şeklimi tanıyın. Bu bağlayıcı olmayan görüşmede konunuzu tartışabilir ve size en iyi şekilde nasıl destek olabileceğimi birlikte keşfedebiliriz.
+
+**Event Type 2: Einzelberatung / Bireysel Danışma**
+- **Slug**: `einzelberatung`
+- **URL**: https://www.cal.eu/elternherz/einzelberatung
+- **Duration**: 60 minutes
+- **Price**: 75€
+- **Description (DE)**: Intensive Einzelberatung für Eltern, die sich eine tiefgehende Auseinandersetzung mit ihrem Thema wünschen.
+- **Description (TR)**: Konularıyla derinlemesine ilgilenmek isteyen ebeveynler için yoğun bireysel danışmanlık.
+
+**Event Type 3: Paarberatung / Çift Danışması**
+- **Slug**: `paarberatung`
+- **URL**: https://www.cal.eu/elternherz/paarberatung
+- **Duration**: 90 minutes
+- **Price**: 110€
+- **Description (DE)**: Beratung für beide Elternteile gemeinsam. Besonders geeignet, wenn Sie als Paar unterschiedliche Vorstellungen in Erziehungsfragen haben.
+- **Description (TR)**: Her iki ebeveyn için birlikte danışmanlık. Özellikle ebeveynlik konularında farklı fikirlere sahipseniz uygundur.
+
+**Event Type 4: Folgetermin / Takip Randevusu**
+- **Slug**: `folgetermin`
+- **URL**: https://www.cal.eu/elternherz/folgetermin
+- **Duration**: 45 minutes
+- **Price**: 60€
+- **Description (DE)**: Aufbauende Beratung für bestehende Klienten. Nachbesprechung, Reflexion und Anpassung der Strategien.
+- **Description (TR)**: Mevcut müşteriler için devam danışmanlığı. Değerlendirme, yansıtma ve stratejilerin uyarlanması.
+
+#### 3. Configure Environment Variables
+
+Create a `.env` file in the project root (or configure in your deployment platform):
+
+```bash
+PUBLIC_CALCOM_USERNAME=elternherz
+PUBLIC_CALCOM_URL=https://cal.eu
+```
+
+**Note**: These are optional. The components have sensible defaults, but you can override them via environment variables.
+
+### Components
+
+#### CalComWidget Component
+
+Legacy component, still functional. Located at `src/components/CalComWidget.astro`.
+
+**Usage:**
+```astro
+<CalComWidget calLink="elternherz/erstgesprach" locale="de" />
+```
+
+#### BookingWidget Component
+
+New, flexible component as per project specifications. Located at `src/components/BookingWidget.astro`.
+
+**Props:**
+- `eventType` (optional): Event slug (default: 'erstgesprach')
+- `lang` (optional): Language 'de' or 'tr' (default: 'de')
+
+**Usage:**
+```astro
+<BookingWidget eventType="erstgesprach" lang="de" />
+<BookingWidget eventType="einzelberatung" lang="tr" />
+```
+
+#### BookingCTA Component
+
+Enhanced call-to-action button with event type support and tracking. Located at `src/components/BookingCTA.astro`.
+
+**Props:**
+- `text` (optional): Button text (auto-generated based on eventType and lang if not provided)
+- `href` (optional): Link destination (default: '/kontakt')
+- `variant` (optional): 'primary' or 'secondary' (default: 'primary')
+- `size` (optional): 'small', 'medium', or 'large' (default: 'medium')
+- `eventType` (optional): 'erstgesprach', 'einzelberatung', 'paarberatung', or 'folgetermin'
+- `lang` (optional): 'de' or 'tr' (default: 'de')
+- `trackingLabel` (optional): Label for analytics tracking
+
+**Usage:**
+```astro
+<!-- Auto-generated text based on event type and language -->
+<BookingCTA eventType="erstgesprach" lang="de" variant="primary" size="large" />
+
+<!-- Custom text -->
+<BookingCTA text="Jetzt buchen" href="/kontakt" variant="secondary" />
+
+<!-- With tracking -->
+<BookingCTA 
+  eventType="einzelberatung" 
+  lang="de" 
+  trackingLabel="homepage-hero-cta" 
+/>
+```
+
+#### ContactForm Component
+
+Alternative contact form as fallback. Located at `src/components/ContactForm.astro`.
+
+**Props:**
+- `lang` (optional): 'de' or 'tr' (default: 'de')
+
+**Usage:**
+```astro
+<ContactForm lang="de" />
+<ContactForm lang="tr" />
+```
 
 ### Booking Pages
 
-The booking system is available in two languages:
-- **German**: `/kontakt` - Full booking page with all appointment types
-- **Turkish**: `/tr/iletisim` - Turkish translation of booking page
-
-### Adding New Appointment Types
-
-To add a new appointment type:
-
-1. Create the event in your Cal.com dashboard
-2. Add a new appointment card in `src/pages/kontakt.astro`:
-   ```astro
-   <div class="appointment-card">
-     <div class="card-header">
-       <h3>Your Appointment Type</h3>
-       <div class="card-meta">
-         <span class="duration">Duration</span>
-         <span class="price">Price</span>
-       </div>
-     </div>
-     <div class="card-body">
-       <p>Description...</p>
-     </div>
-     <CalComWidget calLink="elternherz/your-event-type" locale="de" />
-   </div>
-   ```
-3. Add the same to `src/pages/tr/iletisim.astro` with Turkish translations
-
-### Customizing the Widget
-
-The CalComWidget component (`src/components/CalComWidget.astro`) accepts:
-- `calLink` (required): Your Cal.com event link (e.g., "elternherz/erstgespraech")
-- `locale` (optional): "de" or "tr" for language-specific loading messages
-
-To customize appearance, edit the CSS in `CalComWidget.astro` or adjust the `config` object in the component.
+The booking system is integrated on:
+- **German Contact Page**: `/kontakt` - All 4 appointment types with inline widgets
+- **Turkish Contact Page**: `/tr/iletisim` - Turkish translations of all appointment types
+- **Homepage**: Booking CTAs in hero section
+- **About Page**: Booking CTAs at bottom
 
 ### Testing Bookings
 
-1. Start the development server: `npm run dev`
-2. Navigate to http://localhost:4321/kontakt
-3. Test the booking flow (Cal.com provides a test mode)
-4. Verify email confirmations are sent correctly
+1. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
 
-**Note**: The Cal.com embed script will show loading placeholders in development. The actual booking calendar will only appear when the Cal.com script successfully loads.
+2. **Navigate to Booking Page**: http://localhost:4321/kontakt
+
+3. **Test Booking Flow**:
+   - Select an appointment type
+   - Choose a date and time
+   - Fill in contact details
+   - Verify email confirmation
+
+4. **Test Turkish Version**: http://localhost:4321/tr/iletisim
+
+5. **Test Responsive Design**: Resize browser or use device emulation
+
+6. **Test Alternative Contact Form**: Scroll to "Alternative Kontaktmöglichkeiten" section
+
+### Customizing Appearance
+
+#### Widget Appearance
+
+Edit `src/components/BookingWidget.astro` or `src/components/CalComWidget.astro`:
+
+```javascript
+data-cal-config={JSON.stringify({ 
+  theme: 'light',  // or 'dark'
+  layout: 'month_view'  // or 'week_view', 'day_view'
+})}
+```
+
+#### CTA Button Colors
+
+Edit `src/components/BookingCTA.astro` styles:
+
+```css
+.booking-cta-primary {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.booking-cta-secondary {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+```
+
+### Troubleshooting
+
+#### Widget Not Loading
+
+1. Check browser console for errors
+2. Verify Cal.com is accessible: https://cal.eu
+3. Check event type slugs match your Cal.com configuration
+4. Ensure JavaScript is enabled
+
+#### Incorrect Language Display
+
+- Language is determined by the `locale` prop on `CalComWidget` or `lang` prop on `BookingWidget`
+- For German page: `locale="de"` or `lang="de"`
+- For Turkish page: `locale="tr"` or `lang="tr"`
+
+#### Missing Appointment Types
+
+1. Log into Cal.com dashboard
+2. Navigate to Event Types
+3. Create missing event types with correct slugs
+4. Ensure events are set to "Active"
+
+### Advanced Features
+
+#### API Integration (Optional)
+
+For advanced integrations, you can use the Cal.com API:
+
+1. Generate an API key in Cal.com dashboard
+2. Add to `.env`:
+   ```bash
+   CAL_COM_API_KEY=your_api_key_here
+   ```
+3. Use for programmatic booking management, availability checking, etc.
+
+#### Calendar Integration
+
+Cal.com integrates with:
+- Google Calendar
+- Outlook Calendar
+- Apple Calendar
+- CalDAV
+
+Configure in Cal.com dashboard under "Integrations".
+
+#### Payment Processing (Optional)
+
+For paid appointments, Cal.com supports:
+- Stripe
+- PayPal
+- And other payment processors
+
+Configure in Cal.com dashboard under "Apps & Integrations".
+
+### Privacy & GDPR Compliance
+
+Cal.com is GDPR-compliant and hosted in the EU (cal.eu). Key features:
+- Data stored in EU servers
+- GDPR-compliant data processing
+- Privacy policy included in booking flow
+- User consent management
+- Right to data deletion
+
+### Support & Documentation
+
+- **Cal.com Documentation**: https://cal.com/docs
+- **Cal.com Embed Guide**: https://cal.com/docs/integrations/embed
+- **Cal.com Support**: https://cal.com/support
+- **Component Documentation**: See inline comments in component files
 
 ## 👀 Want to learn more?
 
