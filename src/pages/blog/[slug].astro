@@ -15,11 +15,19 @@ export async function getStaticPaths() {
 const { post } = Astro.props
 const { title, slug, description, publishDate } = post.data;
 const readingTimeEstimate = readingTime(post.body).text
-const permalink = `${Astro.site.href}blog/${slug}`;
+const permalink = `${Astro.site?.href || 'https://elternherz.de/'}blog/${slug}`;
 const { Content } = await render(post)
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="blog">
+<BaseLayout 
+  title={title} 
+  description={description} 
+  permalink={permalink} 
+  current="blog"
+  lang="de"
+  ogType="article"
+  publishedTime={new Date(publishDate).toISOString()}
+>
   <header>
     <p>{publishDate} ~ {readingTimeEstimate}</p>
     <h1>{title}</h1>

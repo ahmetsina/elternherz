@@ -3,12 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CalComWidget from '../../components/CalComWidget.astro';
 import BookingCTA from '../../components/BookingCTA.astro';
 
-const title = 'Randevu Al | ElternHerz';
-const description = 'Profesyonel ebeveyn danışmanlığı için randevu alın. Ücretsiz ilk görüşme, bireysel danışmanlık ve çift danışmanlığı mevcuttur.';
-const permalink = `${Astro.site.href}tr/iletisim`;
+const title = 'Randevu Al | Elternherz - Profesyonel Ebeveyn Danışmanlığı';
+const description = 'Profesyonel ebeveyn danışmanlığı için şimdi randevu alın. Ücretsiz ilk görüşme, bireysel ve çift danışmanlığı. Online randevular mevcut.';
+const permalink = `${Astro.site?.href || 'https://elternherz.de/'}tr/iletisim`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="iletisim">
+<BaseLayout title={title} description={description} permalink={permalink} current="iletisim" lang="tr">
   <div class="booking-page">
     <div class="container">
       <h1>Randevu Al</h1>

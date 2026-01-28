@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import StructuredData from '../components/StructuredData.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -8,12 +9,53 @@ export interface Props {
   description: string;
   permalink: string;
   current?: string;
+  lang?: 'de' | 'tr';
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  publishedTime?: string;
+  structuredDataType?: 'website' | 'article' | 'service';
+  serviceName?: string;
+  serviceDescription?: string;
+  servicePrice?: string;
 }
-const { title, description, permalink, current } = Astro.props;
+
+const { 
+  title, 
+  description, 
+  permalink, 
+  current,
+  lang = 'de',
+  ogType,
+  ogImage,
+  publishedTime,
+  structuredDataType = 'website',
+  serviceName,
+  serviceDescription,
+  servicePrice
+} = Astro.props;
 ---
-<html lang="en">
+<html lang={lang}>
 <head>
-  <BaseHead title={title} description={description} permalink={permalink} />
+  <BaseHead 
+    title={title} 
+    description={description} 
+    permalink={permalink} 
+    lang={lang}
+    ogType={ogType}
+    ogImage={ogImage}
+    publishedTime={publishedTime}
+  />
+  <StructuredData 
+    type={structuredDataType}
+    lang={lang}
+    pageTitle={title}
+    pageDescription={description}
+    pageUrl={permalink}
+    articlePublishDate={publishedTime}
+    serviceName={serviceName}
+    serviceDescription={serviceDescription}
+    servicePrice={servicePrice}
+  />
 </head>
 <body>
   <div class="layout">

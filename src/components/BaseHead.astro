@@ -7,35 +7,70 @@ export interface Props {
   title: string
   description: string
   permalink: string
+  ogType?: 'website' | 'article'
+  ogImage?: string
+  publishedTime?: string
+  lang?: 'de' | 'tr'
 }
 
-const { title, description, permalink } = Astro.props
-const socialUrl = Astro.site.href + 'assets/social.png'
+const { 
+  title, 
+  description, 
+  permalink,
+  ogType = 'website',
+  ogImage,
+  publishedTime,
+  lang = 'de'
+} = Astro.props
+
+const socialUrl = ogImage || (Astro.site?.href || '') + 'assets/social.png'
+const canonicalUrl = permalink
+const alternateLang = lang === 'de' ? 'tr' : 'de'
+const alternateUrl = lang === 'de' 
+  ? permalink.replace(Astro.site?.href || '', (Astro.site?.href || '') + 'tr/')
+  : permalink.replace('/tr/', '/')
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Language alternates -->
+<link rel="alternate" hreflang={lang} href={canonicalUrl} />
+<link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
+<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content="Elternherz" />
+<meta name="robots" content="index, follow" />
+<meta name="language" content={lang === 'de' ? 'German' : 'Turkish'} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={permalink} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialUrl} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Elternherz" />
+<meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'tr_TR'} />
+<meta property="og:locale:alternate" content={alternateLang === 'de' ? 'de_DE' : 'tr_TR'} />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={permalink} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={socialUrl} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialUrl} />
+<meta name="twitter:image:alt" content={title} />
 
 <ClientRouter />
 

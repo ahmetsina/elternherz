@@ -3,12 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CalComWidget from '../components/CalComWidget.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 
-const title = 'Termin vereinbaren | ElternHerz';
-const description = 'Buchen Sie jetzt Ihren Termin für eine professionelle Elternberatung. Kostenlose Erstgespräche, Einzelberatung und Paarberatung verfügbar.';
-const permalink = `${Astro.site.href}kontakt`;
+const title = 'Termin vereinbaren | Elternherz - Professionelle Elternberatung';
+const description = 'Buchen Sie jetzt Ihren Termin für professionelle Elternberatung. Kostenlose Erstgespräche, Einzelberatung und Paarberatung. Termine online verfügbar.';
+const permalink = `${Astro.site?.href || 'https://elternherz.de/'}kontakt`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="kontakt">
+<BaseLayout title={title} description={description} permalink={permalink} current="kontakt" lang="de">
   <div class="booking-page">
     <div class="container">
       <h1>Termin vereinbaren</h1>
