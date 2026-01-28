@@ -376,20 +376,166 @@ const alternateUrl = `${Astro.site.href}tr/iletisim/`;
   }
 
   @media (max-width: 768px) {
+    .intro-section {
+      margin: 1.5em 0 2em 0;
+    }
+
+    .lead {
+      font-size: 1.3em;
+    }
+
+    .appointment-types {
+      gap: 2em;
+      margin: 2em 0;
+    }
+
     .card-header {
       padding: 1.5em;
+    }
+
+    .card-header h3 {
+      font-size: 1.5em;
     }
 
     .card-body {
       padding: 1.5em;
     }
 
+    .card-meta {
+      gap: 1em;
+    }
+
+    .duration,
+    .price {
+      padding: 0.4em 0.8em;
+      font-size: 1em;
+    }
+
+    .benefits-list li {
+      font-size: 1em;
+    }
+
     .contact-methods {
       grid-template-columns: 1fr;
+      gap: 1.5em;
+    }
+
+    .alternative-contact {
+      padding: 1.5em;
+      margin: 3em 0;
+    }
+
+    .faq-section {
+      margin: 3em 0;
+    }
+
+    .faq-item {
+      margin: 1.5em 0;
+      padding-bottom: 1.5em;
+    }
+
+    .cta-bottom {
+      padding: 2em 1.5em;
+      margin: 3em 0;
+    }
+
+    .cta-bottom p {
+      font-size: 1.2em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .intro-section {
+      margin: 1em 0 1.5em 0;
     }
 
     .lead {
+      font-size: 1.1em;
+    }
+
+    .appointment-types {
+      gap: 1.5em;
+      margin: 1.5em 0;
+    }
+
+    .appointment-card {
+      border-radius: 8px;
+    }
+
+    .card-header {
+      padding: 1em;
+    }
+
+    .card-header h3 {
       font-size: 1.3em;
+      margin-bottom: 0.75em;
+    }
+
+    .card-body {
+      padding: 1em;
+    }
+
+    .card-body p {
+      font-size: 0.95em;
+    }
+
+    .card-meta {
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    .duration,
+    .price {
+      display: inline-block;
+      padding: 0.3em 0.7em;
+      font-size: 0.9em;
+    }
+
+    .benefits-list li {
+      font-size: 0.9em;
+      padding-left: 1.2em;
+    }
+
+    .alternative-contact {
+      padding: 1em;
+      margin: 2em 0;
+      border-radius: 8px;
+    }
+
+    .contact-methods {
+      gap: 1em;
+    }
+
+    .contact-method p {
+      font-size: 1em;
+    }
+
+    .faq-section {
+      margin: 2em 0;
+    }
+
+    .faq-item {
+      margin: 1em 0;
+      padding-bottom: 1em;
+    }
+
+    .faq-item h3 {
+      font-size: 1.1em;
+    }
+
+    .faq-item p {
+      font-size: 0.95em;
+    }
+
+    .cta-bottom {
+      padding: 1.5em 1em;
+      margin: 2em 0;
+      border-radius: 8px;
+    }
+
+    .cta-bottom p {
+      font-size: 1.1em;
+      margin-bottom: 1em;
     }
   }
 </style>

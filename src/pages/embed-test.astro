@@ -69,11 +69,13 @@ const permalink = `${Astro.site.href}embed-test/`;
   .test-section h2 {
     margin-top: 0;
     color: #2c3e50;
+    font-size: 1.8em;
   }
 
   .test-section p {
     color: #555;
     margin-bottom: 1.5em;
+    font-size: 1.1em;
   }
 
   .docs {
@@ -108,6 +110,7 @@ const permalink = `${Astro.site.href}embed-test/`;
 
   .docs code {
     font-family: 'Courier New', monospace;
+    font-size: 0.9em;
   }
 
   .docs ul {
@@ -125,5 +128,67 @@ const permalink = `${Astro.site.href}embed-test/`;
 
   .docs a:hover {
     text-decoration: underline;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .test-page {
+      padding: 1em 0;
+    }
+
+    .container {
+      padding: 0 0.5em;
+    }
+
+    .test-section {
+      margin: 2em 0;
+      padding: 1.5em;
+    }
+
+    .test-section h2 {
+      font-size: 1.5em;
+    }
+
+    .test-section p {
+      font-size: 1em;
+    }
+
+    .docs {
+      padding: 1.5em;
+    }
+
+    .docs pre {
+      padding: 0.75em;
+      font-size: 0.85em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .test-section {
+      margin: 1.5em 0;
+      padding: 1em;
+      border-radius: 6px;
+    }
+
+    .test-section h2 {
+      font-size: 1.3em;
+    }
+
+    .docs {
+      padding: 1em;
+    }
+
+    .docs h3 {
+      font-size: 1.2em;
+    }
+
+    .docs h4 {
+      font-size: 1.1em;
+    }
+
+    .docs pre {
+      padding: 0.5em;
+      font-size: 0.8em;
+    }
   }
 </style>

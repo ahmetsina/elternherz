@@ -193,20 +193,54 @@ const errorText = {
     .booking-widget-wrapper {
       min-height: 700px;
       margin: 1em 0;
+      max-width: 100%;
     }
 
     .booking-widget-embed {
       min-height: 700px;
+    }
+
+    .booking-widget-loading p {
+      font-size: 0.95em;
+      padding: 0 1em;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border-width: 3px;
+    }
+
+    .booking-widget-error {
+      padding: 1.5em;
+      font-size: 0.95em;
     }
   }
 
   @media (max-width: 480px) {
     .booking-widget-wrapper {
       min-height: 800px;
+      margin: 0.5em 0;
     }
 
     .booking-widget-embed {
       min-height: 800px;
+    }
+
+    .booking-widget-loading p {
+      font-size: 0.9em;
+      padding: 0 0.5em;
+    }
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border-width: 3px;
+    }
+
+    .booking-widget-error {
+      padding: 1em;
+      font-size: 0.9em;
     }
   }
 </style>
