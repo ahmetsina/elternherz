@@ -108,7 +108,9 @@ In your Cloudflare Pages dashboard, use:
 
 ### Overview
 
-This website uses Cal.com (EU server: https://cal.eu) for appointment scheduling. The integration provides:
+This website uses Cal.com (EU server: https://cal.eu) for appointment scheduling. The main booking page is available at: https://www.cal.eu/elternherz
+
+The integration provides:
 - Multiple appointment types with different durations and pricing
 - Support for both German and Turkish languages
 - Inline booking widgets on contact pages
@@ -131,7 +133,8 @@ This website uses Cal.com (EU server: https://cal.eu) for appointment scheduling
 Create the following event types in your Cal.com dashboard:
 
 **Event Type 1: Kostenlose Erstberatung / Ücretsiz İlk Danışma**
-- **Slug**: `erstgespraech`
+- **Slug**: `erstgesprach`
+- **URL**: https://www.cal.eu/elternherz/erstgesprach
 - **Duration**: 30 minutes
 - **Price**: Free
 - **Description (DE)**: Lernen Sie mich und meine Arbeitsweise kennen. In diesem unverbindlichen Gespräch können wir Ihr Anliegen besprechen und gemeinsam herausfinden, wie ich Sie am besten unterstützen kann.
@@ -139,6 +142,7 @@ Create the following event types in your Cal.com dashboard:
 
 **Event Type 2: Einzelberatung / Bireysel Danışma**
 - **Slug**: `einzelberatung`
+- **URL**: https://www.cal.eu/elternherz/einzelberatung
 - **Duration**: 60 minutes
 - **Price**: 75€
 - **Description (DE)**: Intensive Einzelberatung für Eltern, die sich eine tiefgehende Auseinandersetzung mit ihrem Thema wünschen.
@@ -146,6 +150,7 @@ Create the following event types in your Cal.com dashboard:
 
 **Event Type 3: Paarberatung / Çift Danışması**
 - **Slug**: `paarberatung`
+- **URL**: https://www.cal.eu/elternherz/paarberatung
 - **Duration**: 90 minutes
 - **Price**: 110€
 - **Description (DE)**: Beratung für beide Elternteile gemeinsam. Besonders geeignet, wenn Sie als Paar unterschiedliche Vorstellungen in Erziehungsfragen haben.
@@ -153,6 +158,7 @@ Create the following event types in your Cal.com dashboard:
 
 **Event Type 4: Folgetermin / Takip Randevusu**
 - **Slug**: `folgetermin`
+- **URL**: https://www.cal.eu/elternherz/folgetermin
 - **Duration**: 45 minutes
 - **Price**: 60€
 - **Description (DE)**: Aufbauende Beratung für bestehende Klienten. Nachbesprechung, Reflexion und Anpassung der Strategien.
@@ -177,7 +183,7 @@ Legacy component, still functional. Located at `src/components/CalComWidget.astr
 
 **Usage:**
 ```astro
-<CalComWidget calLink="elternherz/erstgespraech" locale="de" />
+<CalComWidget calLink="elternherz/erstgesprach" locale="de" />
 ```
 
 #### BookingWidget Component
@@ -185,12 +191,12 @@ Legacy component, still functional. Located at `src/components/CalComWidget.astr
 New, flexible component as per project specifications. Located at `src/components/BookingWidget.astro`.
 
 **Props:**
-- `eventType` (optional): Event slug (default: 'erstgespraech')
+- `eventType` (optional): Event slug (default: 'erstgesprach')
 - `lang` (optional): Language 'de' or 'tr' (default: 'de')
 
 **Usage:**
 ```astro
-<BookingWidget eventType="erstgespraech" lang="de" />
+<BookingWidget eventType="erstgesprach" lang="de" />
 <BookingWidget eventType="einzelberatung" lang="tr" />
 ```
 
@@ -203,14 +209,14 @@ Enhanced call-to-action button with event type support and tracking. Located at 
 - `href` (optional): Link destination (default: '/kontakt')
 - `variant` (optional): 'primary' or 'secondary' (default: 'primary')
 - `size` (optional): 'small', 'medium', or 'large' (default: 'medium')
-- `eventType` (optional): 'erstgespraech', 'einzelberatung', 'paarberatung', or 'folgetermin'
+- `eventType` (optional): 'erstgesprach', 'einzelberatung', 'paarberatung', or 'folgetermin'
 - `lang` (optional): 'de' or 'tr' (default: 'de')
 - `trackingLabel` (optional): Label for analytics tracking
 
 **Usage:**
 ```astro
 <!-- Auto-generated text based on event type and language -->
-<BookingCTA eventType="erstgespraech" lang="de" variant="primary" size="large" />
+<BookingCTA eventType="erstgesprach" lang="de" variant="primary" size="large" />
 
 <!-- Custom text -->
 <BookingCTA text="Jetzt buchen" href="/kontakt" variant="secondary" />

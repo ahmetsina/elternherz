@@ -11,7 +11,7 @@ export interface Props {
   href?: string;
   variant?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
-  eventType?: 'erstgespraech' | 'einzelberatung' | 'paarberatung' | 'folgetermin';
+  eventType?: 'erstgesprach' | 'einzelberatung' | 'paarberatung' | 'folgetermin';
   lang?: 'de' | 'tr';
   trackingLabel?: string;
 }
@@ -32,7 +32,7 @@ const defaultText = () => {
   
   if (eventType) {
     const eventTexts = {
-      erstgespraech: { de: 'Erstgespräch buchen', tr: 'İlk Görüşme Al' },
+      erstgesprach: { de: 'Erstgespräch buchen', tr: 'İlk Görüşme Al' },
       einzelberatung: { de: 'Einzelberatung buchen', tr: 'Bireysel Danışma Al' },
       paarberatung: { de: 'Paarberatung buchen', tr: 'Çift Danışması Al' },
       folgetermin: { de: 'Folgetermin buchen', tr: 'Takip Randevusu Al' }

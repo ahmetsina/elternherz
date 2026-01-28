@@ -11,7 +11,7 @@ export interface Props {
   lang?: 'de' | 'tr';
 }
 
-const { eventType = 'erstgespraech', lang = 'de' } = Astro.props;
+const { eventType = 'erstgesprach', lang = 'de' } = Astro.props;
 
 // Construct the Cal.com link
 const calComUsername = import.meta.env.PUBLIC_CALCOM_USERNAME || 'elternherz';
