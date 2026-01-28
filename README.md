@@ -415,41 +415,6 @@ Cal.com is GDPR-compliant and hosted in the EU (cal.eu). Key features:
 - **Cal.com Support**: https://cal.com/support
 - **Component Documentation**: See inline comments in component files
 
-## 📄 Legal Pages & Compliance
-
-The website includes legally required pages for German/Turkish websites:
-
-### German Pages
-- **Datenschutzerklärung** (Privacy Policy): `/datenschutz`
-- **Impressum** (Legal Notice): `/impressum`
-
-### Turkish Pages
-- **Gizlilik Politikası** (Privacy Policy): `/tr/gizlilik-politikasi`
-- **Yasal Bildirim** (Legal Notice): `/tr/yasal-bildirim`
-
-⚠️ **Important**: Before going live, replace all placeholder text `[in square brackets]` with actual information. We recommend having these pages reviewed by a legal professional to ensure compliance with GDPR and German law (TMG).
-
-## 🗺️ SEO & Sitemap
-
-The website is configured with:
-- ✅ **Automatic sitemap generation** via `@astrojs/sitemap`
-- ✅ **Sitemap accessible at**: `/sitemap-index.xml`
-- ✅ **Robots.txt** configured in `public/robots.txt`
-- ✅ **Multi-language support** with proper hreflang tags
-
-Site URL is configured as `https://elternherz.de` in `astro.config.mjs`. Update this before deployment if using a different domain.
-
-## 🚀 Production Readiness
-
-This website is production-ready with:
-- Legal compliance pages (Privacy Policy, Impressum)
-- Sitemap configuration for search engines
-- Multi-language support (German/Turkish)
-- Cal.com booking integration
-- SSL/HTTPS ready
-- Optimized build configuration
-- Mobile-responsive design
-
 ## 👀 Want to learn more?
 
 Feel free to check [Astro's documentation](https://github.com/withastro/astro) or jump into Astro's [Discord server](https://astro.build/chat).

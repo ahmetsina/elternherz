@@ -10,19 +10,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 export default defineConfig({
   site: 'https://elternherz.de',
   trailingSlash: 'always',
-  integrations: [
-    mdx(), 
-    svelte(),
-    sitemap({
-      i18n: {
-        defaultLocale: 'de',
-        locales: {
-          de: 'de-DE',
-          tr: 'tr-TR',
-        },
-      },
-    }),
-  ],
+  integrations: [mdx(), svelte()],
   i18n: {
     defaultLocale: 'de',
     locales: ['de', 'tr'],
