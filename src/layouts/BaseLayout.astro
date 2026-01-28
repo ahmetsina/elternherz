@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import StructuredData from '../components/StructuredData.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLangFromUrl } from '../i18n/ui';
@@ -10,17 +11,56 @@ export interface Props {
   permalink: string;
   current?: string;
   locale?: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  publishedTime?: string;
+  structuredDataType?: 'website' | 'article' | 'service';
+  serviceName?: string;
+  serviceDescription?: string;
+  servicePrice?: string;
+  alternateUrl?: string;  // Allow passing explicit alternate URL
 }
-const { title, description, permalink, current, locale } = Astro.props;
-const lang = locale || getLangFromUrl(Astro.url);
+
+const { 
+  title, 
+  description, 
+  permalink, 
+  current,
+  locale,
+  ogType,
+  ogImage,
+  publishedTime,
+  structuredDataType = 'website',
+  serviceName,
+  serviceDescription,
+  servicePrice,
+  alternateUrl
+} = Astro.props;
+const lang = (locale || getLangFromUrl(Astro.url)) as 'de' | 'tr';
 ---
 <html lang={lang}>
 <head>
-  <BaseHead title={title} description={description} permalink={permalink} />
-  {/* hreflang tags for SEO */}
-  <link rel="alternate" hreflang="de" href={permalink.replace('/tr/', '/')} />
-  <link rel="alternate" hreflang="tr" href={permalink.includes('/tr/') ? permalink : permalink.replace(Astro.site?.href || '', `${Astro.site?.href}tr/`)} />
-  <link rel="alternate" hreflang="x-default" href={permalink.replace('/tr/', '/')} />
+  <BaseHead 
+    title={title} 
+    description={description} 
+    permalink={permalink} 
+    lang={lang}
+    ogType={ogType}
+    ogImage={ogImage}
+    publishedTime={publishedTime}
+    alternateUrl={alternateUrl}
+  />
+  <StructuredData 
+    type={structuredDataType}
+    lang={lang}
+    pageTitle={title}
+    pageDescription={description}
+    pageUrl={permalink}
+    articlePublishDate={publishedTime}
+    serviceName={serviceName}
+    serviceDescription={serviceDescription}
+    servicePrice={servicePrice}
+  />
 </head>
 <body>
   <div class="layout">

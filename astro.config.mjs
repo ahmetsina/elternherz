@@ -8,6 +8,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://elternherz.de',
+  trailingSlash: 'always',
   integrations: [mdx(), svelte()],
   i18n: {
     defaultLocale: 'de',
