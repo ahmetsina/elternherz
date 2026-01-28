@@ -2,70 +2,421 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 
-const title = 'About';
-const description = 'About your blog.';
-const permalink = `${Astro.site.href}about`;
+const title = 'Leistungen | Elternherz';
+const description = 'Professionelle Elternberatung mit individuellen Lösungen. Einzelberatung, Paarberatung und kostenlose Erstgespräche für Familien.';
+const permalink = `${Astro.site.href}leistungen`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="about">
+<BaseLayout title={title} description={description} permalink={permalink} current="leistungen">
   <div class="container">
-    <h1>About</h1>
-    <figure class="about-image">
-      <img src="/assets/about-illustration.webp" alt="Illustration of a notebook" width="330">
-      <figcaption>
-        Illustration by
-        <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6" target="_blank" rel="noopener">Icons 8</a>
-        from
-        <a href="https://icons8.com/illustrations" target="_blank" rel="noopener">Ouch!</a>
-      </figcaption>
-    </figure>
-    <p>Text placeholder via <a href="https://jeffsum.com/" target="_blank">Jeffsum</a>.</p>
-    <p>So you two dig up, dig up dinosaurs? What do they got in there? King Kong? My dad once told me, laugh and the world laughs with you, Cry, and I'll give you something to cry about you little bastard! Life finds a way. God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs.</p>
-    <p>You really think you can fly that thing? You know what? It is beets. I've crashed into a beet truck. Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! Is this my espresso machine? Wh-what is-h-how did you get my espresso machine?</p>
-    <p>Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Hey, take a look at the earthlings. Goodbye! I was part of something special. Just my luck, no ice. You're a very talented young man, with your own clever thoughts and ideas. Do you need a manager?</p>
-    <p>Jaguar shark! So tell me - does it really exist? This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. Yes, Yes, without the oops! You're a very talented young man, with your own clever thoughts and ideas. Do you need a manager?</p>
-    <p>Yes, Yes, without the oops! Do you have any idea how long it takes those cups to decompose. They're using our own satellites against us. And the clock is ticking. Do you have any idea how long it takes those cups to decompose. My dad once told me, laugh and the world laughs with you, Cry, and I'll give you something to cry about you little bastard!</p>
+    <h1>Meine Leistungen</h1>
     
+    <div class="intro">
+      <p class="lead">
+        Als qualifizierte Elternbegleiterin biete ich Ihnen professionelle Unterstützung 
+        bei allen Fragen rund um Erziehung, Entwicklung und Familienleben. Meine Beratung 
+        ist individuell, praxisnah und auf Ihre Bedürfnisse zugeschnitten.
+      </p>
+    </div>
+
+    <section class="service-section">
+      <h2>Beratungsangebote im Überblick</h2>
+      
+      <div class="service-detail">
+        <div class="service-header">
+          <h3>Kostenloses Erstgespräch</h3>
+          <div class="service-meta">
+            <span class="meta-item">⏱️ 30 Minuten</span>
+            <span class="meta-item price-free">💰 Kostenlos</span>
+          </div>
+        </div>
+        <p>
+          Das Erstgespräch dient dem gegenseitigen Kennenlernen. In diesem unverbindlichen 
+          Gespräch können Sie mir Ihr Anliegen schildern, und ich stelle Ihnen meine 
+          Arbeitsweise vor. Gemeinsam schauen wir, ob und wie ich Sie unterstützen kann.
+        </p>
+        <ul class="benefits-list">
+          <li>Kennenlernen ohne Verpflichtung</li>
+          <li>Erste Einschätzung Ihrer Situation</li>
+          <li>Klärung offener Fragen zur Beratung</li>
+          <li>Besprechen möglicher nächster Schritte</li>
+        </ul>
+        <div class="service-cta">
+          <BookingCTA text="Erstgespräch vereinbaren" href="/kontakt#erstgespraech" variant="primary" />
+        </div>
+      </div>
+
+      <div class="service-detail">
+        <div class="service-header">
+          <h3>Einzelberatung</h3>
+          <div class="service-meta">
+            <span class="meta-item">⏱️ 60 Minuten</span>
+            <span class="meta-item">💰 75€</span>
+          </div>
+        </div>
+        <p>
+          In der Einzelberatung arbeiten wir intensiv an Ihrem Thema. Ob es um 
+          Erziehungsfragen, Entwicklungsschritte Ihres Kindes oder die Bewältigung 
+          von Alltagssituationen geht – ich nehme mir Zeit für Ihre Anliegen und 
+          entwickle mit Ihnen gemeinsam individuelle Lösungsstrategien.
+        </p>
+        <h4>Mögliche Themen:</h4>
+        <ul>
+          <li>Erziehungsfragen und Grenzen setzen</li>
+          <li>Trotzphasen und herausfordernde Entwicklungsphasen</li>
+          <li>Geschwisterdynamiken</li>
+          <li>Eingewöhnung in Kita oder Schule</li>
+          <li>Schlafprobleme und Routinen</li>
+          <li>Vereinbarkeit von Familie und Beruf</li>
+          <li>Stärkung des Selbstwertgefühls</li>
+        </ul>
+        <div class="service-cta">
+          <BookingCTA text="Einzelberatung buchen" href="/kontakt#einzelberatung" variant="primary" />
+        </div>
+      </div>
+
+      <div class="service-detail">
+        <div class="service-header">
+          <h3>Paarberatung</h3>
+          <div class="service-meta">
+            <span class="meta-item">⏱️ 90 Minuten</span>
+            <span class="meta-item">💰 110€</span>
+          </div>
+        </div>
+        <p>
+          Die Paarberatung richtet sich an beide Elternteile. Besonders geeignet ist sie, 
+          wenn Sie unterschiedliche Vorstellungen in Erziehungsfragen haben oder gemeinsam 
+          an einer harmonischen Elternschaft arbeiten möchten. In einem geschützten Rahmen 
+          können Sie Ihre Perspektiven austauschen und gemeinsame Wege finden.
+        </p>
+        <ul class="benefits-list">
+          <li>Gemeinsame Perspektiven und Ziele entwickeln</li>
+          <li>Kommunikation als Elternpaar stärken</li>
+          <li>Konsens in Erziehungsfragen finden</li>
+          <li>Aufgabenverteilung im Familienalltag klären</li>
+          <li>Konflikte konstruktiv lösen</li>
+        </ul>
+        <div class="service-cta">
+          <BookingCTA text="Paarberatung buchen" href="/kontakt#paarberatung" variant="primary" />
+        </div>
+      </div>
+    </section>
+
+    <section class="approach-section">
+      <h2>Meine Arbeitsweise</h2>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <h3>🤝 Ressourcenorientiert</h3>
+          <p>
+            Ich schaue auf Ihre Stärken und vorhandenen Fähigkeiten. Gemeinsam bauen 
+            wir darauf auf und entwickeln Lösungen, die zu Ihnen und Ihrer Familie passen.
+          </p>
+        </div>
+        <div class="approach-item">
+          <h3>💡 Praxisnah</h3>
+          <p>
+            Meine Beratung ist alltagstauglich. Sie erhalten konkrete Handlungsstrategien, 
+            die Sie direkt in Ihrem Familienalltag umsetzen können.
+          </p>
+        </div>
+        <div class="approach-item">
+          <h3>❤️ Empathisch</h3>
+          <p>
+            Ich begegne Ihnen mit Wertschätzung und ohne Bewertung. In meiner Beratung 
+            dürfen Sie so sein, wie Sie sind – mit allen Unsicherheiten und Zweifeln.
+          </p>
+        </div>
+        <div class="approach-item">
+          <h3>🎯 Lösungsorientiert</h3>
+          <p>
+            Mein Fokus liegt auf Lösungen, nicht auf Problemen. Gemeinsam finden wir 
+            Wege, die für Sie und Ihre Familie funktionieren.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>Über mich</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Als Elternbegleiterin ist es meine Herzensangelegenheit, Familien in ihrer 
+            einzigartigen Situation zu begleiten und zu unterstützen. Ich glaube daran, 
+            dass jede Familie ihren eigenen Weg finden kann – manchmal braucht es nur 
+            einen neuen Blickwinkel und praktische Werkzeuge.
+          </p>
+          <p>
+            Mit meiner Ausbildung zur Elternbegleiterin und langjähriger Erfahrung in 
+            der Familienberatung bringe ich sowohl fachliches Wissen als auch praktische 
+            Erfahrung mit. Ich arbeite nach den Grundsätzen der bindungs- und 
+            bedürfnisorientierten Pädagogik.
+          </p>
+          <h3>Qualifikationen:</h3>
+          <ul>
+            <li>Zertifizierte Elternbegleiterin</li>
+            <li>Fortbildungen in bindungsorientierter Pädagogik</li>
+            <li>Systemische Familienberatung</li>
+            <li>Interkulturelle Kompetenz (Deutsch/Türkisch)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="formats-section">
+      <h2>Beratungsformate</h2>
+      <div class="formats-grid">
+        <div class="format-card">
+          <h3>💻 Online-Beratung</h3>
+          <p>
+            Bequem von zu Hause aus per Video-Call (Zoom). Ideal für Eltern mit 
+            kleinen Kindern oder wenn Sie zeitlich flexibel sein möchten.
+          </p>
+        </div>
+        <div class="format-card">
+          <h3>👥 Persönliche Beratung</h3>
+          <p>
+            In meinen Beratungsräumen oder bei Ihnen zu Hause. Besonders geeignet, 
+            wenn Sie den persönlichen Kontakt bevorzugen.
+          </p>
+        </div>
+        <div class="format-card">
+          <h3>🌍 Mehrsprachig</h3>
+          <p>
+            Beratung auf Deutsch oder Türkisch möglich. So können Sie sich in Ihrer 
+            bevorzugten Sprache ausdrücken.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2>Häufige Fragen</h2>
+      <div class="faq-item">
+        <h3>Wie läuft eine Beratung ab?</h3>
+        <p>
+          Nach dem Erstgespräch vereinbaren wir weitere Termine nach Bedarf. Die Anzahl 
+          der Sitzungen richtet sich nach Ihrem Anliegen – manchmal reichen wenige Termine, 
+          manchmal ist eine längerfristige Begleitung sinnvoll.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Wie kann ich bezahlen?</h3>
+        <p>
+          Die Zahlung erfolgt nach der Beratung. Ich akzeptiere Barzahlung, Überweisung 
+          und PayPal. Sie erhalten eine Rechnung für Ihre Unterlagen.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Werden die Kosten von der Krankenkasse übernommen?</h3>
+        <p>
+          Elternberatung ist keine Leistung der gesetzlichen Krankenkassen. In einigen 
+          Fällen können Jugendämter Beratungskosten übernehmen – sprechen Sie mich gerne 
+          darauf an.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Ist alles vertraulich?</h3>
+        <p>
+          Selbstverständlich unterliege ich der Schweigepflicht. Alle Gespräche sind 
+          streng vertraulich und werden nicht an Dritte weitergegeben.
+        </p>
+      </div>
+    </section>
+
     <div class="cta-section">
-      <h2>Interested in learning more?</h2>
-      <p>Book a consultation to discuss your needs.</p>
-      <BookingCTA text="Book Now" href="/kontakt" variant="primary" size="large" />
+      <h2>Bereit für Ihre Beratung?</h2>
+      <p>Vereinbaren Sie jetzt Ihr kostenloses Erstgespräch.</p>
+      <BookingCTA text="Termin vereinbaren" href="/kontakt" variant="primary" size="large" />
     </div>
   </div>
 </BaseLayout>
 
 <style>
-  .about-image {
-    float: right;
-    margin: -3em -7em 2em 2em;
-    max-width: 300px;
+  .intro {
+    margin: 2em 0 3em 0;
   }
 
-  .about-image img {
-    border-radius: 8px;
-    margin-bottom: 1.5em;
+  .lead {
+    font-size: 1.4em;
+    line-height: 1.7;
+    color: var(--text-main);
   }
 
-  .cta-section {
-    margin-top: 4em;
-    padding: 2em;
+  .service-section {
+    margin: 4em 0;
+  }
+
+  .service-detail {
+    background: #f8f9fa;
+    padding: 2.5em;
+    border-radius: 12px;
+    margin: 2em 0;
+    border-left: 4px solid var(--primary-color);
+  }
+
+  .service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+
+  .service-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 2em;
+  }
+
+  .service-meta {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    background: white;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    font-weight: 700;
+    font-family: var(--font-family-sans);
+  }
+
+  .price-free {
+    color: #27ae60;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5em 0;
+  }
+
+  .benefits-list li {
+    padding-left: 1.5em;
+    position: relative;
+    margin: 0.75em 0;
+  }
+
+  .benefits-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  .service-cta {
+    margin-top: 1.5em;
+  }
+
+  .approach-section {
+    margin: 4em 0;
+    padding: 3em 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 3em 2em;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+  }
+
+  .approach-item {
+    background: white;
+    padding: 2em;
+    border-radius: 12px;
+  }
+
+  .approach-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+    font-size: 1.4em;
+  }
+
+  .about-section {
+    margin: 4em 0;
+  }
+
+  .about-content {
+    margin-top: 2em;
+  }
+
+  .formats-section {
+    margin: 4em 0;
+  }
+
+  .formats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+  }
+
+  .format-card {
+    background: #f8f9fa;
+    padding: 2em;
     border-radius: 12px;
     text-align: center;
   }
 
+  .format-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+    font-size: 1.5em;
+  }
+
+  .faq-section {
+    margin: 4em 0;
+  }
+
+  .faq-item {
+    margin: 2em 0;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+  }
+
+  .cta-section {
+    margin: 4em 0;
+    padding: 3em 2em;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #c55167 100%);
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+  }
+
   .cta-section h2 {
+    color: white;
     margin-top: 0;
   }
 
   .cta-section p {
+    font-size: 1.3em;
     margin-bottom: 1.5em;
   }
 
-  @media (max-width: 1020px) {
-    .about-image {
-      float: none;
-      margin: 0 auto 2em;
+  @media (max-width: 768px) {
+    .service-header {
+      flex-direction: column;
+    }
+
+    .approach-grid,
+    .formats-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
