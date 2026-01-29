@@ -271,9 +271,47 @@ input[name='theme-toggle'] {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .content h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  .container {
+    padding: 0 1em;
+  }
+}
+
+@media (max-width: 520px) {
   body {
     font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .content h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.2em;
   }
 
   p,
@@ -281,5 +319,11 @@ input[name='theme-toggle'] {
   ol {
     font-size: 1.2rem;
     margin: 1em 0;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.2rem;
   }
 }

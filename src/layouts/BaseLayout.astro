@@ -94,4 +94,16 @@ const lang = (locale || getLangFromUrl(Astro.url)) as 'de' | 'tr';
     display: flex;
     flex-direction: column;
   }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 1em 1.5em;
+    }
+  }
+
+  @media (max-width: 520px) {
+    main {
+      padding: 1em;
+    }
+  }
 </style>

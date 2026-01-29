@@ -87,9 +87,47 @@ const navLinks = locale === 'de' ? [
     display: none;
   }
 
-  @media screen and (max-width: 520px) {
+  @media screen and (max-width: 768px) {
+    nav {
+      flex-wrap: wrap;
+      gap: 0.5em;
+    }
+
+    a {
+      margin-left: 10px;
+      padding: 8px 4px;
+      min-width: auto;
+      font-size: 0.85em;
+    }
+
+    .booking-link {
+      padding: 8px 10px;
+    }
+
     .theme-toggle-container {
-      margin-right: 1em;
+      width: auto;
+      margin-left: 10px;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    nav {
+      font-size: 0.75em;
+      gap: 0.3em;
+    }
+
+    a {
+      margin-left: 5px;
+      padding: 6px 3px;
+    }
+
+    .booking-link {
+      padding: 6px 8px;
+    }
+
+    .theme-toggle-container {
+      margin-right: 0;
+      margin-left: 5px;
     }
   }
 
