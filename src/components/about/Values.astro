@@ -1,0 +1,42 @@
+---
+const values = [
+  {
+    name: 'Empathie',
+    description: 'Ich begegne Ihnen und Ihrer Familie mit Verständnis und Wertschätzung.',
+  },
+  {
+    name: 'Professionalität',
+    description: 'Meine Beratung basiert auf fundierten Kenntnissen und kontinuierlicher Weiterbildung.',
+  },
+  {
+    name: 'Vertraulichkeit',
+    description: 'Ihre Anliegen werden mit größter Diskretion behandelt.',
+  },
+  {
+    name: 'Kulturelle Sensibilität',
+    description: 'Ich respektiere und berücksichtige die kulturellen Hintergründe Ihrer Familie.',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-3 lg:gap-8">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Meine Werte</h2>
+      <div class="lg:col-span-2">
+        <dl class="grid gap-8 sm:grid-cols-2">
+          {
+            values.map((value) => (
+              <div class="flex flex-col gap-4 rounded-3xl">
+                <dt class="text-xl font-medium">{value.name}</dt>
+                <dd class="text-primary-950/70 dark:text-primary-200/70 text-base">
+                  {value.description}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+const stats = [
+  { value: '10+', text: 'Jahre Erfahrung' },
+  { value: '100+', text: 'Familien begleitet' },
+  { value: '2', text: 'Sprachen' },
+  { value: '100%', text: 'Herzblut' },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-3 lg:gap-8">
+      <div class="flex flex-col gap-10">
+        {
+          stats.map((stat) => (
+            <div>
+              <p class="text-5xl font-medium tracking-tight">{stat.value}</p>
+              <p class="text-primary-950/70 dark:text-primary-200/70 mt-2 text-base">
+                {stat.text}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="lg:col-span-2">
+        <div class="flex flex-col gap-10">
+          <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Meine Mission</h2>
+          <div
+            class="text-primary-950/70 dark:text-primary-200/70 prose-primary prose sm:prose-lg sm:leading-8"
+          >
+            <p>
+              Als zertifizierte Elternbegleiterin ist es meine Mission, Familien in allen Phasen der 
+              Elternschaft zu unterstützen. Ich glaube daran, dass jede Familie einzigartig ist und 
+              individuelle Lösungen braucht.
+            </p>
+            <p>
+              Mit Empathie, Fachwissen und praktischer Erfahrung helfe ich Ihnen dabei, Ihren eigenen 
+              Weg in der Erziehung zu finden. Meine Arbeit basiert auf wissenschaftlich fundierten 
+              Methoden und berücksichtigt dabei immer die individuellen Bedürfnisse Ihrer Familie.
+            </p>
+            <p>
+              Besonders wichtig ist mir eine kultursensible Beratung. Als zweisprachige Begleiterin 
+              verstehe ich die Herausforderungen, vor denen Familien mit Migrationshintergrund stehen, 
+              und biete Unterstützung in deutscher und türkischer Sprache an.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

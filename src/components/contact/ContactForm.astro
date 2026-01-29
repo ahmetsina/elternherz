@@ -1,0 +1,61 @@
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-8 sm:gap-12">
+      <div class="flex max-w-3xl flex-col gap-4 sm:gap-6">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Kontaktformular</h2>
+        <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+          Füllen Sie das Formular aus und ich melde mich zeitnah bei Ihnen für ein kostenloses Erstgespräch.
+        </p>
+      </div>
+      <form class="grid gap-6">
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div class="flex flex-col gap-2">
+            <label for="first-name" class="text-sm font-medium">Vorname</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              class="bg-primary-50 dark:bg-primary-950 border-primary-900/10 dark:border-primary-300/10 focus:ring-primary-600 dark:focus:ring-primary-400 rounded-lg border px-4 py-3 text-base transition focus:outline-none focus:ring-2"
+              required
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="last-name" class="text-sm font-medium">Nachname</label>
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              class="bg-primary-50 dark:bg-primary-950 border-primary-900/10 dark:border-primary-300/10 focus:ring-primary-600 dark:focus:ring-primary-400 rounded-lg border px-4 py-3 text-base transition focus:outline-none focus:ring-2"
+              required
+            />
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="email" class="text-sm font-medium">E-Mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="bg-primary-50 dark:bg-primary-950 border-primary-900/10 dark:border-primary-300/10 focus:ring-primary-600 dark:focus:ring-primary-400 rounded-lg border px-4 py-3 text-base transition focus:outline-none focus:ring-2"
+            required
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="message" class="text-sm font-medium">Ihre Nachricht</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            class="bg-primary-50 dark:bg-primary-950 border-primary-900/10 dark:border-primary-300/10 focus:ring-primary-600 dark:focus:ring-primary-400 rounded-lg border px-4 py-3 text-base transition focus:outline-none focus:ring-2"
+            required></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex w-full items-center justify-center rounded-full border border-transparent px-5 py-3 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          Nachricht senden
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

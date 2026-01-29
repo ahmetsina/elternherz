@@ -1,0 +1,59 @@
+---
+const tiers = [
+  {
+    name: 'Erstgespräch',
+    price: 'Kostenlos',
+    features: ['30 Minuten', 'Kennenlernen', 'Bedarfsanalyse', 'Unverbindlich'],
+  },
+  {
+    name: 'Einzelberatung',
+    price: 'Auf Anfrage',
+    features: ['60 Minuten', 'Individuelle Beratung', 'Online oder vor Ort', 'Flexibel buchbar'],
+  },
+  {
+    name: 'Begleitpaket',
+    price: 'Auf Anfrage',
+    features: ['Mehrere Sitzungen', 'Langfristige Begleitung', 'Inkl. E-Mail-Support', 'Individuell anpassbar'],
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-3">
+      {
+        tiers.map((tier) => (
+          <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-8 rounded-3xl p-8">
+            <div>
+              <h3 class="text-2xl font-medium">{tier.name}</h3>
+              <p class="mt-4 text-4xl font-medium">{tier.price}</p>
+            </div>
+            <ul class="flex-1 space-y-3">
+              {tier.features.map((feature) => (
+                <li class="flex items-center gap-3">
+                  <svg
+                    class="text-primary-600 dark:text-primary-400 h-5 w-5 flex-shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z" />
+                  </svg>
+                  <span class="text-primary-950/70 dark:text-primary-200/70 text-base">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              class="bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex items-center justify-center rounded-full border border-transparent px-5 py-3 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            >
+              Anfragen
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
