@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
-import svelte from '@astrojs/svelte'
+import tailwind from '@astrojs/tailwind'
+import compress from 'astro-compress'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import remarkGfm from 'remark-gfm'
@@ -10,7 +11,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 export default defineConfig({
   site: 'https://elternherz.de',
   trailingSlash: 'always',
-  integrations: [mdx(), svelte()],
+  integrations: [tailwind(), compress(), mdx(), sitemap()],
   i18n: {
     defaultLocale: 'de',
     locales: ['de', 'tr'],

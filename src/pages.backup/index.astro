@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+
+const title = 'Elternherz - Professionelle Elternbegleiterin';
+const description = 'Professionelle Elternberatung für Familien. Unterstützung bei Erziehungsfragen, Entwicklung und Familienleben. Jetzt kostenloses Erstgespräch vereinbaren.';
+const permalink = `${Astro.site.href}`;
+const alternateUrl = `${Astro.site.href}tr/`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} locale="de" alternateUrl={alternateUrl}>
+  <div class="home-container">
+    <div class="home-copy">
+      <h1>Willkommen bei Elternherz</h1>
+      <p class="subtitle">Ihre professionelle Elternbegleiterin für eine entspannte und liebevolle Elternschaft</p>
+      <p>Als qualifizierte Elternbegleiterin unterstütze ich Sie bei allen Fragen rund um Erziehung, Entwicklung und Familienleben. Mit Empathie, Fachwissen und praktischen Lösungen helfe ich Ihnen, den Familienalltag harmonischer zu gestalten.</p>
+      
+      <div class="benefits">
+        <h2>Was ich Ihnen biete:</h2>
+        <ul class="benefits-list">
+          <li><strong>Individuelle Beratung</strong> - auf Ihre familiäre Situation zugeschnitten</li>
+          <li><strong>Praxisnahe Lösungen</strong> - alltagstaugliche Strategien für den Familienalltag</li>
+          <li><strong>Vertrauensvolle Atmosphäre</strong> - ein geschützter Raum für Ihre Anliegen</li>
+          <li><strong>Flexible Termine</strong> - online oder persönlich, nach Ihren Bedürfnissen</li>
+        </ul>
+      </div>
+
+      <div class="cta-container">
+        <BookingCTA 
+          eventType="erstgesprach" 
+          lang="de" 
+          variant="primary" 
+          size="large"
+          trackingLabel="homepage-hero-cta"
+        />
+        <BookingCTA 
+          text="Alle Beratungsangebote" 
+          href="/leistungen" 
+          variant="secondary" 
+          size="large"
+          trackingLabel="homepage-hero-services"
+        />
+      </div>
+    </div>
+
+    <div class="hero-image-container">
+      <picture>
+        <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
+        <img class="hero-image" alt="Elternherz - Professionelle Elternbegleiterin" src="/assets/home-illustration-small.webp" width="550" height="466">
+      </picture>
+    </div>
+  </div>
+
+  <section class="services-preview">
+    <div class="container">
+      <h2>Meine Beratungsangebote</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Kostenloses Erstgespräch</h3>
+          <p class="duration">30 Minuten</p>
+          <p>Lernen Sie mich und meine Arbeitsweise kennen. Besprechen Sie Ihr Anliegen in einem unverbindlichen Gespräch.</p>
+          <a href="/kontakt#erstgesprach" class="service-link">Mehr erfahren →</a>
+        </div>
+        
+        <div class="service-card">
+          <h3>Einzelberatung</h3>
+          <p class="duration">60 Minuten · 75€</p>
+          <p>Intensive Einzelberatung mit individuellen Lösungsstrategien für Ihre Herausforderungen.</p>
+          <a href="/kontakt#einzelberatung" class="service-link">Mehr erfahren →</a>
+        </div>
+        
+        <div class="service-card">
+          <h3>Paarberatung</h3>
+          <p class="duration">90 Minuten · 110€</p>
+          <p>Gemeinsame Beratung für beide Elternteile. Stärken Sie Ihre Kommunikation und finden Sie Konsens.</p>
+          <a href="/kontakt#paarberatung" class="service-link">Mehr erfahren →</a>
+        </div>
+      </div>
+      
+      <div class="services-cta">
+        <a href="/leistungen" class="button-secondary">Alle Leistungen ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2>Was Eltern sagen</h2>
+      <div class="testimonials-grid">
+        <blockquote class="testimonial-card">
+          <p>"Die Beratung hat mir geholfen, mein Kind besser zu verstehen und entspannter zu reagieren. Vielen Dank für die wertvollen Impulse!"</p>
+          <footer>— Sarah M., Mutter von zwei Kindern</footer>
+        </blockquote>
+        
+        <blockquote class="testimonial-card">
+          <p>"Endlich jemand, der uns zugehört hat und praktische Tipps gegeben hat, die wirklich funktionieren. Unser Familienalltag ist jetzt viel harmonischer."</p>
+          <footer>— Thomas und Julia K., Eltern</footer>
+        </blockquote>
+        
+        <blockquote class="testimonial-card">
+          <p>"Als alleinerziehende Mutter war ich oft überfordert. Die Beratung hat mir Sicherheit und neue Perspektiven gegeben."</p>
+          <footer>— Ayşe D., alleinerziehende Mutter</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Bereit für den ersten Schritt?</h2>
+      <p>Vereinbaren Sie jetzt Ihr kostenloses Erstgespräch und lassen Sie uns gemeinsam Lösungen für Ihre Familie finden.</p>
+      <BookingCTA 
+        eventType="erstgesprach" 
+        lang="de" 
+        variant="primary" 
+        size="large"
+        trackingLabel="homepage-bottom-cta"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-container {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: 2em 0;
+    min-height: 400px;
+    gap: 3em;
+  }
+
+  .home-copy {
+    flex: 1;
+    padding: 0 1em;
+  }
+
+  .home-copy h1 {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    color: var(--primary-color);
+  }
+
+  .subtitle {
+    font-size: 1.5em;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 1.5em;
+  }
+
+  .home-copy p {
+    font-size: 1.3em;
+    line-height: 1.6;
+  }
+
+  .benefits {
+    margin: 2em 0;
+  }
+
+  .benefits h2 {
+    font-size: 1.6em;
+    margin-bottom: 1em;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .benefits-list li {
+    padding-left: 1.5em;
+    position: relative;
+    margin: 0.75em 0;
+    font-size: 1.2em;
+  }
+
+  .benefits-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  .cta-container {
+    margin-top: 2em;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .hero-image-container {
+    margin: 0 1em;
+    text-align: center;
+  }
+
+  .hero-image-container picture {
+    display: block;
+    min-height: 250px;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 550px;
+    margin-bottom: 1em;
+    border-radius: 12px;
+  }
+
+  .services-preview {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 4em 0;
+    margin: 4em 0;
+  }
+
+  .services-preview h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 2em;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+    margin: 3em 0;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+  }
+
+  .duration {
+    font-weight: 700;
+    color: var(--text-secondary);
+    font-size: 1.1em;
+    margin: 0.5em 0;
+  }
+
+  .service-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 1em;
+    transition: color 0.3s ease;
+  }
+
+  .service-link:hover {
+    color: var(--primary-color-dark);
+  }
+
+  .services-cta {
+    text-align: center;
+    margin-top: 3em;
+  }
+
+  .button-secondary {
+    display: inline-block;
+    padding: 1em 2em;
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: var(--font-family-sans);
+    transition: all 0.3s ease;
+  }
+
+  .button-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+
+  .testimonials {
+    padding: 4em 0;
+  }
+
+  .testimonials h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 2em;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    margin: 3em 0;
+  }
+
+  .testimonial-card {
+    background: #f8f9fa;
+    padding: 2em;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    font-size: 1.1em;
+    margin: 0;
+  }
+
+  .testimonial-card p {
+    font-style: italic;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+
+  .testimonial-card footer {
+    margin-top: 1em;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--text-secondary);
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+    color: white;
+    padding: 4em 0;
+    text-align: center;
+    margin: 4em 0 0 0;
+  }
+
+  .cta-section h2 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .cta-section p {
+    font-size: 1.3em;
+    margin-bottom: 2em;
+  }
+
+  @media (max-width: 1200px) {
+    .home-copy p {
+      font-size: 1.1em;
+    }
+
+    .hero-image {
+      max-width: 400px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .home-container {
+      flex-direction: column;
+    }
+
+    .home-copy {
+      flex: 0;
+      padding-bottom: 2em;
+      text-align: center;
+    }
+
+    .cta-container {
+      justify-content: center;
+    }
+
+    .services-grid,
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
