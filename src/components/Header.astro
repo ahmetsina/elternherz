@@ -14,11 +14,18 @@ const { current = '', locale = 'de' } = Astro.props;
     max-width: 1400px;
     padding: 2em;
     width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 768px) {
+    header {
+      padding: 1.5em 1em;
+    }
   }
 
   @media screen and (max-width: 520px) {
     header {
-      padding: 2em 0;
+      padding: 1em 0.75em;
     }
   }
 </style>
