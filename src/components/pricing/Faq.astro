@@ -1,40 +1,24 @@
 ---
-const questions = [
+const faqs = [
   {
-    id: 'faq-1',
-    title: 'How do I know which pricing plan is right for me?',
+    question: 'Wie läuft das kostenlose Erstgespräch ab?',
     answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.',
+      'Im Erstgespräch lernen wir uns kennen und besprechen Ihre Anliegen. Das Gespräch dauert etwa 30 Minuten und ist völlig unverbindlich. Wir können telefonisch, online oder persönlich sprechen.',
   },
   {
-    id: 'faq-2',
-    title: 'How can I upgrade, downgrade, or cancel my plan?',
+    question: 'Bieten Sie auch Online-Beratung an?',
     answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.',
+      'Ja, ich biete flexible Beratungsformate an. Sie können wählen zwischen persönlichen Treffen vor Ort oder bequemen Online-Sitzungen per Videocall.',
   },
   {
-    id: 'faq-3',
-    title: "What does 'lifetime access' mean exactly?",
+    question: 'Wie lange dauert eine Beratungssitzung?',
     answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.',
+      'Eine reguläre Beratungssitzung dauert 60 Minuten. Je nach Bedarf können wir auch längere oder kürzere Einheiten vereinbaren.',
   },
   {
-    id: 'faq-4',
-    title: "What does 'free updates' mean exactly?",
+    question: 'Werden die Kosten von der Krankenkasse übernommen?',
     answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.',
-  },
-  {
-    id: 'faq-5',
-    title: 'Do you offer a free trial?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.',
-  },
-  {
-    id: 'faq-6',
-    title: 'How can I request support?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.',
+      'Elternbegleitung ist keine kassenärztliche Leistung. Die Kosten werden in der Regel privat getragen. Gerne bespreche ich mit Ihnen individuelle Lösungen.',
   },
 ];
 ---
@@ -43,15 +27,12 @@ const questions = [
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="grid gap-12 lg:grid-cols-3 lg:gap-8">
       <div>
-        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Frequently asked questions</h2>
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Häufig gestellte Fragen</h2>
       </div>
       <div class="lg:col-span-2">
-        <dl
-          class="-mt-3"
-          x-data="{ selected: null, toggle(value) { this.selected = this.selected === value ? null : value } }"
-        >
+        <dl class="-mt-3">
           {
-            questions.map((question, index) => (
+            faqs.map((faq, index) => (
               <div
                 class="rounded-3xl px-4 transition"
                 x-data={`{ id: ${index}, get isOpen() { return this.id === this.selected }, get isNextOpen() { return (this.id + 1) === this.selected } }`}
@@ -65,13 +46,12 @@ const questions = [
                   <button
                     type="button"
                     class="group block w-full py-6 text-left transition focus-visible:outline-none"
-                    aria-controls={question.id}
-                    x-on:click="toggle(id)"
+                    x-on:click="selected !== id ? selected = id : selected = null"
                     aria-expanded="false"
                     x-bind:aria-expanded="isOpen.toString()"
                   >
                     <div class="group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 flex items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
-                      <span class="font-medium">{question.title}</span>
+                      <span class="font-medium">{faq.question}</span>
                       <span class="ml-6 flex h-7 items-center">
                         <svg
                           class="text-primary-600 dark:text-primary-400 h-6 w-6 rotate-0 transform transition duration-200 ease-in-out"
@@ -87,9 +67,9 @@ const questions = [
                     </div>
                   </button>
                 </dt>
-                <dd class="pb-6 pr-6" id={question.id} x-show="isOpen" x-cloak x-collapse>
+                <dd class="pb-6 pr-6" x-show="isOpen" x-cloak x-collapse>
                   <p class="text-primary-950/70 dark:text-primary-200/70 text-base">
-                    {question.answer}
+                    {faq.answer}
                   </p>
                 </dd>
               </div>
@@ -100,3 +80,10 @@ const questions = [
     </div>
   </div>
 </section>
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('accordion', () => ({
+      selected: null,
+    }));
+  });
+</script>

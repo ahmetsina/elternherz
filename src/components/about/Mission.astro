@@ -1,72 +1,50 @@
 ---
 const stats = [
-  {
-    name: 'Years',
-    value: '9',
-  },
-  {
-    name: 'Experts',
-    value: '15',
-  },
-  {
-    name: 'Projects',
-    value: '122',
-  },
-  {
-    name: 'Awards',
-    value: "'9'",
-  },
+  { value: '10+', text: 'Jahre Erfahrung' },
+  { value: '100+', text: 'Familien begleitet' },
+  { value: '2', text: 'Sprachen' },
+  { value: '100%', text: 'Herzblut' },
 ];
 ---
 
 <section class="py-16 sm:py-20">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
-      <img
-        class="mx-auto h-auto w-full max-w-xl rounded-3xl"
-        width="576"
-        height="864"
-        src="/assets/about.webp"
-        alt="Our experts working together"
-      />
+    <div class="grid gap-12 lg:grid-cols-3 lg:gap-8">
       <div class="flex flex-col gap-10">
-        <!-- Mission description -->
-        <div class="space-y-8 sm:space-y-12">
-          <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Our mission</h2>
-          <div class="space-y-6">
-            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-              Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed
-              consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi.
-              Cursus faucibus nunc nisl netus morbi vel porttitor vitae ut. Amet vitae fames
-              senectus vitae.
+        {
+          stats.map((stat) => (
+            <div>
+              <p class="text-5xl font-medium tracking-tight">{stat.value}</p>
+              <p class="text-primary-950/70 dark:text-primary-200/70 mt-2 text-base">
+                {stat.text}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="lg:col-span-2">
+        <div class="flex flex-col gap-10">
+          <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Meine Mission</h2>
+          <div
+            class="text-primary-950/70 dark:text-primary-200/70 prose-primary prose sm:prose-lg sm:leading-8"
+          >
+            <p>
+              Als zertifizierte Elternbegleiterin ist es meine Mission, Familien in allen Phasen der 
+              Elternschaft zu unterstützen. Ich glaube daran, dass jede Familie einzigartig ist und 
+              individuelle Lösungen braucht.
             </p>
-            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-              Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem
-              nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet
-              quam urna. Sollicitudin tristique eros erat odio sed vitae, consequat turpis
-              elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat
-              donec laoreet quam urna.
+            <p>
+              Mit Empathie, Fachwissen und praktischer Erfahrung helfe ich Ihnen dabei, Ihren eigenen 
+              Weg in der Erziehung zu finden. Meine Arbeit basiert auf wissenschaftlich fundierten 
+              Methoden und berücksichtigt dabei immer die individuellen Bedürfnisse Ihrer Familie.
             </p>
-            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-              Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies.
-              Vulputate aliquet velit faucibus semper. Pellentesque in venenatis vestibulum
-              consectetur nibh id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim
-              fermentum lacus in. Viverra.
+            <p>
+              Besonders wichtig ist mir eine kultursensible Beratung. Als zweisprachige Begleiterin 
+              verstehe ich die Herausforderungen, vor denen Familien mit Migrationshintergrund stehen, 
+              und biete Unterstützung in deutscher und türkischer Sprache an.
             </p>
           </div>
         </div>
-
-        <!-- Stats -->
-        <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {
-            stats.map((stat) => (
-              <div class="border-primary-900/10 dark:border-primary-300/10 rounded-3xl border p-6">
-                <dt class="text-base">{stat.name}</dt>
-                <dd class="text-3xl font-medium tracking-tight">{stat.value}</dd>
-              </div>
-            ))
-          }
-        </dl>
       </div>
     </div>
   </div>
