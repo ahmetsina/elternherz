@@ -2,127 +2,60 @@
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="flex flex-col gap-8 sm:gap-12">
       <div class="flex max-w-3xl flex-col gap-4 sm:gap-6">
-        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Termin buchen</h2>
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Kontaktformular</h2>
         <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-          Wählen Sie die gewünschte Beratungsart und einen passenden Termin. Ich freue mich darauf, Sie kennenzulernen.
+          Haben Sie Fragen oder möchten Sie weitere Informationen? Füllen Sie das Formular aus und ich melde mich zeitnah bei Ihnen.
         </p>
       </div>
-
-      <!-- Tabs -->
-      <div class="flex flex-col gap-6">
-        <div class="flex gap-2 border-b border-primary-900/10 dark:border-primary-300/10 overflow-x-auto">
-          <button
-            class="tab-button px-4 py-3 text-base font-medium border-b-2 transition-colors active whitespace-nowrap"
-            data-tab="erstgesprach"
-          >
-            Kostenloses Erstgespräch
-          </button>
-          <button
-            class="tab-button px-4 py-3 text-base font-medium border-b-2 transition-colors whitespace-nowrap"
-            data-tab="einzelberatung"
-          >
-            Einzelberatung (75€)
-          </button>
-          <button
-            class="tab-button px-4 py-3 text-base font-medium border-b-2 transition-colors whitespace-nowrap"
-            data-tab="paarberatung"
-          >
-            Paarberatung (110€)
-          </button>
-        </div>
-
-        <!-- Erstgespräch Tab Content -->
-        <div class="tab-content" data-tab-content="erstgesprach">
-          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-erstgesprach"></div>
-        </div>
-
-        <!-- Einzelberatung Tab Content -->
-        <div class="tab-content hidden" data-tab-content="einzelberatung">
-          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-einzelberatung"></div>
-        </div>
-
-        <!-- Paarberatung Tab Content -->
-        <div class="tab-content hidden" data-tab-content="paarberatung">
-          <div class="mb-4">
-            <p class="text-primary-950/70 dark:text-primary-200/70 text-base mb-2">
-              Beratung für beide Elternteile gemeinsam. Besonders geeignet, wenn Sie als Paar unterschiedliche Vorstellungen in Erziehungsfragen haben oder gemeinsam an Lösungen arbeiten möchten.
-            </p>
+      <form class="grid gap-6" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div class="flex flex-col gap-2">
+            <label for="first-name" class="text-sm font-medium">Vorname</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              class="bg-primary-50 dark:bg-primary-950 border-primary-900/10 dark:border-primary-300/10 focus:ring-primary-600 dark:focus:ring-primary-400 rounded-lg border px-4 py-3 text-base transition focus:outline-none focus:ring-2"
+              required
+            />
           </div>
-          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-paarberatung"></div>
+          <div class="flex flex-col gap-2">
+            <label for="last-name" class="text-sm font-medium">Nachname</label>
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              class="bg-primary-50 dark:bg-primary-950 border-primary-900/10 dark:border-primary-300/10 focus:ring-primary-600 dark:focus:ring-primary-400 rounded-lg border px-4 py-3 text-base transition focus:outline-none focus:ring-2"
+              required
+            />
+          </div>
         </div>
-      </div>
-
-      <!-- Cal embed scripts -->
-      <script type="text/javascript">
-        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
-
-        // Initialize Erstgespräch
-        Cal("init", "erstgesprach", {origin:"https://app.cal.eu"});
-        Cal.ns.erstgesprach("inline", {
-          elementOrSelector:"#my-cal-inline-erstgesprach",
-          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-          calLink: "elternbegleiterin/erstgesprach",
-        });
-        Cal.ns.erstgesprach("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-
-        // Initialize Einzelberatung
-        Cal("init", "einzelberatung", {origin:"https://app.cal.eu"});
-        Cal.ns.einzelberatung("inline", {
-          elementOrSelector:"#my-cal-inline-einzelberatung",
-          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-          calLink: "elternbegleiterin/einzelberatung",
-        });
-        Cal.ns.einzelberatung("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-
-        // Initialize Paarberatung
-        Cal("init", "paarberatung", {origin:"https://app.cal.eu"});
-        Cal.ns.paarberatung("inline", {
-          elementOrSelector:"#my-cal-inline-paarberatung",
-          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-          calLink: "elternbegleiterin/paarberatung",
-        });
-        Cal.ns.paarberatung("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-
-        // Tab switching logic
-        document.addEventListener('DOMContentLoaded', function() {
-          const tabButtons = document.querySelectorAll('.tab-button');
-          const tabContents = document.querySelectorAll('.tab-content');
-
-          tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-              const targetTab = button.getAttribute('data-tab');
-
-              // Remove active state from all buttons
-              tabButtons.forEach(btn => {
-                btn.classList.remove('active', 'border-primary-600', 'dark:border-primary-400', 'text-primary-600', 'dark:text-primary-400');
-                btn.classList.add('border-transparent', 'text-primary-950/70', 'dark:text-primary-200/70');
-              });
-
-              // Add active state to clicked button
-              button.classList.add('active', 'border-primary-600', 'dark:border-primary-400', 'text-primary-600', 'dark:text-primary-400');
-              button.classList.remove('border-transparent', 'text-primary-950/70', 'dark:text-primary-200/70');
-
-              // Hide all tab contents
-              tabContents.forEach(content => {
-                content.classList.add('hidden');
-              });
-
-              // Show target tab content
-              const targetContent = document.querySelector(`[data-tab-content="${targetTab}"]`);
-              if (targetContent) {
-                targetContent.classList.remove('hidden');
-              }
-            });
-          });
-
-          // Set initial active state
-          const activeButton = document.querySelector('.tab-button.active');
-          if (activeButton) {
-            activeButton.classList.add('border-primary-600', 'dark:border-primary-400', 'text-primary-600', 'dark:text-primary-400');
-            activeButton.classList.remove('border-transparent', 'text-primary-950/70', 'dark:text-primary-200/70');
-          }
-        });
-      </script>
+        <div class="flex flex-col gap-2">
+          <label for="email" class="text-sm font-medium">E-Mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="bg-primary-50 dark:bg-primary-950 border-primary-900/10 dark:border-primary-300/10 focus:ring-primary-600 dark:focus:ring-primary-400 rounded-lg border px-4 py-3 text-base transition focus:outline-none focus:ring-2"
+            required
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="message" class="text-sm font-medium">Ihre Nachricht</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            class="bg-primary-50 dark:bg-primary-950 border-primary-900/10 dark:border-primary-300/10 focus:ring-primary-600 dark:focus:ring-primary-400 rounded-lg border px-4 py-3 text-base transition focus:outline-none focus:ring-2"
+            required></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex w-full items-center justify-center rounded-full border border-transparent px-5 py-3 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          Nachricht senden
+        </button>
+      </form>
     </div>
   </div>
 </section>
