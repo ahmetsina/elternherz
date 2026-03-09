@@ -4,16 +4,22 @@ const tiers = [
     name: 'Erstgespräch',
     price: 'Kostenlos',
     features: ['30 Minuten', 'Kennenlernen', 'Bedarfsanalyse', 'Unverbindlich'],
+    calLink: 'elternbegleiterin/erstgesprach',
+    calNamespace: 'erstgesprach',
   },
   {
     name: 'Einzelberatung',
     price: '75€',
     features: ['60 Minuten', 'Individuelle Beratung', 'Online oder vor Ort', 'Flexibel buchbar'],
+    calLink: 'elternbegleiterin/einzelberatung',
+    calNamespace: 'einzelberatung',
   },
   {
     name: 'Paarberatung',
     price: '110€',
     features: ['90 Minuten', 'Gemeinsame Perspektiven entwickeln', 'Kommunikation als Elternpaar stärken', 'Konsens in Erziehungsfragen finden'],
+    calLink: 'elternbegleiterin/paarberatung',
+    calNamespace: 'paarberatung',
   },
 ];
 ---
@@ -45,15 +51,36 @@ const tiers = [
                 </li>
               ))}
             </ul>
-            <a
-              href="/contact"
-              class="bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex items-center justify-center rounded-full border border-transparent px-5 py-3 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            <button
+              type="button"
+              data-cal-link={tier.calLink}
+              data-cal-namespace={tier.calNamespace}
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              class="bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex items-center justify-center rounded-full border border-transparent px-5 py-3 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer"
             >
-              Anfragen
-            </a>
+              Jetzt buchen
+            </button>
           </div>
         ))
       }
     </div>
   </div>
 </section>
+
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
+
+  // Initialize Erstgespräch
+  Cal("init", "erstgesprach", {origin:"https://app.cal.eu"});
+  Cal.ns.erstgesprach("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+
+  // Initialize Einzelberatung
+  Cal("init", "einzelberatung", {origin:"https://app.cal.eu"});
+  Cal.ns.einzelberatung("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+
+  // Initialize Paarberatung
+  Cal("init", "paarberatung", {origin:"https://app.cal.eu"});
+  Cal.ns.paarberatung("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+<!-- Cal element-click embed code ends -->
